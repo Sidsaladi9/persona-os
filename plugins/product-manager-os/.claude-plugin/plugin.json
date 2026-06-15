@@ -1,0 +1,11 @@
+{
+  "name": "product-manager-os",
+  "description": "A complete operating system for product managers. Ships 8 battle-tested skills (write-spec, metrics-review, competitive-brief, roadmap, sprint-planning, stakeholder-update, synthesize-research, product-brainstorm), a CLAUDE.md operating brain, a learning memory system, and ready-to-wire automations. From The Product Channel by Sid Saladi.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Sid Saladi — The Product Channel",
+    "email": "hello@theproductchannel.com"
+  },
+  "homepage": "https://theproductchannel.substack.com",
+  "keywords": ["product-management", "pm", "prd", "roadmap", "metrics", "sprint", "stakeholder", "research"]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "persona-os",
+  "description": "Persona OS by The Product Channel — drop-in operating systems for knowledge workers. Each persona ships a complete kit of Claude skills, a CLAUDE.md operating brain, a memory system, and automations. Start with Product Manager OS.",
+  "owner": {
+    "name": "Sid Saladi — The Product Channel",
+    "email": "hello@theproductchannel.com"
+  },
+  "plugins": [
+    {
+      "name": "product-manager-os",
+      "description": "A complete operating system for product managers: 8 skills (spec writing, metrics review, competitive briefs, roadmapping, sprint planning, stakeholder updates, research synthesis, brainstorming), a CLAUDE.md operating brain, a memory system that learns your product and team, and ready-to-wire automations.",
+      "author": {
+        "name": "Sid Saladi — The Product Channel"
+      },
+      "category": "productivity",
+      "source": "./plugins/product-manager-os",
+      "homepage": "https://theproductchannel.substack.com"
+    }
+  ]
+}
