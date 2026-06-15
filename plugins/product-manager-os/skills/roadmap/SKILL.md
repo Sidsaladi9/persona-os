@@ -26,7 +26,7 @@ If any of these are missing, ask before proceeding — especially the strategic 
 1. **Anchor to strategic themes first.** List the 2-4 outcomes you're driving toward (e.g. "reduce activation drop-off," "land enterprise-ready security," not "ship SSO"). Every roadmap item must trace to one. If an item traces to none, it's a candidate for the parking lot.
 2. **Restate items as outcomes, not features.** "SSO + audit logs" becomes "Unblock enterprise deals stuck on security review." This keeps the conversation on *why* and lets you swap the *how* later without re-litigating priority.
 3. **Place items in Now / Next / Later by confidence × value.** **Now** = committed, in-flight or starting, high confidence on both the problem and the approach. **Next** = strong intent, sequenced, but details may shift. **Later** = directional bets; deliberately fuzzy. Resist the urge to overload "Now" — capacity is the constraint, not ambition.
-4. **When adding something, force the trade-off.** Never add to "Now" without naming what leaves it. State it explicitly: *"To pull X into Now, Y moves to Next."* If nothing moves, you're either over capacity or the new thing isn't actually a priority. Make the choice visible.
+4. **When adding something, force the trade-off.** The number of "Now" slots equals your capacity number — so a full "Now" has no free slots, and adding to it requires removing something. Never add to "Now" without naming what leaves it. State it explicitly: *"To pull X into Now, Y moves to Next."* The trade-off can also be scope-narrowing in place: keep the item in "Now" but shrink it (e.g. full ML detector → rules-based v1) so it fits the same slot. If nothing moves and nothing shrinks, you're either over capacity or the new thing isn't actually a priority. Make the choice visible.
 5. **Flag dependencies and risks.** For each Now/Next item note what it's blocked by or what it blocks. When a dependency slips, move the dependent item — don't pretend the date holds.
 6. **Keep it outcome-oriented and honest on time.** Use ranges or relative horizons (this quarter / next quarter / later), never false-precision dates. "Later" is allowed to be vague — that's a feature, not a bug.
 
@@ -59,6 +59,8 @@ Strategic themes this period:
 
 ## Changes this update
 - [What moved and why, e.g. "Pulled X into Now after [signal]; Y moved Now → Next to make room."]
+- [Coupled move (one decision): "Pulled X into Now AND pushed Y out to Next — same trade, made together because [signal]."]
+- [Scope shrink in place: "Kept X in Now but narrowed it — full ML detector → rules-based v1 — so it fits the same slot."]
 - [Dependency slip: "Z slipped from Next to Later — blocked on [dependency]."]
 
 ## Parking lot

@@ -24,7 +24,7 @@ Ask for anything missing before planning — don't guess capacity.
 - **Recurring overhead** — standing meetings, ceremonies, support rotations per person.
 
 ## Process
-1. **Compute realistic capacity.** For each person: `sprint working days − PTO/holidays − meeting & ceremony days − on-call/support`. Then apply a **~20% buffer** (interrupts, reviews, the unknown). Sum to a team total. This number, not the calendar, is your budget.
+1. **Compute realistic capacity.** For each person, subtract overhead first, then take the buffer off what's left — the **20% buffer is 20% of the subtotal AFTER subtracting PTO/holidays, meetings, and on-call**, not 20% of raw working days. Formula: `Available = (working days − meetings − PTO/holidays − on-call) × 0.8`. The buffer absorbs interrupts, reviews, and the unknown. Sum each person's Available to a team total. This number, not the calendar, is your budget.
 2. **Set ONE sprint goal.** A single sentence stating the outcome and why it matters — not a list of tickets. If you can't name one goal, the sprint isn't scoped yet.
 3. **Rank against the goal.** Tag each item **P0** (goal fails without it), **P1** (high value, goal survives without it), or **Stretch** (nice if time remains). Carryover competes on the same ranking — it is not auto-committed.
 4. **Fit to capacity.** Fill P0 first, then P1, stopping when committed estimates reach your *buffered* capacity. Draw a visible cut line. Everything below it is stretch or next sprint.
@@ -40,11 +40,11 @@ Ask for anything missing before planning — don't guess capacity.
 [One sentence: the outcome this sprint delivers and why it matters.]
 
 ## Capacity Summary
-| Person | Available days | Focus |
-|--------|---------------|-------|
-| [Name] | [N (after PTO/meetings/buffer)] | [area] |
-| ...    | ...           | ...   |
-| **Team total** | **[N committable days]** | |
+| Person | Raw | −Meetings | −PTO | −On-call | Subtotal | −Buffer (20%) | Available |
+|--------|-----|-----------|------|----------|----------|---------------|-----------|
+| [Name] | [N] | [m] | [p] | [o] | [s] | [s×0.2] | [s×0.8] |
+| ...    | ... | ... | ... | ... | ... | ... | ... |
+| **Team total** | | | | | | | **[N committable days]** |
 
 ## Committed (≤ capacity)
 **P0 — must ship**
@@ -57,7 +57,7 @@ _Committed total: [Xd] / [capacity Yd]_
 - [ ] [Item] — owner: [Name] — est: [Xd]
 
 ## Carryover Handling
-- [Item from last sprint] → [re-committed as P0 / deprioritized / dropped + why]
+- [Item from last sprint] → [re-committed as P0 / deprioritized / dropped / absorbed into [item] (estimate already counted there — not double-counted) + why]
 
 ## Dependencies & Risks
 - [Dependency/risk] — owner: [Name] — mitigation: [action]
@@ -81,3 +81,4 @@ _Committed total: [Xd] / [capacity Yd]_
 - **Carryover is a smell, not a default.** Chronic carryover means you're overcommitting; cut, don't roll.
 - **Estimate in ideal days, plan in available days** — the gap between them is exactly the overhead you must subtract.
 - **A spike is a commitment too.** If an item is too unknown to size, the P0 is the spike, not the build.
+- **Round to the nearest 0.5 day.** Capacity estimates aren't precise to the decimal — round each Available figure to the nearest half-day and treat the "≤ capacity" fit as approximate. Don't manufacture false precision like 5.2 / 6.4 / 0.6 days; 5.0 ≤ 6.5 with a little room is the honest read.

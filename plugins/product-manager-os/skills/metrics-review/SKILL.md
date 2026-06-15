@@ -37,16 +37,17 @@ Ask for whatever is missing — don't proceed on one number with no context.
    - **Revenue** — MRR/ARR, ARPU, conversion to paid, expansion, NRR
    - **Referral** — invites sent, viral coefficient, NPS, shares
    Note which stages have no data and flag them as blind spots.
+   **Escape hatch for retention-led / engagement-core products:** when one funnel stage *is* the core value loop (e.g., retention or an engagement habit is the product's value event, not a downstream stage), organize the review around that loop rather than forcing every metric into a distinct AARRR bucket. Make the value loop the spine, then note where metrics overlap across stages (e.g., the same engagement event drives both activation and retention) instead of double-counting them.
 
 2. **Compute the deltas.** For each metric calculate **Δ vs. prior period** (absolute and %) and **vs. target** (absolute and %). Always show the percentage *and* the absolute — a 50% jump on 4 users is noise; a 2% drop in MRR may be five figures.
 
-3. **Set status.** Assign 🟢 / 🟡 / 🔴 against target (or against prior period if no target exists). Default thresholds, adjust to the metric: 🟢 at or above target / improving as expected; 🟡 within ~5% of target or flat where growth was expected; 🔴 missing target or moving the wrong way. State the threshold you used.
+3. **Set status.** Assign 🟢 / 🟡 / 🔴 against target (or against prior period if no target exists). Default thresholds, adjust to the metric: 🟢 at or above target / improving as expected; 🟡 within ~5% of target or flat where growth was expected; 🔴 missing target or moving the wrong way. For a metric with **no target**, color it against the prior period: 🔴 if it is moving materially the wrong way (a meaningful decline beyond normal variance, not noise), 🟡 if flat where growth was expected, 🟢 if improving as expected. State the threshold you used.
 
 4. **Segment to find the driver.** For every 🔴 and surprising 🟢, break the metric down (channel, cohort, platform, geo, plan) to localize the move. "Signups −18%" is not an insight; "−18% is entirely paid-search signups after the campaign paused, organic is flat" is. Aim to name the *single biggest contributor* to each material move.
 
 5. **Separate signal from noise.** Before raising an alarm, rule out: small denominators, normal week-to-week variance, seasonality/day-of-week, a tracking or instrumentation change, partial-period data, and one-off events. If a move is within historical noise, label it **noise** and move on — don't manufacture a story.
 
-6. **Derive 2–3 actions.** Convert the top findings into a *short* list of concrete next steps. Each action ties to a specific red or risk, names an **owner**, and has a **by-when**. Resist listing ten things — pick the few that matter. If a red has no clear action yet, the action is "investigate X by [date], owner [name]."
+6. **Derive 2–3 priorities.** Convert the top findings into a *short* list of concrete next steps. "2–3" means 2–3 findings/priorities to act on — not a hard cap on table rows. A single 🔴 can legitimately spawn more than one row (e.g., an investigate-step *and* a build-step both tied to it). Each action ties to a specific red or risk, names an **owner**, and has a **by-when**. Resist sprawling into ten unrelated threads — pick the few findings that matter. If a red has no clear action yet, the action is "investigate X by [date], owner [name]."
 
 ## Output template
 
@@ -93,7 +94,7 @@ Before you hand off the scorecard, confirm:
 - [ ] **Signal separated from noise** — small-n and within-variance moves are labeled, not dramatized.
 - [ ] **Definitions confirmed** — you know exactly what each metric measures and the date windows match.
 - [ ] **Status thresholds stated** — the reader knows what 🟡 vs 🔴 means here.
-- [ ] **2–3 actions, not ten** — the review ends in a decision, not a backlog.
+- [ ] **2–3 priorities, not ten** — the review ends in a decision, not a backlog. (This caps *findings*, not table rows — one red may need both an investigate- and a build-row.)
 
 ## Tips
 - **Beware vanity metrics.** Total signups, pageviews, and registered users feel good and move nothing. Prefer rates and per-user metrics (activation %, retention %, ARPU, NRR) that are robust to growth and survive scaling.
