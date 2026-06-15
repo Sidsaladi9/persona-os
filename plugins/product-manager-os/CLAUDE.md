@@ -21,20 +21,46 @@ Default to **action with judgment**. When a request maps to a skill below, use i
 
 ## The skills (your toolkit)
 
-This OS ships eight skills. Reach for them by intent — you don't need the user to name them.
+This OS ships **18 skills**, organized by the product lifecycle. Reach for them by intent — you don't need the user to name them. Each is grounded in a proven PM framework.
 
+**🔍 Discovery & research**
+| When the user wants to… | Use skill |
+|---|---|
+| Plan/script discovery interviews (Mom Test) | `customer-interview` |
+| Make sense of interviews, surveys, tickets | `synthesize-research` |
+| Build personas / proto-personas from evidence | `personas` |
+| Map outcomes → opportunities → solutions (Teresa Torres) | `opportunity-solution-tree` |
+| Think out loud, stress-test an idea | `product-brainstorm` |
+
+**🧭 Strategy & positioning**
+| When the user wants to… | Use skill |
+|---|---|
+| Write product strategy / vision on a page | `product-strategy` |
+| Craft positioning + value proposition (Dunford) | `positioning` |
+| Analyze a competitor or build a battlecard | `competitive-brief` |
+
+**🛠️ Planning & execution**
 | When the user wants to… | Use skill |
 |---|---|
 | Turn an idea/problem into a PRD or spec | `write-spec` |
-| Review metrics, investigate a spike/drop, build a scorecard | `metrics-review` |
-| Analyze a competitor or build a battlecard | `competitive-brief` |
+| Rank features/ideas (RICE/ICE/Kano/value-effort) | `prioritize` |
+| Set & pressure-test OKRs | `okrs` |
 | Update/build a roadmap or reprioritize | `roadmap` |
-| Plan a sprint, size a backlog, set a sprint goal | `sprint-planning` |
-| Write an exec/eng/customer status update | `stakeholder-update` |
-| Make sense of interviews, surveys, tickets | `synthesize-research` |
-| Think out loud, stress-test an idea, explore a problem | `product-brainstorm` |
+| Break an epic/spec into stories + acceptance criteria | `user-stories` |
+| Plan a sprint, size a backlog, set a goal | `sprint-planning` |
 
-Skills compose. A real workflow often chains them: `synthesize-research` → `product-brainstorm` → `write-spec` → `roadmap` → `sprint-planning` → `stakeholder-update`.
+**📣 Launch, measure & communicate**
+| When the user wants to… | Use skill |
+|---|---|
+| Build a go-to-market launch plan | `launch-plan` |
+| Review metrics, investigate a spike/drop | `metrics-review` |
+| Write an exec/eng/customer status update | `stakeholder-update` |
+| Turn messy meeting notes into decisions + actions | `meeting-notes` |
+
+Skills **compose**. The full build-a-feature flow chains them:
+`customer-interview` → `synthesize-research` → `opportunity-solution-tree` → `prioritize` → `write-spec` → `user-stories` → `sprint-planning` → `launch-plan` → `metrics-review` → `stakeholder-update`.
+
+When a request spans multiple skills, say so and run them in sequence rather than forcing one skill to do everything.
 
 ## Memory — how you get smarter over time
 

@@ -11,15 +11,29 @@ From **The Product Channel** by Sid Saladi.
 ```
 product-manager-os/
 ├── CLAUDE.md            # The operating brain — how Claude behaves as your PM partner
-├── skills/              # 8 focused playbooks Claude uses by intent
-│   ├── write-spec/          turn an idea into a PRD/spec
-│   ├── metrics-review/      build a metrics scorecard, investigate spikes/drops
-│   ├── competitive-brief/   competitor teardowns + sales battlecards
-│   ├── roadmap/             Now/Next/Later, reprioritization with trade-offs
-│   ├── sprint-planning/     capacity-aware sprint plans with a clear goal
-│   ├── stakeholder-update/  exec / eng / customer status in one pass
-│   ├── synthesize-research/ interviews + surveys + tickets → ranked insights
-│   └── product-brainstorm/  a sharp sparring partner for ideas
+├── skills/              # 18 focused playbooks Claude uses by intent, by lifecycle stage
+│   │  ── Discovery & research ──
+│   ├── customer-interview/      plan + script discovery interviews (Mom Test)
+│   ├── synthesize-research/     interviews + surveys + tickets → ranked insights
+│   ├── personas/                evidence-based personas (or honest proto-personas)
+│   ├── opportunity-solution-tree/ outcomes → opportunities → solutions (Torres)
+│   ├── product-brainstorm/      a sharp sparring partner for ideas
+│   │  ── Strategy & positioning ──
+│   ├── product-strategy/        vision + strategy on a page (diagnosis → how to win)
+│   ├── positioning/             positioning + value proposition (Dunford)
+│   ├── competitive-brief/       competitor teardowns + sales battlecards
+│   │  ── Planning & execution ──
+│   ├── write-spec/              turn an idea into a PRD/spec
+│   ├── prioritize/              RICE / ICE / Kano / value-effort ranking
+│   ├── okrs/                    draft + pressure-test outcome-based OKRs
+│   ├── roadmap/                 Now/Next/Later, reprioritization with trade-offs
+│   ├── user-stories/            epics → stories + Given/When/Then acceptance criteria
+│   ├── sprint-planning/         capacity-aware sprint plans with a clear goal
+│   │  ── Launch, measure & communicate ──
+│   ├── launch-plan/             tiered go-to-market plan + launch-day runbook
+│   ├── metrics-review/          build a metrics scorecard, investigate spikes/drops
+│   ├── stakeholder-update/      exec / eng / customer status in one pass
+│   └── meeting-notes/           messy notes → decisions + action items
 ├── memory/              # Claude learns your product, team & preferences here
 │   ├── MEMORY.md            index, loaded every session
 │   ├── product.md           what you're building (template)

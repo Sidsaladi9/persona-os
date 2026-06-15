@@ -25,6 +25,8 @@ Good competitive work is opinionated and honest. It names where the competitor i
 ## Process
 1. **Define the comparison frame.** Pin down the decision and pick 5–9 dimensions that actually move it (e.g. core capability, integrations, pricing model, time-to-value, security/compliance, support, ecosystem). Drop vanity dimensions nobody buys on. State the frame before gathering anything.
 2. **Gather evidence (web + user-provided).** Pull from the live web where available; otherwise work from pasted material. For each claim, capture the source and the date you observed it. Tag every data point as **fact** (verifiable: a published price, a documented limit) or **inference** (your read: "likely targeting mid-market because…"). Flag gaps explicitly rather than guessing.
+   - **If the user's intel is secondhand recall** (remembered from a call, "I think they…", no source pasted), treat the *entire* output as provisional: stamp the verification status accordingly and put a prominent **`⚠️ PROVISIONAL — re-pull before use`** banner at the top of both the brief and the battlecard.
+   - **In user-provided / recall mode**, where nearly every competitor claim is inference, don't tag every line. State the default once up front — e.g. "*Unless marked otherwise, all competitor claims below are inference from user recall, not verified.*" — and then tag only the **exceptions** (the few that are verified fact, or the few that are pure guesswork beyond even recall).
 3. **Map onto a matrix.** Score us vs. each competitor across the dimensions. Use plain marks (✅ strong / ⚠️ partial / ❌ absent / — unknown), not invented 1–10 scores that imply false precision.
 4. **Identify gaps, parity, and differentiation.** Sort every dimension into three buckets: *we lose* (their advantage), *we're at parity* (table stakes, neutralize cheaply), *we win* (our wedge, press it). Be ruthless about the first bucket.
 5. **Derive strategic implications.** Translate the map into "so what." Where you lose: is it worth closing, or do you concede and out-position? Where you win: how do you make it un-ignorable? What's the threat trajectory — where are they heading next (read their changelog and job posts)?
@@ -36,7 +38,7 @@ Good competitive work is opinionated and honest. It names where the competitor i
 
 ```
 # Competitive Brief: [Us] vs [Competitor(s)]
-Prepared: [date] · Author: [name] · Evidence dated as of: [date]
+Prepared: [date] · Author: [operator's name/role, or the persona if none given — otherwise leave blank; don't invent one] · Evidence dated as of: [date]
 Research mode: [live web search / user-provided only / mixed]
 
 ## Overview
@@ -60,7 +62,7 @@ Research mode: [live web search / user-provided only / mixed]
 ## Pricing & packaging
 - Their model, tiers, and headline prices [date observed] — [fact]
 - Hidden costs / gotchas (overages, seat minimums, add-ons)
-- How a real deal compares vs. ours
+- How a real deal compares vs. ours — compute a concrete per-deal dollar figure at a representative seat count, both sides (e.g. "at 40 seats: $X/yr us vs. $Y/yr them, before overages"); state the seat count and any assumptions
 
 ## Strengths / Weaknesses
 **Their strengths:** […]
@@ -86,6 +88,7 @@ Research mode: [live web search / user-provided only / mixed]
 
 ```
 # Battlecard: vs [Competitor]  ·  updated [date]
+**Intel as-of:** [date] · **Verification:** [verified live / user-provided / unverified — re-pull before use]
 
 **Their pitch (what reps will hear):** "[…]"
 

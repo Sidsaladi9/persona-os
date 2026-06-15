@@ -10,7 +10,7 @@ Built by [Sid Saladi](https://theproductchannel.substack.com) for **The Product 
 
 | OS | For | What's inside |
 |---|---|---|
-| 🧭 **[Product Manager OS](plugins/product-manager-os)** | Product managers | 8 skills · operating brain · learning memory · weekly automations |
+| 🧭 **[Product Manager OS](plugins/product-manager-os)** | Product managers | 18 skills · operating brain · learning memory · weekly automations |
 
 **Coming next:** Team OS · Founder OS · Marketer OS · Engineering Lead OS.
 

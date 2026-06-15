@@ -21,6 +21,8 @@ A stakeholder update is not a list of everything you did. It's a deliberate act 
 - **Status** — on track 🟢 / at risk 🟡 / off track 🔴, against the goal or date that matters.
 - **Asks / decisions needed** — what you need from the reader, who owns it, by when. "Nothing, FYI only" is a valid answer — say so.
 
+**Owner convention:** owner = the single person accountable for resolving the item. If a decision is needed from someone else, that person is not the owner — name them separately as the approver/decider (e.g. "owner: Priya · approver: VP Eng").
+
 If any of these are missing, ask before drafting. The single most common failure is guessing the audience or the status color. Don't.
 
 ## Process
@@ -36,7 +38,8 @@ Produce all three variants of the **same** update so the user can pick or send i
 
 **Status legend:** 🟢 on track · 🟡 at risk · 🔴 off track
 
-### 1. Exec brief (5 lines max)
+### 1. Exec brief (headline + 5 fields)
+The headline line does not count toward the field cap. Use exactly the 5 labeled fields below after it — no more.
 ```
 [🟢/🟡/🔴] <Project> — <one-line headline>
 Status: <on track / at risk / off track> against <goal or date>
@@ -92,3 +95,6 @@ When: <date or "available now">
 - **One status color, not hedged.** "Mostly on track but a bit at risk" reads as 🔴 with extra steps. Pick the color that's true and own it; use the risk line to add nuance.
 - **Recurring updates: keep a stable shape.** Readers learn where to look. Same sections, same order, every week — only the content changes.
 - **Cut activity that doesn't change the outcome.** If shipping it didn't move the goal or the date, it probably doesn't belong in an exec update.
+- **Multiple same-color risks?** Order them by severity, set the program status color to the worst single risk (not an average), and name that lead risk in the headline. Three 🟡s don't make a 🔴 — but they also shouldn't hide the one that actually threatens the date.
+- **Asks are audience-scoped.** Internal or financial asks (headcount, budget, legal sign-off, cross-team unblock) appear only in the exec and engineering versions — never in the customer version. A customer update has no internal ask in it.
+- **Internal codenames in customer-facing copy.** Strip internal product codenames (e.g. "Blocker Detector") from the customer version unless it's the actual shipped, public-facing name. The gray zone: if the codename will become the customer-visible name, introduce it as such; if it's internal jargon, replace it with the benefit or the public feature name. When unsure, describe the capability, not the codename.

@@ -22,7 +22,7 @@ You need enough to write something true, not generic. Collect:
 - **Constraints** — deadline, team size, platforms, dependencies, anything off-limits.
 - **Existing context** — current behavior, related features, prior attempts.
 
-If two or more of these are missing or vague, **ASK 2-4 sharp clarifying questions before writing.** Make them specific and answerable, e.g.:
+If two or more of these are missing or vague, **ASK 2-4 sharp clarifying questions before writing.** If you already hold this context, skip the questions and instead open the spec with an explicit Assumptions block stating what you took as given, so reviewers can challenge it. Make the questions specific and answerable, e.g.:
 - "Who exactly hits this problem — all users, or a segment like new/enterprise/mobile?"
 - "What's the one metric that would prove this worked?"
 - "What's explicitly *out* of scope for v1?"
@@ -60,14 +60,15 @@ Fill this in completely. Replace every `[bracket]`. Delete sections that genuine
 - **Why now:** [trigger — deadline, competitor move, strategic bet]
 
 ## Goals
+[Goals = the outcome targets; Success metrics = how you instrument and measure them. State each number once as a Goal target, then reference (don't restate) it under Success metrics.]
 [Each goal has a metric and a target. No metric → not a goal.]
 1. [Goal] — measured by [metric], target [number / direction] by [timeframe].
 2. [Goal] — measured by [metric], target [number / direction] by [timeframe].
 
 ## Non-goals
-[What this explicitly does NOT do. Be specific — these are the boundaries reviewers will hold you to.]
-- [Out of scope for now: e.g., "No bulk import — single-record only in v1."]
-- [Deliberately not serving: e.g., "Not optimizing for mobile this release."]
+[What this explicitly does NOT do. Be specific — these are the boundaries reviewers will hold you to. Label each as **permanent** (never in scope) or **deferred (see Phase X)** so deferred items don't read as contradictions with the rollout/phasing section.]
+- [Permanent: e.g., "No bulk import — single-record only, by design."]
+- [Deferred (see Phase 2): e.g., "Not optimizing for mobile this release."]
 
 ## Users & use cases
 - **Primary user:** [segment] — job-to-be-done: [what they're trying to accomplish].
@@ -104,6 +105,11 @@ Fill this in completely. Replace every `[bracket]`. Delete sections that genuine
 - [ ] Given [context], when [action], then [observable result].
 - [ ] Edge case: when [boundary/failure condition], the system [expected behavior].
 - [ ] Instrumentation: [event] fires with [properties] on [action].
+
+## Assumptions
+[The load-bearing, unvalidated bets this spec rests on — if any is wrong, the spec changes. Distinct from Risks: a risk is something that might go wrong; an assumption is something you're treating as true without proof. Include any "taken as given" context from the Assumptions block above if you skipped clarifying questions.]
+- [Assumption — e.g., "Most users hit this from desktop; mobile traffic is negligible."]
+- [Assumption — e.g., "The pricing API can return entitlements in under 200ms."]
 
 ## Risks & open questions
 | Risk / question | Impact | Owner | Status |

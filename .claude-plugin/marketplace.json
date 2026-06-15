@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "product-manager-os",
-      "description": "A complete operating system for product managers: 8 skills (spec writing, metrics review, competitive briefs, roadmapping, sprint planning, stakeholder updates, research synthesis, brainstorming), a CLAUDE.md operating brain, a memory system that learns your product and team, and ready-to-wire automations.",
+      "description": "A complete operating system for product managers: 18 skills across discovery, strategy, execution, and launch (interviews, research synthesis, personas, opportunity trees, prioritization, OKRs, specs, user stories, roadmaps, sprints, positioning, competitive briefs, launch plans, metrics, stakeholder updates, meeting notes, and more), a CLAUDE.md operating brain, a memory system that learns your product and team, and ready-to-wire automations.",
       "author": {
         "name": "Sid Saladi — The Product Channel"
       },
