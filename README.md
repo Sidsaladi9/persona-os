@@ -50,6 +50,7 @@ Every Persona OS is built from four parts:
 2. **A CLAUDE.md operating brain** — defines how Claude behaves in that role: how to think, which skill to use when, how to push back, how to format.
 3. **A memory system** — Claude reads it at the start of each session and writes to it as it learns your product, team, and preferences. It stops asking the same questions twice.
 4. **Automations** — ready-to-wire routines for the recurring work of the role (weekly reviews, sprint kickoffs, daily summaries), runnable on a schedule.
+5. **Bundled libraries** — MCP servers wired in so the OS can pull from curated prompt/skill libraries live. Product Manager OS ships [getprompts](https://getprompts.org) (900+ PM prompts) and [getskills](https://getskillsai.org) (3,000+ skills + a PM pack), zero-config.
 
 It works with **zero connected accounts** — paste your data and go. Connect your tools (Linear, Jira, Amplitude, Notion, Slack…) and it gets hands-free.
 

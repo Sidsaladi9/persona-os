@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "getprompts": {
+      "command": "npx",
+      "args": ["-y", "getprompts-mcp"]
+    },
+    "getskills": {
+      "command": "npx",
+      "args": ["-y", "getskills-mcp"]
+    }
+  }
+}

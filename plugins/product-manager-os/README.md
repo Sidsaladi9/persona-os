@@ -11,6 +11,7 @@ From **The Product Channel** by Sid Saladi.
 ```
 product-manager-os/
 ├── CLAUDE.md            # The operating brain — how Claude behaves as your PM partner
+├── .mcp.json           # Bundled getprompts + getskills MCP libraries (zero-config)
 ├── skills/              # 18 focused playbooks Claude uses by intent, by lifecycle stage
 │   │  ── Discovery & research ──
 │   ├── customer-interview/      plan + script discovery interviews (Mom Test)
@@ -62,6 +63,21 @@ product-manager-os/
 ## How it gets smarter
 
 The first time you work on something, Claude may ask a couple of setup questions. It writes the answers to `memory/`, so the next session it already knows your north-star metric, your team's sprint cadence, and how you like updates formatted. The more you use it, the less it asks.
+
+## Bundled: getprompts + getskills libraries
+
+This OS ships with two MCP servers wired in, so you also get live access to The Product Channel's curated libraries — **no account or API key needed** (read-only):
+
+- **[getprompts](https://getprompts.org)** — 900+ battle-tested, most-copied PM prompts. Ask *"find me a proven pain-point analysis prompt"* and Claude pulls it.
+- **[getskills](https://getskillsai.org)** — 3,000+ installable Claude skills, incl. a **PM starter pack**. Ask *"install the PM pack"* and Claude writes them into your skills folder.
+
+If you installed via the **plugin**, these are automatically active. If you **cloned-and-dropped**, add them once:
+
+```bash
+claude mcp add getprompts -- npx -y getprompts-mcp
+claude mcp add getskills  -- npx -y getskills-mcp
+claude mcp list   # both should show "Connected"  (needs Node 18+)
+```
 
 ## Works with your tools (optional)
 

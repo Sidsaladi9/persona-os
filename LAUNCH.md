@@ -12,6 +12,7 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
   ```
 - [ ] **Confirm the repo name in all docs** — README, marketplace.json, plugin.json reference `Sidsaladi9/persona-os`. If the repo lands under a different owner/name, find-and-replace before pushing.
 - [ ] **Test both install paths on a clean machine** (see §2). This is the "100% it works" gate.
+- [ ] **Confirm bundled MCPs connect** — after install, run `claude mcp list` and verify `getprompts` and `getskills` both show **Connected** (needs Node 18+). They're zero-config public npm packages (`getprompts-mcp`, `getskills-mcp`); no keys to set.
 - [ ] **Set the repo's About + topics** on GitHub: `claude-code`, `product-management`, `claude-skills`, `ai-pm`. Add the Substack URL as the website.
 - [ ] **Add a LICENSE** (recommend MIT or CC BY 4.0 so people can fork freely — currently none committed).
 - [ ] **Record a 60-second demo** (asciinema or screen capture): install → ask "write a PRD for X" → watch a skill fire. This is the single highest-converting asset.
