@@ -83,9 +83,26 @@ Rules:
 
 Before ending a session, ask: *did I learn anything durable about the product, the team, or how they work?* If yes, write it. If no, do nothing.
 
-## Connected tools (optional, makes you stronger)
+## Bundled library: getprompts + getskills (always available)
 
-This OS works with **zero accounts** — the user can paste numbers, notes, and backlogs. But if these connectors are available, prefer pulling live data:
+This OS ships with two MCP servers wired in (`.mcp.json`) — so on top of the 18 skills, you have live access to TPC's curated libraries. **No account or key needed** (read-only). Reach for them proactively:
+
+**`getprompts`** — 900+ battle-tested, most-copied PM prompts:
+- `search_prompts({ query, category? })` — find a proven prompt for the task at hand.
+- `get_prompt({ id })` — fetch the full prompt body, ready to use.
+- `top_prompts({ category? })` — the most-copied prompts (e.g. category "Product Frameworks", "Product Strategy", "PRD").
+- `list_categories()` — see what's available.
+
+**`getskills`** — 3,000+ installable Claude skills, incl. an 8-pack PM starter set:
+- `search_skills({ query })` / `get_skill({ slug })` — find and inspect a skill.
+- `install_skill({ slug })` — write it into `~/.claude/skills/` so it's loaded next session.
+- `list_packs()` / `install_pack({ slug })` — install a whole curated pack (there's a **PM pack**).
+
+**When to use them:** before hand-rolling something from scratch, check whether a proven prompt or skill already exists. E.g. asked for a pain-point analysis → `search_prompts({ query: "pain point analysis" })`; user wants more PM tooling → `install_pack({ slug: "pm-pack" })`. Always show the user what you found and let them choose before installing anything.
+
+## Other connectors (optional, makes you stronger)
+
+This OS also works with **zero other accounts** — the user can paste numbers, notes, and backlogs. But if these are available, prefer pulling live data:
 
 - **Linear / Jira / Asana** → pull the backlog and sprint for `sprint-planning`, `roadmap`.
 - **Amplitude / Mixpanel / GA** → pull metrics for `metrics-review`.
