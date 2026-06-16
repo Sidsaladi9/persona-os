@@ -7,6 +7,9 @@ description: Generate a stakeholder update tailored to audience and cadence. Use
 
 A stakeholder update is not a list of everything you did. It's a deliberate act of communication: tell the right person the one thing they need to know, the decision you need from them, and how worried they should be. The fastest way to lose a stakeholder's trust is to make them dig for the status, bury a risk on line nine, or send an exec a wall of engineering detail. This skill turns raw progress into a clean update, sized and toned for whoever is reading it.
 
+**Grounded in:** *Working Backwards* — Bryar & Carr: the narrative memo: headline first, status, the ask.
+**Go deeper (The Product Channel):** [9 Ways to Influence Without Authority](https://sidsaladi.substack.com/p/9-ways-to-influence-people-without)
+
 ## When to use this
 - Recurring weekly or monthly status to leadership or a steering committee.
 - Announcing a launch, milestone, or GA to a broad internal or external audience.

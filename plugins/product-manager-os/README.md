@@ -12,40 +12,32 @@ From **The Product Channel** by Sid Saladi.
 product-manager-os/
 ├── CLAUDE.md            # The operating brain — how Claude behaves as your PM partner
 ├── .mcp.json           # Bundled getprompts + getskills MCP libraries (zero-config)
-├── skills/              # 18 focused playbooks Claude uses by intent, by lifecycle stage
-│   │  ── Discovery & research ──
-│   ├── customer-interview/      plan + script discovery interviews (Mom Test)
-│   ├── synthesize-research/     interviews + surveys + tickets → ranked insights
-│   ├── personas/                evidence-based personas (or honest proto-personas)
-│   ├── opportunity-solution-tree/ outcomes → opportunities → solutions (Torres)
-│   ├── product-brainstorm/      a sharp sparring partner for ideas
-│   │  ── Strategy & positioning ──
-│   ├── product-strategy/        vision + strategy on a page (diagnosis → how to win)
-│   ├── positioning/             positioning + value proposition (Dunford)
-│   ├── competitive-brief/       competitor teardowns + sales battlecards
-│   │  ── Planning & execution ──
-│   ├── write-spec/              turn an idea into a PRD/spec
-│   ├── prioritize/              RICE / ICE / Kano / value-effort ranking
-│   ├── okrs/                    draft + pressure-test outcome-based OKRs
-│   ├── roadmap/                 Now/Next/Later, reprioritization with trade-offs
-│   ├── user-stories/            epics → stories + Given/When/Then acceptance criteria
-│   ├── sprint-planning/         capacity-aware sprint plans with a clear goal
-│   │  ── Launch, measure & communicate ──
-│   ├── launch-plan/             tiered go-to-market plan + launch-day runbook
-│   ├── metrics-review/          build a metrics scorecard, investigate spikes/drops
-│   ├── stakeholder-update/      exec / eng / customer status in one pass
-│   └── meeting-notes/           messy notes → decisions + action items
+├── skills/              # 40 book-grounded playbooks Claude uses by intent
+│   │  🔍 Discovery        customer-interview · synthesize-research · opportunity-solution-tree
+│   │                      · assumption-test · triage-requests · product-brainstorm
+│   │  📊 Research/market   personas · journey-map · segmentation · market-sizing
+│   │                      · feedback-analysis · market-analysis
+│   │  🧭 Strategy          product-strategy · positioning · competitive-brief
+│   │                      · business-model · pricing · north-star
+│   │  🛠️ Execution         write-spec · prioritize · okrs · roadmap · user-stories
+│   │                      · sprint-planning · stakeholder-map · test-scenarios
+│   │  📈 Data              metrics-review · experiment-analysis · cohort-analysis · sql-queries
+│   │  🚀 Go-to-market      launch-plan · release-notes · icp · growth-loops
+│   │  📣 Run the team      stakeholder-update · meeting-notes · retro · pre-mortem · red-team
+│   │  🧱 Extend            skill-creator
+│   └── …                 (each SKILL.md names the book it's grounded in + a TPC article)
+├── commands/            # 5 chained slash-commands (multi-skill workflows)
+│   ├── new-feature.md       brainstorm → opportunity tree → assumption-test → prioritize → spec → stories
+│   ├── discovery.md         interview plan → synthesize → opportunity tree
+│   ├── launch.md            launch-plan → pre-mortem → release-notes → stakeholder-update
+│   ├── strategy.md          market-analysis → product-strategy → positioning → red-team
+│   └── weekly.md            metrics-review → exec stakeholder-update
 ├── memory/              # Claude learns your product, team & preferences here
-│   ├── MEMORY.md            index, loaded every session
-│   ├── product.md           what you're building (template)
-│   ├── team.md              who's who, rituals, tools (template)
-│   ├── preferences.md       how you like to work (template)
-│   └── strategy.md          goals, bets, constraints (template)
-└── automations/         # Ready-to-wire weekly routines
-    ├── sprint-kickoff.md
-    ├── weekly-metrics-review.md
-    └── daily-standup.md
+│   ├── MEMORY.md · product.md · team.md · preferences.md · strategy.md  (templates)
+└── automations/         # Ready-to-wire routines: sprint-kickoff · weekly-metrics-review · daily-standup
 ```
+
+> Full skill map (with the book each is grounded in) lives in [CLAUDE.md](CLAUDE.md).
 
 ## Quick start
 

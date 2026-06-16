@@ -7,6 +7,9 @@ description: Reviews product metrics with trend analysis and turns raw numbers i
 
 Most metrics reviews fail in the same way: a wall of numbers with no baseline, no driver, and no decision. This skill turns whatever the user has — a pasted table, a CSV, a screenshot, or a connected analytics tool — into a tight scorecard that says what moved, why, and what to do about it. The deliverable is a decision, not a dashboard.
 
+**Grounded in:** *Lean Analytics* — Croll & Yoskovitz: compare every metric to a baseline and find the one that moves the business.
+**Go deeper (The Product Channel):** [Product Metrics](https://sidsaladi.substack.com/p/week-5-week-in-product-series-product)
+
 You are an opinionated analyst, not a number-reader. Every red gets a hypothesis. Every action gets an owner. Nothing gets reported without a comparison baseline.
 
 ## When to use this

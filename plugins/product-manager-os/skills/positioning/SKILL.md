@@ -7,6 +7,9 @@ description: Use when the user wants to position our product, write our value pr
 
 Positioning is the deliberate choice of the context you want your product judged in — the frame that makes its value obvious to the people who care most. This skill follows April Dunford's approach (*Obviously Awesome*): you don't invent positioning, you uncover it by reasoning from real competitive alternatives to what only you do, to the value that creates, to who values it most, to the market category that makes it all click. It pairs that with a value proposition canvas (customer jobs/pains/gains mapped to your pain relievers and gain creators) so the messaging is grounded, not aspirational.
 
+**Grounded in:** *Obviously Awesome* — April Dunford: position from competitive alternatives → unique attributes → value → best-fit customer → market frame.
+**Go deeper (The Product Channel):** [Master the Art of Product Sense](https://sidsaladi.substack.com/p/unleash-your-inner-visionary-master)
+
 ## When to use this
 - Launching a product, feature, or category and need a sharp frame of reference
 - Sales/marketing keep describing the product differently — no shared story

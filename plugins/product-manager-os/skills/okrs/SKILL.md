@@ -7,6 +7,9 @@ description: Helps draft and pressure-test OKRs with outcome-based objectives an
 
 OKRs work when the Objective says *where we're going and why it matters*, and the Key Results prove *we actually got there* with movement on a number — not a checklist of shipped work. This skill helps you draft a tight, focused set and then stress-test it against the anti-patterns that quietly kill most OKR cycles. The single hardest discipline: Key Results are **outcomes**, not the tasks you'll do to reach them.
 
+**Grounded in:** *Measure What Matters* — John Doerr: outcome objectives with measurable key results (outcomes, not tasks).
+**Go deeper (The Product Channel):** [OKRs: Secrets of Success](https://sidsaladi.substack.com/p/week-4-week-in-product-series-secrets)
+
 ## When to use this
 - A new quarter or planning cycle is starting and you need to set goals.
 - You have a strategy or company objective and need to translate it into team/individual OKRs.

@@ -7,6 +7,9 @@ description: Synthesize user research from interviews, surveys, and feedback int
 
 Raw research is a pile of quotes; synthesis is a ranked set of decisions. This skill turns interview notes, survey responses, support tickets, and reviews into a structured synthesis: themes counted by frequency and weighted by impact, insights that each cite evidence, and recommendations a team can act on. The discipline here is resisting the two failure modes of synthesis — cherry-picking the quote that confirms what you already believed, and over-generalizing from three loud users.
 
+**Grounded in:** *Continuous Discovery Habits* — Teresa Torres: turn interview snapshots into opportunities, separating observation from interpretation.
+**Go deeper (The Product Channel):** [How Do You Learn from Users](https://sidsaladi.substack.com/p/how-do-you-learn-from-users-to-build)
+
 ## When to use this
 - You have a stack of interview notes, survey free-text, support tickets, app-store reviews, or sales-call transcripts and need to find the signal.
 - You need themes ranked by how *often* they came up AND how *much they matter*, not just a wall of quotes.

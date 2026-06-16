@@ -1,6 +1,6 @@
 {
   "name": "product-manager-os",
-  "description": "A complete operating system for product managers. Ships 18 battle-tested skills across the full product lifecycle — discovery (customer-interview, synthesize-research, personas, opportunity-solution-tree, product-brainstorm), strategy (product-strategy, positioning, competitive-brief), execution (write-spec, prioritize, okrs, roadmap, user-stories, sprint-planning), and launch/measure/communicate (launch-plan, metrics-review, stakeholder-update, meeting-notes) — plus a CLAUDE.md operating brain, a learning memory system, and ready-to-wire automations. From The Product Channel by Sid Saladi.",
+  "description": "A complete operating system for product managers. Ships 40 battle-tested skills across the full product lifecycle — discovery, research, strategy, planning, execution, data, go-to-market, and team comms — each grounded in the most popular book on its topic (Mom Test, Inspired, Continuous Discovery Habits, Obviously Awesome, Good Strategy Bad Strategy, Measure What Matters, and more). Plus 5 chained slash-commands, a skill-creator, a CLAUDE.md operating brain, a learning memory system, ready-to-wire automations, and bundled getprompts + getskills libraries. From The Product Channel by Sid Saladi.",
   "version": "1.0.0",
   "author": {
     "name": "Sid Saladi — The Product Channel",
