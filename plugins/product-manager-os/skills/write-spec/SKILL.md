@@ -7,6 +7,9 @@ description: Turns a vague feature idea or problem statement into a structured, 
 
 Produces a tight, review-ready feature spec / PRD from a rough idea, problem statement, or stakeholder request — built for product managers and the engineers, designers, and execs who review their work.
 
+**Grounded in:** *Inspired* — Marty Cagan: address value, usability, feasibility, and viability risks; non-goals before solution.
+**Go deeper (The Product Channel):** [Crafting Killer Problem Statements](https://sidsaladi.substack.com/p/a-step-by-step-guide-to-crafting)
+
 ## When to use this
 - A stakeholder or customer dropped a one-line "can we build X?" and you need a real document.
 - You have a problem to solve but the solution and scope are still fuzzy.

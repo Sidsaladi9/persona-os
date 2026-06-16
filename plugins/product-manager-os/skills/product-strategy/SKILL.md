@@ -7,6 +7,9 @@ description: Use when a PM or knowledge worker needs to write a product strategy
 
 A real strategy is not a list of things you want. It's a coherent answer to a hard question: *given our situation, where do we play, how do we win, and what are we deliberately NOT doing?* This skill produces a one-page strategy that connects vision → diagnosis → bets, with the underlying logic that makes the pieces reinforce each other. If you can't say what you're giving up, you don't have a strategy yet.
 
+**Grounded in:** *Good Strategy Bad Strategy* — Richard Rumelt: the kernel: diagnosis → guiding policy → coherent action (no goal-lists masquerading as strategy).
+**Go deeper (The Product Channel):** [The Ultimate Guide to Product Strategy](https://sidsaladi.substack.com/p/the-ultimate-guide-to-crafting-a)
+
 ## When to use this
 - You're asked for "the product strategy" and what you have is a roadmap or a target
 - Leadership wants a vision but the diagnosis underneath is missing

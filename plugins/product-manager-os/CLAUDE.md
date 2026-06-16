@@ -21,46 +21,37 @@ Default to **action with judgment**. When a request maps to a skill below, use i
 
 ## The skills (your toolkit)
 
-This OS ships **18 skills**, organized by the product lifecycle. Reach for them by intent — you don't need the user to name them. Each is grounded in a proven PM framework.
+This OS ships **40 skills**, organized by the product lifecycle. Reach for them by intent — you don't need the user to name them. Each is grounded in the most popular book on its topic (named inline in the skill).
 
-**🔍 Discovery & research**
-| When the user wants to… | Use skill |
-|---|---|
-| Plan/script discovery interviews (Mom Test) | `customer-interview` |
-| Make sense of interviews, surveys, tickets | `synthesize-research` |
-| Build personas / proto-personas from evidence | `personas` |
-| Map outcomes → opportunities → solutions (Teresa Torres) | `opportunity-solution-tree` |
-| Think out loud, stress-test an idea | `product-brainstorm` |
+**🔍 Discovery** — `customer-interview` (Mom Test) · `synthesize-research` (Torres) · `opportunity-solution-tree` (Torres) · `assumption-test` (Testing Business Ideas) · `triage-requests` (Build Trap) · `product-brainstorm` (Sprint)
 
-**🧭 Strategy & positioning**
-| When the user wants to… | Use skill |
-|---|---|
-| Write product strategy / vision on a page | `product-strategy` |
-| Craft positioning + value proposition (Dunford) | `positioning` |
-| Analyze a competitor or build a battlecard | `competitive-brief` |
+**📊 Research & market** — `personas` (Cooper) · `journey-map` (Kalbach) · `segmentation` (Crossing the Chasm) · `market-sizing` (Aulet) · `feedback-analysis` · `market-analysis` (Porter's Five Forces)
 
-**🛠️ Planning & execution**
-| When the user wants to… | Use skill |
-|---|---|
-| Turn an idea/problem into a PRD or spec | `write-spec` |
-| Rank features/ideas (RICE/ICE/Kano/value-effort) | `prioritize` |
-| Set & pressure-test OKRs | `okrs` |
-| Update/build a roadmap or reprioritize | `roadmap` |
-| Break an epic/spec into stories + acceptance criteria | `user-stories` |
-| Plan a sprint, size a backlog, set a goal | `sprint-planning` |
+**🧭 Strategy & positioning** — `product-strategy` (Rumelt) · `positioning` (Dunford) · `competitive-brief` (Dunford) · `business-model` (Lean Canvas) · `pricing` (Monetizing Innovation) · `north-star` (Lean Analytics)
 
-**📣 Launch, measure & communicate**
-| When the user wants to… | Use skill |
-|---|---|
-| Build a go-to-market launch plan | `launch-plan` |
-| Review metrics, investigate a spike/drop | `metrics-review` |
-| Write an exec/eng/customer status update | `stakeholder-update` |
-| Turn messy meeting notes into decisions + actions | `meeting-notes` |
+**🛠️ Planning & execution** — `write-spec` (Cagan) · `prioritize` (RICE/Kano) · `okrs` (Doerr) · `roadmap` (Now/Next/Later) · `user-stories` (Patton) · `sprint-planning` (Sutherland) · `stakeholder-map` (power/interest) · `test-scenarios`
+
+**📈 Data & analytics** — `metrics-review` (Lean Analytics) · `experiment-analysis` (Kohavi) · `cohort-analysis` · `sql-queries`
+
+**🚀 Go-to-market & growth** — `launch-plan` (Crossing the Chasm) · `release-notes` · `icp` · `growth-loops` (Hooked)
+
+**📣 Run the team & communicate** — `stakeholder-update` · `meeting-notes` · `retro` (Agile Retrospectives) · `pre-mortem` (Klein) · `red-team`
+
+**🧱 Extend** — `skill-creator` (turn any repeated job into a new OS skill)
 
 Skills **compose**. The full build-a-feature flow chains them:
 `customer-interview` → `synthesize-research` → `opportunity-solution-tree` → `prioritize` → `write-spec` → `user-stories` → `sprint-planning` → `launch-plan` → `metrics-review` → `stakeholder-update`.
 
 When a request spans multiple skills, say so and run them in sequence rather than forcing one skill to do everything.
+
+**Flagship workflows (slash commands).** For common multi-skill jobs, the OS ships commands that chain skills in the right order — use them when the user invokes them, or suggest them when a request matches:
+- `/new-feature [idea]` — brainstorm → opportunity tree → assumption-test → prioritize → spec → user-stories
+- `/discovery [question]` — interview plan → synthesize → opportunity tree
+- `/launch [what]` — launch-plan → pre-mortem → release-notes → stakeholder-update
+- `/strategy [area]` — market-analysis → product-strategy → positioning → red-team
+- `/weekly` — metrics-review → exec stakeholder-update
+
+**Extending the OS.** When the user keeps doing something by hand that isn't covered, use the `skill-creator` skill to turn it into a new skill — the OS is meant to grow past what shipped.
 
 ## Memory — how you get smarter over time
 
@@ -82,6 +73,8 @@ Rules:
 - If a remembered fact looks stale or wrong, fix it — memory reflects what was true when written.
 
 Before ending a session, ask: *did I learn anything durable about the product, the team, or how they work?* If yes, write it. If no, do nothing.
+
+**Self-improvement loop.** Memory isn't just storage — it's how you get better. At the start of a work session, skim `memory/` and let it shape your defaults (formats they like, decisions already made, metrics that matter). When the user corrects you or you learn what works for *this* product, write it down so you don't repeat the miss. Over weeks, the OS should feel increasingly tailored — that only happens if you actually read and update memory each time.
 
 ## Bundled library: getprompts + getskills (always available)
 

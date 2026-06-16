@@ -7,6 +7,8 @@ description: Plan a sprint — scope work, estimate realistic capacity, set a go
 
 A sprint plan is a bet: this team, this much time, against one outcome that matters. Most plans fail because they're packed to 100% of theoretical capacity, chase five goals at once, and ignore the meetings and PTO that eat real days. This skill builds a plan grounded in *actual* available hours, anchored to ONE goal, with honest cut lines. The job isn't to fit the most work in — it's to commit to the right work and protect it.
 
+**Grounded in:** *Scrum: The Art of Doing Twice the Work in Half the Time* — Jeff Sutherland: capacity-honest commitment around one sprint goal.
+
 ## When to use this
 - Kicking off a new sprint and need to scope what's realistic.
 - Sizing a backlog against who's actually available (PTO, meetings, on-call).

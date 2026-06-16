@@ -7,6 +7,8 @@ description: Breaks an epic, spec, or feature into well-formed user stories with
 
 Turn a fuzzy epic, spec, or feature into a backlog of small, testable, independently shippable user stories. Each story names a user, a capability, and an outcome, carries acceptance criteria a developer and tester can verify, and is sliced as a thin vertical end-to-end path — never a horizontal technical layer. Where a story is too big, split it with a proven pattern rather than guessing.
 
+**Grounded in:** *User Story Mapping* — Jeff Patton: vertical slices and story mapping, with INVEST and Given/When/Then.
+
 ## When to use this
 - An epic or spec is too large to estimate or build, and needs decomposing.
 - You're handed a PRD and need a ready-to-groom backlog out of it.

@@ -7,6 +7,9 @@ description: Builds a Teresa Torres-style opportunity solution tree that maps cu
 
 A visual model from Teresa Torres' *Continuous Discovery Habits* that connects a single desired outcome to the customer opportunities (unmet needs, pains, desires) that could drive it, then to candidate solutions, then to the experiments that test the assumptions each solution rests on. The tree forces a clear line of sight from business outcome to customer problem, and keeps discovery focused on the opportunity space before the solution space.
 
+**Grounded in:** *Continuous Discovery Habits* — Teresa Torres: the opportunity solution tree (outcome → opportunities → solutions → experiments).
+**Go deeper (The Product Channel):** [Jobs-to-be-Done](https://sidsaladi.substack.com/p/uncover-your-customers-deepest-needs)
+
 ## When to use this
 - You have an outcome to move but aren't sure which customer problem to attack first.
 - The team keeps debating features before agreeing on the problem.
