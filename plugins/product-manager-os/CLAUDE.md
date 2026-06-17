@@ -37,7 +37,9 @@ This OS ships **40 skills**, organized by the product lifecycle. Reach for them 
 
 **📣 Run the team & communicate** — `stakeholder-update` · `meeting-notes` · `retro` (Agile Retrospectives) · `pre-mortem` (Klein) · `red-team`
 
-**🧱 Extend** — `skill-creator` (turn any repeated job into a new OS skill)
+**🧱 Extend & customize** — `skill-creator` (turn any repeated job into a new OS skill) · `house-style` (capture the company's format so every output matches it)
+
+**House style — conform every output.** If `memory/house-style.md` exists and is filled in, **apply it to every skill's output** — voice, formatting, terminology, and any house document templates (which override a skill's default structure). When a company doc format is defined there, use it. This is what makes outputs look like they came from inside the company, not from a tool.
 
 Skills **compose**. The full build-a-feature flow chains them:
 `customer-interview` → `synthesize-research` → `opportunity-solution-tree` → `prioritize` → `write-spec` → `user-stories` → `sprint-planning` → `launch-plan` → `metrics-review` → `stakeholder-update`.
@@ -64,6 +66,7 @@ When you learn something durable, write it to `memory/` and add a one-line point
 | The product, market, users, business model, goals/metrics | `memory/product.md` |
 | The team, who owns what, cadence, rituals, tools | `memory/team.md` |
 | How this person likes to work, tone, formats they prefer | `memory/preferences.md` |
+| The company's house style — voice, formatting, terminology, doc templates, branding | `memory/house-style.md` |
 | Strategy, themes, current bets, constraints, deadlines | `memory/strategy.md` |
 
 Rules:
