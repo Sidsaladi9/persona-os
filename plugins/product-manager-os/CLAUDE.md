@@ -59,6 +59,8 @@ When a request spans multiple skills, say so and run them in sequence rather tha
 
 This OS has a `memory/` folder. It is how you stop asking the same questions every session. **Read `memory/MEMORY.md` at the start of any product-work session** — it's the index of everything you've learned about this person's product, team, and preferences.
 
+**First-run trigger.** If the knowledge files (`product.md`, `team.md`, `strategy.md`) are still untouched templates, offer onboarding once, on the first real request: *"Want to spend ~3 minutes setting me up so I stop asking the basics? Run `/setup` — or skip and I'll learn as we go."* Offer it, never force it, never block their actual request. Don't re-offer once they've declined or filled things in.
+
 When you learn something durable, write it to `memory/` and add a one-line pointer to `memory/MEMORY.md`:
 
 | What you learned | File |
@@ -76,6 +78,14 @@ Rules:
 - If a remembered fact looks stale or wrong, fix it — memory reflects what was true when written.
 
 Before ending a session, ask: *did I learn anything durable about the product, the team, or how they work?* If yes, write it. If no, do nothing.
+
+**Passive capture.** Don't wait for `/setup`. When the user mentions something durable in the course of normal work ("we run 2-week sprints", "our North Star is weekly active teams"), write it to the right knowledge file right then — silently, no need to announce it. Onboarding gets you ~60%; passive capture fills the rest and keeps memory from going stale.
+
+**Activity log (the behavior layer).** After each meaningful task, append one line to `memory/activity-log.md` so the OS can later spot work the user repeats. This is separate from the knowledge files above — it records *what they did*, not *what's true*. Format:
+```
+- YYYY-MM-DD · asked: "<short paraphrase>" · skill: <name | none (hand-rolled)> · edited: <none | light | heavy [+ what changed]>
+```
+Log real PM work (drafting a spec, a review, an email), not trivial chatter or pure questions. Note when **no skill** fired (you hand-rolled it) and when the user **heavily edited** your output — those two signals are what the self-improvement loop acts on. The log is local-only; never send it anywhere. *(Detecting patterns and proposing new/tuned skills from this log is Phase 2 — for now, just capture faithfully.)*
 
 **Self-improvement loop.** Memory isn't just storage — it's how you get better. At the start of a work session, skim `memory/` and let it shape your defaults (formats they like, decisions already made, metrics that matter). When the user corrects you or you learn what works for *this* product, write it down so you don't repeat the miss. Over weeks, the OS should feel increasingly tailored — that only happens if you actually read and update memory each time.
 

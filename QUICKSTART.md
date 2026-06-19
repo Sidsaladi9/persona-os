@@ -28,7 +28,7 @@ your-project/
 ├── .mcp.json              ← getprompts + getskills libraries (Claude asks to approve)
 ├── .claude/
 │   ├── skills/            ← 41 skills (auto-trigger by intent)
-│   └── commands/          ← /new-feature /discovery /launch /strategy /weekly
+│   └── commands/          ← /setup /new-feature /discovery /launch /strategy /weekly
 └── memory/                ← product.md, team.md, strategy.md, preferences.md,
                               house-style.md  (you fill these in; Claude reads them)
 ```
@@ -49,7 +49,7 @@ If your org blocks MCP servers, skip this — the 41 skills still work fully.
 ---
 
 ## Use it
-1. **Set up once (optional but recommended):** fill `memory/product.md`, `team.md`, `strategy.md`, and `memory/house-style.md` — or paste a real doc and say *"use the house-style skill to capture our format."*
+1. **Set up once (optional but recommended):** run **`/setup`** — a 3-minute guided onboarding that fills your memory so the OS stops asking the basics. Prefer to do it by hand? Fill `memory/product.md`, `team.md`, `strategy.md`, and `memory/house-style.md`, or paste a real doc and say *"use the house-style skill to capture our format."* You can skip setup entirely — the OS learns as you work.
 2. **Just describe the work** (you don't name skills):
    - "Turn this idea into a spec: …" → `write-spec`
    - "Why did activation drop this week? [numbers]" → `metrics-review`
