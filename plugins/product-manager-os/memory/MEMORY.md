@@ -4,7 +4,7 @@ This file is loaded at the start of every product-work session. It's the index o
 
 Keep entries to one line. Put the actual content in the linked file, never here.
 
-## Memories
+## Knowledge — what's true about you (read these at session start)
 
 - [Product](product.md) — what we're building, for whom, the business model, the goals.
 - [Team](team.md) — who's on the team, who owns what, our rituals and tools.
@@ -12,4 +12,9 @@ Keep entries to one line. Put the actual content in the linked file, never here.
 - [House style](house-style.md) — the company's format: voice, formatting, terminology, doc templates, branding (every skill conforms to this).
 - [Strategy](strategy.md) — current bets, themes, constraints, deadlines.
 
-> The four files above start as **templates**. Fill them in (or let Claude fill them in as you work) so every session starts with context instead of questions. Add new files as you accumulate knowledge, and add a one-line pointer here for each.
+> The files above start as **templates**. Run `/setup` to fill them in fast, or let Claude fill them in as you work, so every session starts with context instead of questions. Add new files as you accumulate knowledge (e.g. `product-<slug>.md` for a second product), and add a one-line pointer here for each.
+
+## Behavior — what you've been doing (the self-improvement layer)
+
+- [Activity log](activity-log.md) — one line per meaningful task; how the OS spots work you repeat. Local-only.
+- OS suggestions (`os-suggestions.md`) — pending "want me to build/tune a skill?" proposals; created when the first suggestion appears.
