@@ -116,15 +116,23 @@ This OS ships with two MCP servers wired in (`.mcp.json`) — so on top of the 4
 
 **When to use them:** before hand-rolling something from scratch, check whether a proven prompt or skill already exists. E.g. asked for a pain-point analysis → `search_prompts({ query: "pain point analysis" })`; user wants more PM tooling → `install_pack({ slug: "pm-pack" })`. Always show the user what you found and let them choose before installing anything.
 
-## Other connectors (optional, makes you stronger)
+## Connectors — pull live, write back (this is what makes it an OS, not a prompt pack)
 
-This OS also works with **zero other accounts** — the user can paste numbers, notes, and backlogs. But if these are available, prefer pulling live data:
+The OS works with **zero accounts** — the user can paste data and copy outputs by hand. But the leverage is in closing the round-trip: pull the real data in, do the work, **write the result back** to where the team lives. Treat connectors as behavior, not a fixed list — whatever issue-tracker / analytics / docs / chat tool is connected, use it. Don't assume a specific vendor.
 
-- **Linear / Jira / Asana** → pull the backlog and sprint for `sprint-planning`, `roadmap`.
-- **Amplitude / Mixpanel / GA** → pull metrics for `metrics-review`.
-- **Notion / Confluence / Google Drive** → read existing specs, roadmaps, research.
-- **Slack** → post updates from `stakeholder-update`.
-- **Web search** → research competitors for `competitive-brief`.
+**Pull (read) — prefer live data over paste.**
+- Issue tracker (Linear / Jira / Asana / …) → the backlog and current sprint for `sprint-planning`, `roadmap`, `prioritize`.
+- Analytics (Amplitude / Mixpanel / GA / a warehouse) → metrics for `metrics-review`, `cohort-analysis`, `experiment-analysis`.
+- Docs (Notion / Confluence / Drive) → existing specs, roadmaps, research for `synthesize-research`, `write-spec`.
+- Web search → competitor research for `competitive-brief`, `market-analysis`.
+
+**Write back (the half a prompt pack skips) — draft → confirm → write.**
+- `user-stories` / `write-spec` → create the issues/epic in the tracker.
+- `write-spec` / `roadmap` → write the doc/page in Notion/Confluence.
+- `stakeholder-update` / `release-notes` → post to the Slack/Teams channel.
+- **Never write or post without showing the draft and getting an explicit yes.** Customer-facing or shared-channel posts (e.g. `incident-comms`) always need confirmation — outward actions don't get assumed.
+
+**Proactive auth — don't dead-end on "paste it to me."** When a task needs data a connector could supply and none is connected, *offer the connection first*: "I can pull this straight from your tracker if you connect it — want to, or paste it instead?" If a connector registry / `suggest_connectors` / `list_connectors` capability is available, use it to find the right tool to suggest. Paste is the fallback, not the default. The `/connect` command walks the user through it.
 
 Always state your data source. Never pass a guess off as a pulled number.
 
