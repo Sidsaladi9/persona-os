@@ -1,6 +1,6 @@
 # 🧭 Product Manager OS
 
-A complete operating system for product managers, running on Claude Code. It turns Claude into a senior PM partner — one that drafts your specs, reviews your metrics, preps your stakeholder updates, and remembers your product across sessions.
+A complete operating system for product managers, running on Claude Code. It turns Claude into a senior PM partner — one that drafts your specs, reviews your metrics, preps your stakeholder updates, and remembers your product across sessions. And it **gets better the more you use it**: it watches the work you repeat and offers to build you a custom skill for it, drafted from how *you* did it.
 
 From **The Product Channel** by Sid Saladi.
 

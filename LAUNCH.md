@@ -4,7 +4,8 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
 
 ## 0. Pre-launch checklist
 
-- [ ] **Battle-test green** — all 18 skills verified by the agent battle-test (see task #4). No skill below the quality bar.
+- [ ] **Battle-test green** — all 40+ skills verified by the agent battle-test. No skill below the quality bar.
+- [ ] **Run the live test** — install into a clean project, run `/setup`, do a few tasks, confirm capture fires in `memory/activity-log.md`, then `/tune-up` proposes a skill. The self-improving loop is the headline claim — it has to visibly work.
 - [ ] **Create the public repo** and push:
   ```bash
   cd ~/Claude_Code/Projects\ /persona-os
@@ -19,11 +20,11 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
 
 ## 1. Why this wins (positioning vs. the field)
 
-The space already has Paweł Huryn's `pm-skills` (68 skills), Carl Vellotti's `carls-product-os`, deanpeters, and aakashg. We do **not** compete on skill count. Our angle:
+The space has skill packs (Paweł Huryn's `pm-skills`, Carl Vellotti's `carls-product-os`, deanpeters, aakashg) — and, now, Anthropic's own free `product-management` plugin that overlaps a generic skill pack nearly 1:1. **Competing on skill count is a losing game against the platform vendor.** Don't. Our angle:
 
-> **The PM OS that's actually verified to work.** Curated, not bloated. 18 skills covering the real PM week, each grounded in a named framework, each battle-tested by AI agents before shipping — plus an operating brain and a memory that learns your product. Install in 60 seconds.
+> **The only PM toolkit that gets better the more you use it.** Not a skill pack — an OS: an operating brain, a memory that learns your product, and a self-improving loop that watches the work you repeat and builds you custom skills for it, all on your machine. Plus 40+ book-grounded skills and live connectors that write your work back to Linear/Notion/Slack. Install in 60 seconds.
 
-Lead the launch with **"battle-tested"** and **"learns your product"** — those are the two things the others don't say.
+Lead the launch with **"gets better the more you use it"** and **"learns your product"** — the static packs (and the free base plugin) structurally can't say either. Skill count is a footnote, not the headline.
 
 ## 2. Install paths (what subscribers do)
 
@@ -44,23 +45,23 @@ All three are documented in the repo README. Verify each before announcing.
 ## 3. Newsletter announcement (draft)
 
 **Subject line options:**
-1. I built you a Product Manager OS (free, installs in 60 seconds)
-2. 18 PM skills, one operating system, $0
+1. I built you a Product Manager OS that gets smarter the more you use it (free)
+2. The PM toolkit that builds its own skills from your work
 3. Steal my Product Manager OS
 
 **Body skeleton:**
-- Hook: every PM is drowning in the same recurring work — specs, prioritization, OKRs, stakeholder updates, interview synthesis. What if Claude already knew how to do all of it your way?
-- What it is: a free, installable "OS" — 18 skills across discovery → strategy → execution → launch, an operating brain (CLAUDE.md), a memory that learns your product/team, and weekly automations.
-- The differentiator: I didn't just write them — I had AI agents **battle-test every single skill** on a realistic product and verified the output was shippable. (Drop the scorecard screenshot.)
-- Proof: show one real before/after (rough idea → full PRD).
-- CTA: two install lines + the repo link. "Reply and tell me which skill you want for the next OS."
+- Hook: every PM is drowning in the same recurring work — specs, prioritization, OKRs, stakeholder updates, interview synthesis. What if Claude already knew how to do all of it *your* way — and got better every week?
+- What it is: a free, installable "OS" — an operating brain (CLAUDE.md), a memory that learns your product/team (3-min `/setup`), 40+ book-grounded skills across discovery → strategy → execution → launch, connectors that write your work back to Linear/Notion/Slack, and weekly automations.
+- The differentiator: it **watches the work you repeat and builds you a custom skill for it** — drafted from how *you* did it, on your machine, only when you say yes. The more you use it, the more it's yours. Nothing static can do that. (Drop the `/tune-up` proposing-a-skill screenshot.)
+- Proof: show one real before/after (rough idea → full PRD), and the loop minting a `launch-comms` skill from three hand-written emails.
+- CTA: two install lines + the repo link. "Reply and tell me which role OS you want next."
 - PS: Team OS, Founder OS, and Marketer OS are coming — this is just the first.
 
 ## 4. Social cuts (X / LinkedIn)
 
-- The demo GIF + "I built a Product Manager OS for Claude. 18 skills, an operating brain, and a memory that learns your product. Every skill battle-tested by AI agents. Free. 🧵"
-- Carousel: one slide per lifecycle category (Discovery / Strategy / Execution / Launch) listing the skills.
-- A "watch Claude turn a one-line idea into a full PRD" screen recording.
+- The demo GIF + "I built a Product Manager OS for Claude that **gets better the more you use it** — it watches the work you repeat and builds you custom skills for it. Operating brain, a memory that learns your product, 40+ book-grounded skills. Free. 🧵"
+- Carousel: the stack — brain · memory · self-improving loop · skills · connectors — one slide each.
+- A screen recording of the loop: do a task 3×, run `/tune-up`, watch it propose and write a new skill.
 
 ## 5. Distribution to the destination DBs (TPC convention)
 

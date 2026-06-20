@@ -1,6 +1,8 @@
 # Persona OS — by The Product Channel
 
-**Drop-in operating systems for knowledge workers.** Each "OS" turns Claude Code into a senior partner for one role — a complete kit of skills, an operating brain, a memory that learns you, and automations for the work you do every week.
+**Drop-in operating systems for knowledge workers.** Each "OS" turns Claude Code into a senior partner for one role — an operating brain, a memory that learns you, 40+ book-grounded skills, and automations for your weekly work.
+
+The part nothing else has: **it gets better the more you use it.** The OS watches the work you repeat and builds you custom skills for it — drafted from how *you* did it, all on your machine. A static skill pack is something the platform now gives away free; an OS that learns you and grows its own toolkit is a category of one.
 
 Built by [Sid Saladi](https://theproductchannel.substack.com) for **The Product Channel**.
 
@@ -10,7 +12,7 @@ Built by [Sid Saladi](https://theproductchannel.substack.com) for **The Product 
 
 | OS | For | What's inside |
 |---|---|---|
-| 🧭 **[Product Manager OS](plugins/product-manager-os)** | Product managers | 40+ book-grounded skills · `/setup` + 5 chained commands · operating brain · learning memory · automations · getprompts + getskills |
+| 🧭 **[Product Manager OS](plugins/product-manager-os)** | Product managers | operating brain · learning memory + `/setup` · **self-improving loop** · 40+ book-grounded skills · live connectors + write-back · automations · getprompts + getskills |
 
 **Coming next:** Team OS · Founder OS · Marketer OS · Engineering Lead OS.
 
@@ -44,15 +46,16 @@ Now open that project in Claude Code. The `CLAUDE.md` loads automatically, the `
 
 ## What "an OS" actually means
 
-Every Persona OS is built from four parts:
+A Persona OS isn't a prompt pack — it's a stack:
 
-1. **Skills** — focused, reusable playbooks Claude reaches for by intent (e.g. "write a PRD", "review our metrics"). You don't memorize commands; you just describe what you need.
-2. **A CLAUDE.md operating brain** — defines how Claude behaves in that role: how to think, which skill to use when, how to push back, how to format.
-3. **A memory system** — Claude reads it at the start of each session and writes to it as it learns your product, team, and preferences. It stops asking the same questions twice.
-4. **Automations** — ready-to-wire routines for the recurring work of the role (weekly reviews, sprint kickoffs, daily summaries), runnable on a schedule.
-5. **Bundled libraries** — MCP servers wired in so the OS can pull from curated prompt/skill libraries live. Product Manager OS ships [getprompts](https://getprompts.org) (900+ PM prompts) and [getskills](https://getskillsai.org) (3,000+ skills + a PM pack), zero-config.
+1. **An operating brain** (`CLAUDE.md`) — how Claude behaves in the role: how to think, which skill to reach for, how to push back, how to format.
+2. **A memory that learns you** — Claude reads it each session and writes to it as it learns your product, team, and preferences. A 3-minute `/setup` fills it, and it stops asking the same questions twice.
+3. **A self-improving loop** — the OS logs the work you repeat and offers to build you a custom skill for it, drafted from how *you* did it (you accept, tweak, or reject — nothing is automatic). This is the part a static pack structurally can't be: it gets sharper the more you use it.
+4. **40+ skills** — focused, book-grounded playbooks Claude reaches for by intent ("write a PRD", "review our metrics"). You describe what you need; you don't memorize commands.
+5. **Connected, not copy-paste** — pull live data from your tools and write the work back (stories → tracker, spec → docs, update → Slack). `/connect` wires them up; it always drafts and asks before posting.
+6. **Automations + bundled libraries** — weekly reviews, sprint kickoffs, and the self-improvement tune-up, runnable on a schedule; plus [getprompts](https://getprompts.org) (900+ PM prompts) and [getskills](https://getskillsai.org) (3,000+ skills + a PM pack), wired in zero-config.
 
-It works with **zero connected accounts** — paste your data and go. Connect your tools (Linear, Jira, Amplitude, Notion, Slack…) and it gets hands-free.
+It works with **zero connected accounts** — paste your data and go. Connect your tools (Linear, Jira, Amplitude, Notion, Slack…) and it goes hands-free.
 
 ---
 
