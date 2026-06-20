@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "product-manager-os",
-      "description": "A complete operating system for product managers: 40+ skills across discovery, research, strategy, planning, execution, data, go-to-market, and team comms — each grounded in the canonical book on its topic — plus a guided /setup onboarding, 5 chained slash-commands, a skill-creator, a CLAUDE.md operating brain, a memory system that learns your product and team, ready-to-wire automations, and bundled getprompts + getskills libraries.",
+      "description": "The product-manager OS that gets better the more you use it: a CLAUDE.md operating brain, a memory that learns your product and team (3-min /setup), and a self-improving loop that watches the work you repeat and builds you custom skills for it. Plus 40+ book-grounded skills across discovery → strategy → execution → launch, live connectors that write your work back to Linear/Notion/Slack, 5 chained workflows, ready-to-wire automations, and bundled getprompts + getskills libraries.",
       "author": {
         "name": "Sid Saladi — The Product Channel"
       },
