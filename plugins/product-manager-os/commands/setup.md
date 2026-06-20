@@ -19,7 +19,7 @@ Always include a **"Skip for now — I'll learn as we go"** option. They can ski
 ## Branch first: one product or several?
 Ask up front: **"Do you run one product, or several?"**
 - **One** → use the single `product.md` / `team.md` (default).
-- **Several** → for each product, create `memory/product-<slug>.md` (and `memory/team-<slug>.md` if teams differ), and add a one-line pointer for each in `MEMORY.md`. Going forward, when a request is product-specific, ask which one (remember the last-used so you're not asking every time). `strategy.md` stays **shared** unless they say products have separate strategies — only then split into `strategy-<slug>.md`.
+- **Several** → for each product, create `memory/product-<slug>.md` (and `memory/team-<slug>.md` if teams differ), and add a one-line pointer for each in `MEMORY.md`. **Remove the default `memory/product.md` template** so it isn't left orphaned (the per-product files supersede it; update the `MEMORY.md` Product line to list the products instead). Going forward, when a request is product-specific, ask which one (remember the last-used so you're not asking every time). `strategy.md` stays **shared** unless they say products have separate strategies — only then split into `strategy-<slug>.md`.
 
 ## The 9 questions (use the AskUserQuestion picker for the "pick" ones)
 Ask in small batches, not all at once. For each, the *why* is for your judgment — you don't have to read it aloud, but use it to push for a useful answer over a vague one. Offer the example if they stall.
