@@ -27,7 +27,7 @@ your-project/
 ├── CLAUDE.md              ← the OS "brain" (auto-loaded every session)
 ├── .mcp.json              ← getprompts + getskills libraries (Claude asks to approve)
 ├── .claude/
-│   ├── skills/            ← 41 skills (auto-trigger by intent)
+│   ├── skills/            ← 40+ skills (auto-trigger by intent)
 │   └── commands/          ← /setup /new-feature /discovery /launch /strategy /weekly
 └── memory/                ← product.md, team.md, strategy.md, preferences.md,
                               house-style.md  (you fill these in; Claude reads them)
@@ -44,7 +44,7 @@ claude mcp add getprompts -- npx -y getprompts-mcp
 claude mcp add getskills  -- npx -y getskills-mcp
 claude mcp list   # both should say "Connected"
 ```
-If your org blocks MCP servers, skip this — the 41 skills still work fully.
+If your org blocks MCP servers, skip this — the 40+ skills still work fully.
 
 ---
 

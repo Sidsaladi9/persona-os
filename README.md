@@ -10,7 +10,7 @@ Built by [Sid Saladi](https://theproductchannel.substack.com) for **The Product 
 
 | OS | For | What's inside |
 |---|---|---|
-| 🧭 **[Product Manager OS](plugins/product-manager-os)** | Product managers | 40 book-grounded skills · 5 chained commands · operating brain · learning memory · automations · getprompts + getskills |
+| 🧭 **[Product Manager OS](plugins/product-manager-os)** | Product managers | 40+ book-grounded skills · `/setup` + 5 chained commands · operating brain · learning memory · automations · getprompts + getskills |
 
 **Coming next:** Team OS · Founder OS · Marketer OS · Engineering Lead OS.
 

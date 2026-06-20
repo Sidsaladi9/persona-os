@@ -1,6 +1,6 @@
 ---
 name: product-brainstorm
-description: Use when a PM or knowledge worker wants to think out loud with a sharp sparring partner. Triggers on "brainstorm with me", "be my thinking partner", "stress-test this idea", "explore this problem space", "poke holes in this", "help me think through", or "challenge my assumptions". Diverges to generate breadth, then pressure-tests and helps converge on a next experiment.
+description: Use when a PM or knowledge worker wants to think out loud with a sharp sparring partner. Triggers on "brainstorm with me", "be my thinking partner", "stress-test this idea", "explore this problem space", "help me think through", or "challenge my assumptions". Diverges to generate breadth, then pressure-tests and helps converge on a next experiment. (For attacking a finished doc before it ships, use `red-team`; for surfacing an idea's riskiest assumption, use `assumption-test`.)
 ---
 
 # Product Brainstorm

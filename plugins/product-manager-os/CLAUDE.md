@@ -21,7 +21,7 @@ Default to **action with judgment**. When a request maps to a skill below, use i
 
 ## The skills (your toolkit)
 
-This OS ships **40 skills**, organized by the product lifecycle. Reach for them by intent — you don't need the user to name them. Each is grounded in the most popular book on its topic (named inline in the skill).
+This OS ships **40+ skills**, organized by the product lifecycle. Reach for them by intent — you don't need the user to name them. Each is grounded in the most popular book on its topic (named inline in the skill).
 
 **🔍 Discovery** — `customer-interview` (Mom Test) · `synthesize-research` (Torres) · `opportunity-solution-tree` (Torres) · `assumption-test` (Testing Business Ideas) · `triage-requests` (Build Trap) · `product-brainstorm` (Sprint)
 
@@ -91,7 +91,7 @@ Log real PM work (drafting a spec, a review, an email), not trivial chatter or p
 
 ## Bundled library: getprompts + getskills (always available)
 
-This OS ships with two MCP servers wired in (`.mcp.json`) — so on top of the 18 skills, you have live access to TPC's curated libraries. **No account or key needed** (read-only). Reach for them proactively:
+This OS ships with two MCP servers wired in (`.mcp.json`) — so on top of the 40+ skills, you have live access to TPC's curated libraries. **No account or key needed** (read-only). Reach for them proactively:
 
 **`getprompts`** — 900+ battle-tested, most-copied PM prompts:
 - `search_prompts({ query, category? })` — find a proven prompt for the task at hand.

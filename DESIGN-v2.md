@@ -105,7 +105,7 @@ Decides whether it feels helpful or naggy.
 Default home is the **weekly batch.** Mid-task is rationed hard — max one per session, only on a clear no-skill 3× repeat — the moment it nags, people turn it off.
 
 ### Worked example
-You draft launch-comms by hand on Jun 5, 12, 19 — each logged `skill: none · edited: heavy`. On the 3rd, the detector queues a proposal. Sunday's tune-up opens: *"You've hand-written launch comms 3× this month. Want a `launch-comms` skill built from how you actually did them? [yes / tweak / no]."* You hit **yes** → `skill-creator` writes `skills/launch-comms/SKILL.md` (`draft`), modeled on your three emails. Next launch it fires automatically; after 2 clean uses it graduates.
+You draft launch-comms by hand on Jun 5, 12, 19 — each logged `skill: none · edited: heavy`. On the 3rd, the detector queues a proposal. Sunday's tune-up opens: *"You've hand-written launch comms 3× this month. Want a `launch-comms` skill built from how you actually did them? [yes / tweak / no]."* You hit **yes** → `skill-creator` writes `skills/launch-comms/SKILL.md` (`draft`), modeled on your three emails. Next launch it fires automatically; after 3 clean uses it graduates.
 
 ### Guardrails (these are the design, not footnotes)
 - **No background daemon.** A plugin can't truly watch you 24/7. The honest scope: *log to memory + scheduled/session-start review + explicit accept/reject.* That's ~90% of the value and fully real today. "Fully autonomous" stays aspirational.
