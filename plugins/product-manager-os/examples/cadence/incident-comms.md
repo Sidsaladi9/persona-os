@@ -25,7 +25,7 @@ The 8:00am manager digest — the daily email that summarizes each team's check-
 # Incident: Morning digest not sending — SEV2
 
 **Comms owner:** Marcus Reyes (PM) · **Incident commander:** VP Eng · **Status:** Investigating → Resolved
-**Started:** 2026-07-19 08:00 PT · **Detected:** 08:12 PT · **First customer update:** 08:24 PT
+**Started:** 2026-07-19 08:00 PT · **Detected:** 08:12 PT · **Next update:** 09:30 PT (first customer update posted 08:24 PT)
 
 ---
 
@@ -40,7 +40,7 @@ Started / detected: 08:00 / 08:12 PT (digest-success-rate alert fired at <60%). 
 Status: Investigating. Current theory (UNCONFIRMED): yesterday's Blocker Detector sensitivity config added per-check-in scoring latency that pushed the digest job past its time budget at full volume.
 What we're doing: Jordan is reverting the config change in staging to confirm the theory; Priya is checking whether we can re-run the digest job for the failed cohort once fixed (data is retained, so a re-send is likely).
 On it: IC VP Eng · Eng Jordan Patel + Priya Chandra · Comms Marcus.
-For support: Holding line for any inbound — "We're aware some morning digests didn't go out, your check-in data is safe and visible in the app, and we'll update by 9:30am PT." Do NOT speculate on cause or promise a re-send time yet.
+For support — holding line, read verbatim: "We're aware some morning digests didn't go out, your check-in data is safe and visible in the app, and we'll update by 9:30am PT." Do NOT speculate on cause or promise a re-send time yet.
 Ask of leadership: None — informational. Next internal update by 09:00 PT or sooner if the theory confirms.
 ```
 
@@ -104,6 +104,6 @@ We're sorry for the disruption to your morning routine. If your digest still loo
 
 ### Why this is the shape it is
 - **Severity set the cadence, and the cadence built the trust.** SEV2 → 60-minute updates, each one stamped with the next update time. Even the 09:05 "we've identified it" carried "next update by 10:00am" — customers waited with a deadline instead of wondering if anyone was looking.
-- **The internal note and the customer note are deliberately different.** Internal got the unconfirmed theory, the scope %, the cohort name, and the support holding line. Customers got impact + reassurance (data is safe) + next update. The theory never went public until it was confirmed — and even then only in plain language in the postmortem.
+- **The internal note and the customer note are deliberately different.** Internal got the unconfirmed theory, the scope %, the cohort name, and a verbatim support holding line. Customers got impact + reassurance (data is safe) + next update. The theory never went public until it was confirmed — and even then only in plain language in the postmortem.
 - **No invented ETA, ever.** The first message promised a *next update time*, not a fix time. A re-send time was only stated once eng confirmed the data was retained and re-sendable.
 - **The postmortem is blameless and aimed at leadership.** The cause is "a config change added runtime cost that wasn't load-tested," not "Jordan's deploy broke the digest." Action items are system/process fixes (alerting, a checklist gate, graceful degradation, comms templates), each with an owner and a date — and it points to the eng RCA rather than reproducing it.

@@ -8,7 +8,7 @@ description: Drafts the communications a PM owns when something is breaking or j
 When something is breaking or just broke, the comms *are* the product. This skill drafts the words a PM owns during an incident — grounded in the discipline behind Google's SRE incident response and Atlassian's incident handbook: a single comms owner, a predictable update cadence, say only what you know, and stay blameless. It produces four artifacts on demand — an internal escalation note, customer-facing status updates, a resolution/all-clear, and a leadership postmortem — not an engineering root-cause analysis.
 
 **Grounded in:** *Site Reliability Engineering* — Beyer et al. (Google) + Atlassian's Incident Handbook: single incident commander, designated comms lead, fixed status cadence, blameless postmortem.
-**Go deeper (The Product Channel):** [The Beginner's Guide to a Product Launch](https://sidsaladi.substack.com/p/the-beginners-guide-to-a-product)
+**Go deeper (The Product Channel):** [The Product Channel](https://sidsaladi.substack.com)
 
 > **Not this skill:** *pre-mortem* (imagine failure *before* you ship), *release-notes* (announce what shipped, on a good day), *stakeholder-update* (routine status when nothing is on fire). This skill is **reactive** — use it only when something is going wrong or just went wrong.
 

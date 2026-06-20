@@ -27,15 +27,15 @@ This OS ships **40+ skills**, organized by the product lifecycle. Reach for them
 
 **📊 Research & market** — `personas` (Cooper) · `journey-map` (Kalbach) · `segmentation` (Crossing the Chasm) · `market-sizing` (Aulet) · `feedback-analysis` · `market-analysis` (Porter's Five Forces)
 
-**🧭 Strategy & positioning** — `product-strategy` (Rumelt) · `positioning` (Dunford) · `competitive-brief` (Dunford) · `business-model` (Lean Canvas) · `pricing` (Monetizing Innovation) · `north-star` (Lean Analytics)
+**🧭 Strategy & positioning** — `product-strategy` (Rumelt) · `positioning` (Dunford) · `competitive-brief` (Dunford) · `business-model` (Lean Canvas) · `pricing` (Monetizing Innovation) · `business-case` (ROI / cost-benefit) · `north-star` (Lean Analytics)
 
 **🛠️ Planning & execution** — `write-spec` (Cagan) · `prioritize` (RICE/Kano) · `okrs` (Doerr) · `roadmap` (Now/Next/Later) · `user-stories` (Patton) · `sprint-planning` (Sutherland) · `stakeholder-map` (power/interest) · `test-scenarios`
 
 **📈 Data & analytics** — `metrics-review` (Lean Analytics) · `experiment-analysis` (Kohavi) · `cohort-analysis` · `sql-queries`
 
-**🚀 Go-to-market & growth** — `launch-plan` (Crossing the Chasm) · `release-notes` · `icp` · `growth-loops` (Hooked)
+**🚀 Go-to-market & growth** — `launch-plan` (Crossing the Chasm) · `release-notes` · `icp` · `growth-loops` (Hooked) · `activation-flow-design` (Hooked)
 
-**📣 Run the team & communicate** — `stakeholder-update` · `meeting-notes` · `retro` (Agile Retrospectives) · `pre-mortem` (Klein) · `red-team`
+**📣 Run the team & communicate** — `stakeholder-update` · `meeting-notes` · `retro` (Agile Retrospectives) · `pre-mortem` (Klein) · `red-team` · `incident-comms` (blameless postmortem)
 
 **🧱 Extend & customize** — `skill-creator` (turn any repeated job into a new OS skill) · `house-style` (capture the company's format so every output matches it)
 
