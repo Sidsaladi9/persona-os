@@ -74,10 +74,10 @@ Layer 1 is **knowledge** ("we run 2-week sprints"). Layer 2 is **behavior** ("yo
 
 ### The loop
 
-1. **Capture** — after each meaningful task, the brain appends one line to `activity-log.md`. Three fields do all the work — *what you asked · which skill fired (or none) · how much you edited the output.* Local-only.
+1. **Capture** — after each meaningful task, the brain appends one line to `activity-log.md`. Three fields do all the work — *what you asked · which skill fired (or none) · what you corrected in-session.* The correction signal is captured **in-session** (what the user asked you to change *this turn*), not from post-session edits a plugin can't observe. Local-only.
    ```
-   - 2026-06-19 · asked: "draft launch email for v2"  · skill: none (hand-rolled) · edited: heavy
-   - 2026-06-19 · asked: "prioritize Q3 backlog"       · skill: prioritize        · edited: changed RICE weights
+   - 2026-06-19 · asked: "draft launch email for v2"  · skill: none       · correction: none
+   - 2026-06-19 · asked: "prioritize Q3 backlog"       · skill: prioritize · correction: "changed RICE weights"
    ```
 2. **Detect** — two patterns, each at **~3× threshold**:
    - *Repeated job + `skill: none`* → **a skill is missing.**
@@ -140,12 +140,12 @@ A read-only **"PM home" dashboard** generated from `memory/` (current OKRs, road
 
 Each phase ships on its own and sets up the next.
 
-| Phase | Ship | Why this order |
-|---|---|---|
-| **1** | `/setup` onboarding + passive memory capture | Fixes activation (empty memory). Also lays down the `activity-log.md` Phase 2 needs. |
-| **2** | Self-improving loop: capture → detect → suggest → generate → tune + weekly tune-up automation | The differentiator and the retention story. Depends on Phase 1's capture. |
-| **3** | Visual output widgets (start: `prioritize`, `roadmap`, `okrs`) | Polish + shareability once the engine works. |
-| **4** *(maybe)* | Read-only "PM home" dashboard | Only if users ask for a glanceable surface. |
+| Phase | Ship | Status | Why this order |
+|---|---|---|---|
+| **1** | `/setup` onboarding + passive memory capture | ✅ **shipped** | Fixes activation (empty memory). Also lays down the `activity-log.md` Phase 2 needs. |
+| **2** | Self-improving loop: capture → detect → suggest → generate → tune + `/tune-up` + weekly tune-up automation | ✅ **shipped** | The differentiator and the retention story. Capture redesigned around the in-session *correction* signal (observable) instead of post-session edits (not observable in a plugin). |
+| **3** | Visual output widgets (start: `prioritize`, `roadmap`, `okrs`) | next | Polish + shareability once the engine works. |
+| **4** *(maybe)* | Read-only "PM home" dashboard | later | Only if users ask for a glanceable surface. |
 
 ---
 

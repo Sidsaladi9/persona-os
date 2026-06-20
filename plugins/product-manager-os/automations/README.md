@@ -39,5 +39,6 @@ Just paste the contents of any automation file into Claude when you want it. The
 | `sprint-kickoff.md` | Start of each sprint | Pulls the backlog, drafts a sprint plan with a goal, flags risks. |
 | `weekly-metrics-review.md` | Weekly (e.g. Friday) | Builds a metrics scorecard and a leadership update draft. |
 | `daily-standup.md` | Daily | Summarizes what moved into a standup-ready update. |
+| `weekly-os-tuneup.md` | Weekly (e.g. Sunday) | Reads your activity log, finds work you repeat, and proposes new/tuned skills for you to accept or reject. This is how the OS improves itself. Also runnable on demand with `/tune-up`. |
 
 > Tip: connectors make these auto-magic. With Linear/Jira connected, sprint-kickoff pulls real issues. With Amplitude/Mixpanel connected, the metrics review pulls real numbers. Without them, the routine will ask you to paste the data — still useful, just not hands-free.

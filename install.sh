@@ -30,6 +30,11 @@ echo "• $(find "$SRC/skills" -name SKILL.md | wc -l | tr -d ' ') skills → .c
 cp -R "$SRC/commands/." "$TARGET/.claude/commands/"
 echo "• $(ls -1 "$SRC/commands" | wc -l | tr -d ' ') commands → .claude/commands/"
 
+# --- automations (OS-owned routines, incl. the weekly OS tune-up) ---
+mkdir -p "$TARGET/automations"
+cp -R "$SRC/automations/." "$TARGET/automations/"
+echo "• $(ls -1 "$SRC/automations"/*.md | grep -v README | wc -l | tr -d ' ') automations → automations/ (schedule with /schedule or cron)"
+
 # --- memory (DON'T overwrite a user's filled-in memory) ---
 cp -Rn "$SRC/memory/." "$TARGET/memory/" 2>/dev/null || true
 echo "• memory templates → memory/ (existing files left untouched)"
