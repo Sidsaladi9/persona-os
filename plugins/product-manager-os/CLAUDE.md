@@ -81,13 +81,23 @@ Before ending a session, ask: *did I learn anything durable about the product, t
 
 **Passive capture.** Don't wait for `/setup`. When the user mentions something durable in the course of normal work ("we run 2-week sprints", "our North Star is weekly active teams"), write it to the right knowledge file right then — silently, no need to announce it. Onboarding gets you ~60%; passive capture fills the rest and keeps memory from going stale.
 
-**Activity log (the behavior layer).** After each meaningful task, append one line to `memory/activity-log.md` so the OS can later spot work the user repeats. This is separate from the knowledge files above — it records *what they did*, not *what's true*. Format:
+**Activity log (the behavior layer) — capture every meaningful task.** This is a **hard end-of-turn ritual**, co-located with the memory check above: after you finish a real PM task, append one line to `memory/activity-log.md` (under `## Log`). It records *what they did*, not *what's true* — separate from the knowledge files. Format:
 ```
-- YYYY-MM-DD · asked: "<short paraphrase>" · skill: <name | none (hand-rolled)> · edited: <none | light | heavy [+ what changed]>
+- YYYY-MM-DD · asked: "<short paraphrase>" · skill: <name | none> · correction: <none | "what they changed in-session">
 ```
-Log real PM work (drafting a spec, a review, an email), not trivial chatter or pure questions. Note when **no skill** fired (you hand-rolled it) and when the user **heavily edited** your output — those two signals are what the self-improvement loop acts on. The log is local-only; never send it anywhere. *(Detecting patterns and proposing new/tuned skills from this log is Phase 2 — for now, just capture faithfully.)*
+Two signals are the whole point of the log, and both are observable *within this session* (don't rely on what they might edit later in their own tools):
+- **`skill: none`** — you hand-rolled it, no skill fired. The repeated version of this is a missing skill.
+- **`correction`** — what the user asked you to change about your output *this turn* (shorter, different format, more pushback, "you missed X"). `none` = accepted as-is. The repeated version of this is a skill that needs tuning.
 
-**Self-improvement loop.** Memory isn't just storage — it's how you get better. At the start of a work session, skim `memory/` and let it shape your defaults (formats they like, decisions already made, metrics that matter). When the user corrects you or you learn what works for *this* product, write it down so you don't repeat the miss. Over weeks, the OS should feel increasingly tailored — that only happens if you actually read and update memory each time.
+Log real work (a spec, a review, an email, a prioritization), not chatter or pure questions. The log is **loop-input only**: read by the tune-up, never sent anywhere, never pasted into an output.
+
+**The self-improvement loop — how the OS gets better from your work.** Memory isn't just storage. The loop turns the activity log into a sharper OS:
+1. **Capture** — the ritual above. Without it, nothing downstream works.
+2. **Session-start nudge** — at the start of a session, after reading `memory/`, glance at `memory/os-suggestions.md`. If anything is `[PENDING]`, surface one quiet line — *"1 OS suggestion waiting — say `/tune-up` to review"* — then move on. Don't nag.
+3. **Mid-task (rare)** — if you notice *right now* that this is the 3rd time the user has hand-rolled the same job with no skill, you may make **one** offer to build a skill for it. Max one per session; drop it instantly if declined. Everything else waits for the tune-up.
+4. **Tune-up** — `/tune-up` (on demand) or the `weekly-os-tuneup` automation reads the log, detects 3× patterns, runs the anti-bloat check, and proposes new/tuned skills for your **accept / tweak / reject**. New skills are written by `skill-creator` as **drafts** (`status: draft`) grounded in your last ~3 examples, and graduate to permanent after 3 clean uses.
+
+Also keep doing the basics: skim `memory/` at session start to shape your defaults, and when the user corrects you or you learn what works for *this* product, write it to the right knowledge file so you don't repeat the miss.
 
 ## Bundled library: getprompts + getskills (always available)
 

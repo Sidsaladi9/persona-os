@@ -27,6 +27,17 @@ If any are vague, ask 2–3 sharp questions before writing — a skill built on 
 5. **Battle-test it** — run it once on a realistic input, then read the output as a skeptic: could a real PM ship this? Is the template complete? Fix what breaks. (Mirror how the OS skills were verified.)
 6. **Place it** — write to `skills/<name>/SKILL.md`. It's live next session.
 
+## Draft skills (when the self-improvement loop creates one)
+When a skill is born from the tune-up (the OS noticed you'd hand-rolled the same job 3×), it's created from your last ~3 real examples — so it captures *your* format and tone, not a generic template. Mark these **provisional** by adding `status: draft` to the frontmatter:
+```
+---
+name: <kebab-name>
+description: <trigger-rich, as below>
+status: draft   # loop-generated; fires normally but provisional until it proves out
+---
+```
+A draft skill triggers and runs exactly like any other — the flag is just a promise that the OS will keep an eye on it. It **graduates** (drop the `status: draft` line) after it's been used **3 times without a correction** (per `memory/activity-log.md`). If a draft keeps drawing the same correction, tune it instead of graduating. User-authored skills don't need this flag — they're permanent from the start.
+
 ## Output template (the skill scaffold)
 ```
 ---

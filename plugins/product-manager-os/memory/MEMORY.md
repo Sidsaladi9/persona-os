@@ -17,4 +17,4 @@ Keep entries to one line. Put the actual content in the linked file, never here.
 ## Behavior — what you've been doing (the self-improvement layer)
 
 - [Activity log](activity-log.md) — one line per meaningful task; how the OS spots work you repeat. Local-only.
-- OS suggestions (`os-suggestions.md`) — pending "want me to build/tune a skill?" proposals; created when the first suggestion appears.
+- [OS suggestions](os-suggestions.md) — pending "want me to build/tune a skill?" proposals; you accept / tweak / reject. Fed by `/tune-up`.
