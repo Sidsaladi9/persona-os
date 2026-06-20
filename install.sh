@@ -46,7 +46,8 @@ fi
 
 echo
 echo "✅ Done. Open this project in Claude Code, then:"
-echo "   1) (optional) fill memory/product.md, team.md, strategy.md, house-style.md"
+echo "   1) run  /setup  — a 3-min guided onboarding that fills your memory"
+echo "      (or fill memory/product.md, team.md, strategy.md, house-style.md by hand)"
 echo "   2) verify libraries:  claude mcp list"
-echo "      (if your org blocks MCP, skip — the 41 skills still work)"
+echo "      (if your org blocks MCP, skip — the 40+ skills still work)"
 echo "   3) just ask, e.g.:  \"Turn this idea into a spec: ...\""
