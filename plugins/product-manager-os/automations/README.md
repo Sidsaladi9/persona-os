@@ -42,3 +42,5 @@ Just paste the contents of any automation file into Claude when you want it. The
 | `weekly-os-tuneup.md` | Weekly (e.g. Sunday) | Reads your activity log, finds work you repeat, and proposes new/tuned skills for you to accept or reject. This is how the OS improves itself. Also runnable on demand with `/tune-up`. |
 
 > Tip: connectors make these auto-magic. With Linear/Jira connected, sprint-kickoff pulls real issues. With Amplitude/Mixpanel connected, the metrics review pulls real numbers. Without them, the routine will ask you to paste the data — still useful, just not hands-free.
+
+> **Headless runs:** when a routine runs on a schedule (no human present) and the data it needs isn't connected, it writes a short "data unavailable" note and exits cleanly instead of stalling on a paste request. Connect the relevant tool (`/connect`) to make scheduled runs fully hands-free.

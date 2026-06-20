@@ -3,7 +3,7 @@ Use the `sprint-planning` skill to draft this sprint's plan.
 First, read `memory/MEMORY.md`, `memory/team.md`, and `memory/strategy.md` for team capacity, cadence, and current goals.
 
 Then:
-1. Pull the backlog and any carryover from our issue tracker (Linear/Jira/Asana) if connected. If not connected, ask me to paste the candidate backlog.
+1. Pull the backlog and any carryover from our issue tracker (Linear/Jira/Asana) if connected. If not connected: ask me to paste the candidate backlog in a live chat, but **if running unattended (scheduled/headless), write a short note that the backlog wasn't available and stop cleanly** rather than waiting.
 2. Compute realistic capacity from the team roster and any known PTO this sprint.
 3. Propose ONE sprint goal tied to this quarter's strategy.
 4. Rank items P0 / P1 / stretch against that goal and fit them to capacity.
