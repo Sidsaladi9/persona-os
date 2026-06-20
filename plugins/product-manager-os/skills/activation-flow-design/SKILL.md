@@ -1,50 +1,50 @@
 ---
 name: activation-flow-design
-description: Designs a new-user onboarding/activation flow that gets users to the aha-moment fast — defines the activation event, maps the current first-run path, locates the drop-off, and redesigns the step sequence with triggers, nudges, and empty states. Use when a PM says "design our onboarding", "improve activation", "get users to the aha moment", "redesign first-run", "new-user flow", "why aren't new users sticking", or "activation flow".
+description: Designs the first-run path that carries a brand-new user from signup to their aha-moment fast — defines the activation event, maps the current first-run, diagnoses the drop-off, and re-sequences the steps with triggers, nudges, and empty states. Use when a PM says "design our onboarding", "improve activation", "get users to the aha moment", "redesign first-run", "new-user flow", "why aren't new users sticking", "activation flow", or "shorten time-to-value". NOT for measuring activation/retention (cohort-analysis, metrics-review), mapping the whole journey (journey-map), or modeling whole-product loops (growth-loops).
 ---
 
 # Activation Flow Design
 
 Designs the specific first-run path that carries a brand-new user from signup to their aha-moment — the activation event — as fast as possible. This is a *design* skill, not a measurement one: it produces a re-sequenced step flow with triggers, nudges, and empty states, not a retention chart.
 
-**Grounded in:** *Hooked* — Nir Eyal: the **Trigger → Action → Reward → Investment** loop, applied to onboarding. Activation is getting the user through their first full loop before they quit — so they experience the variable reward (the aha) and make a small investment that pulls them back.
-**Go deeper (The Product Channel):** [The Activation Playbook](https://sidsaladi.substack.com/)
+**Grounded in:** *Hooked* — Nir Eyal: the **Trigger → Action → Reward → Investment** loop, applied to onboarding. Activation is getting the user through their first full loop before they quit — so they feel the variable reward (the aha) and make a small investment that pulls them back. The load-bearing insight: investment comes *after* the reward, never before.
+**Go deeper (The Product Channel):** [The Product Channel](https://sidsaladi.substack.com)
 
 ## When to use this
 - New signups try the product once and never come back, and you need to redesign the first run — not just measure that it's leaking.
-- You're launching a new product or major surface and need to design the onboarding/first-run flow from scratch.
+- You're launching a new product or major surface and need to design the onboarding / first-run flow from scratch.
 - Activation rate is below benchmark and you want a concrete, re-sequenced step flow to fix it — "get users to the aha moment sooner."
 - Users finish setup but never hit the moment that makes the product click; the path to value is too long or buried.
 - A redesign or pricing change shifted who signs up, and the old first-run no longer lands them at value.
 
-> **Not this skill:** if you need to *measure* activation or retention curves, use `cohort-analysis` / `metrics-review`. To map the *whole* customer journey end-to-end, use `journey-map`. To model the *whole-product* compounding loop (virality, content, expansion), use `growth-loops`. This skill designs the narrow first-run path to the first aha only.
+> **Not this skill.** To *measure* activation, retention curves, or where a cohort drops, use `cohort-analysis` / `metrics-review` — they read the funnel; this one redesigns it. To map the *whole* customer journey awareness→renewal, use `journey-map`. To model the *whole-product* compounding loop (virality, content, paid, expansion), use `growth-loops`. This skill designs only the narrow first-run path to the first aha. If you find yourself drawing a retention table or a multi-stage journey, you're in the wrong skill.
 
 ## Before you start (gather these)
 - **The activation event (the aha)** — the single observable action that reliably predicts retention (not "signed up", not "logged in"). If you don't have one, deriving it is step 1.
 - **The current first-run steps** — the literal screens/actions a new user hits from signup to first value, in order.
 - **Where users drop** — the step-level funnel (or your best read of it) showing where new users quit.
 - **The user / segment** — who you're activating, their job-to-be-done, and how they arrive (self-serve vs. sales-assisted, solo vs. team).
-- **Time-to-value reality** — how long the current path takes, and any hard dependencies (an invite, an integration, data import) that gate the aha.
+- **Time-to-value reality** — how long the current path takes, and any hard dependencies (an invite, an integration, a data import) that gate the aha.
 
-If **two or more** are missing or vague, **ASK 2–4 sharp questions before designing** — especially "what single action best predicts a user sticks around?" and "what are the literal first-run steps today?" If you have enough, proceed and open the output with an explicit **Assumptions** block stating what you took as given.
+If **two or more** are missing or vague, **ASK 2–4 sharp questions before designing** — especially "what single action best predicts a user sticks around?" and "what are the literal first-run steps today?" If you have enough, proceed and open the output with an explicit **Assumptions** block stating what you took as given, so reviewers can challenge it. Don't design a flow on a guessed aha — you'll optimize the whole path toward the wrong moment.
 
 ## Process
 1. **Define the activation event precisely.** It must be (a) a *value* moment, not a setup chore; (b) observable as one event; (c) correlated with retention. State it as "user [does X] within [time/visit window]." If a candidate is really a proxy for setup ("connected Slack"), push past it to the moment value is *felt* ("read their first digest that surfaced a real blocker"). Name the **time-to-activate target** (e.g. "within first session", "within 48h").
 2. **Map the current first-run path as an ordered step list.** Every screen, decision, and wait between signup and the activation event. For each step capture: the user's intent, the friction, and — critically — whether it's *on the critical path to value* or just *setup we've front-loaded*. Mark dependencies that block progress (invite, integration, import).
-3. **Locate the drop-off and diagnose its type.** Find the biggest step-level fall. Classify it: **friction** (too hard — fix the step), **confusion** (don't know what to do — fix the empty state / guidance), **no-trigger** (nothing pulls them back to the next step — add a trigger), or **premature-value-ask** (we demanded work before showing the reward — re-sequence). The diagnosis dictates the fix; don't jump to "add a tooltip."
-4. **Re-sequence to shorten time-to-aha.** Apply two moves: **defer** every setup step that isn't on the critical path to *after* the aha (the user invests once hooked, not before), and **pull forward / fake** value so the reward arrives sooner — seeded sample data, a pre-filled first action, a templated starting point. The target: the user feels the variable reward before you ask them to invest.
+3. **Locate the drop-off and diagnose its type.** Find the biggest step-level fall. Classify it: **friction** (too hard — fix the step), **confusion** (don't know what to do — fix the empty state / guidance), **no-trigger** (nothing pulls them back to the next step — add a trigger), or **premature-value-ask** (we demanded work before showing the reward — re-sequence). The diagnosis dictates the fix; don't jump straight to "add a tooltip."
+4. **Re-sequence to shorten time-to-aha.** Apply two moves: **defer** every setup step that isn't on the critical path to *after* the aha (the user invests once hooked, not before), and **pull forward / seed** value so the reward arrives sooner — sample data, a pre-filled first action, a templated starting point. Target: the user feels the variable reward before you ask them to invest.
 5. **Design the Trigger → Action → Reward → Investment loop for the redesigned path.** For each step name the **trigger** (external: email/Slack/in-app nudge — what brings them to the action), the **action** (the simplest thing they can do), the **reward** (the value they feel — make it visible and ideally variable), and the **investment** (the small bit of data/effort that loads the *next* trigger and pulls them back). The first loop must close before the user quits.
 6. **Specify empty states and nudges at each fragile step.** Empty states are first-run UI, not edge cases — design the zero-data screen to teach the next action. For each likely-stall point, define the nudge: trigger, timing, channel, copy intent, and the **exit condition** (when it stops firing) so nudges never become nagging.
-7. **Specify what to instrument** — the events needed to *prove the redesign worked*, step by step. Name the activation event, each step-completion event, and the **one north-star activation metric** (e.g. % of new users activated within target window). Define the holdout/cohort comparison so the lift is real, not seasonal. (Measuring it is `cohort-analysis`' job — here you just specify the events the redesign requires.)
-8. **Self-check:** does the redesigned path get the user to the aha in fewer steps and less time than today? Does the first loop close before the likely quit point? Have you deferred every non-critical setup step? Then deliver.
+7. **Specify what to instrument** — the events needed to *prove the redesign worked*, step by step. Name the activation event, each step-completion event, and the **one north-star activation metric** (e.g. % of new users activated within target window). Define the cohort/holdout comparison so the lift is real, not seasonal. (Measuring it is `cohort-analysis`' job — here you just specify the events the redesign requires.)
+8. **Self-check against the Quality bar** below, then deliver.
 
 ## Output template
-Fill in completely. Replace every `[bracket]`. TL;DR first.
+Fill in completely. Replace every `[bracket]`. Delete rows that genuinely don't apply rather than leaving them blank. TL;DR first.
 
 ```markdown
 # Activation Flow Design — [product / surface], [segment]
 
-**TL;DR.** Activation = **[the aha event]**, target **[within X]**. Today [N]% of new [users] get there; the path is **[K] steps / [T] minutes** and the biggest leak is **[step → diagnosis]**. The redesign cuts it to **[K'] steps** by **[the one re-sequencing move]**, closing the first Trigger→Reward loop before the week-1 quit point. Expected: activation **[N]% → [N']%**.
+**TL;DR.** Activation = **[the aha event]**, target **[within X]**. Today [N]% of new [users] get there; the path is **[K] steps / [T] minutes** and the biggest leak is **[step → diagnosis]**. The redesign cuts it to **[K'] steps** by **[the one re-sequencing move]**, closing the first Trigger→Reward loop before the [week-1] quit point. Expected: activation **[N]% → [N']%**.
 
 ## The activation event (the aha)
 - **Event:** [user does X] within **[time/visit window]**.
@@ -76,7 +76,7 @@ Fill in completely. Replace every `[bracket]`. TL;DR first.
 | … | | | | | |
 
 **Deferred to post-activation:** [setup steps moved after the aha — invite, full profile, advanced config].
-**Time-to-value, redesigned:** [T'] (was [T]) · **steps:** [K'] (was [K]).
+**Time-to-value, redesigned:** [T'] (was [T]) · **steps to aha:** [K'] (was [K]).
 
 ## Empty states & nudges (at the fragile steps)
 | Step | Empty state (zero-data screen teaches…) | Nudge: trigger → channel → intent | Exit condition (stops firing when…) |
@@ -86,8 +86,8 @@ Fill in completely. Replace every `[bracket]`. TL;DR first.
 ## Instrumentation (to prove it worked)
 - **North-star activation metric:** [% of new [users] who [aha event] within [window]].
 - **Step events to fire:** [step_1_complete, …, activation_event] with [key properties].
-- **Read method:** compare **post-redesign signup cohorts vs. pre** (or holdout) on the activation metric — not a before/after blended number. Re-pull at [N] weeks.
-- **Guardrail:** [what must not get worse — e.g. quality of activated users, downstream week-2 retention, support load].
+- **Read method:** compare **post-redesign signup cohorts vs. pre** (or a holdout) on the activation metric — not a before/after blended number. Re-pull at [N] weeks.
+- **Guardrail:** [what must NOT get worse — e.g. quality of activated users, downstream week-2 retention, support load].
 
 ## Assumptions
 - [Load-bearing bets — e.g. "the aha event is correlated with retention but not yet causally proven"; "step drop-off %s are estimated from X"].
@@ -96,6 +96,20 @@ Fill in completely. Replace every `[bracket]`. TL;DR first.
 [The single highest-leverage change to ship and measure first, and why — usually the re-sequencing move at the biggest leak.]
 ```
 
+## Quality bar
+Before delivering, verify every box:
+- [ ] The activation event is a **felt value moment**, stated as "user does X within [window]" — not a setup step (connected/completed/invited).
+- [ ] There's at least one piece of evidence the aha predicts retention (or it's flagged as an unproven correlation in Assumptions).
+- [ ] The current path is an **ordered step list**, each step tagged ✅ value or ⚙️ setup, with a drop-off read per step.
+- [ ] The biggest leak is named **and diagnosed by type** (friction / confusion / no-trigger / premature-value-ask) — and the fix matches the diagnosis.
+- [ ] The redesigned path is **shorter** (fewer steps and less time to aha) than today, with both counts stated old→new.
+- [ ] **Every non-critical setup step is deferred to post-activation.** No investment ask sits before the first reward.
+- [ ] Each redesigned step names all four of Trigger → Action → Reward → Investment, and the first loop closes before the likely quit point.
+- [ ] Every fragile step has an empty state that *teaches the next action* and a nudge with an explicit **exit condition**.
+- [ ] Instrumentation names the activation event, the step events, and a **cohort/holdout read method** — not a blended before/after.
+- [ ] At least one guardrail metric is named (what must not regress — usually downstream retention or support load).
+- [ ] A reviewer reading only the TL;DR knows the aha, the biggest leak, the one fix, and the expected lift.
+
 ## Avoid (anti-patterns)
 - **Picking a setup step as the activation event.** "Connected the integration" or "completed profile" is work the user did, not value they felt. If your aha is a chore, you'll optimize people *into* setup and still lose them at value. Push to the felt-reward moment.
 - **Adding a product tour instead of cutting steps.** A 6-step coachmark tour over a broken flow is lipstick. The fix is almost always *fewer steps to value*, not more overlay explaining the steps. Defer and pull-forward before you decorate.
@@ -103,6 +117,7 @@ Fill in completely. Replace every `[bracket]`. TL;DR first.
 - **Designing empty states as an afterthought.** The zero-data screen is the first thing every new user sees and the highest-traffic screen in the product. An empty state that just says "No items yet" wastes the single best teaching moment.
 - **Nudges with no exit condition.** A reminder that fires until the user complies reads as nagging and trains people to ignore you. Every nudge needs a stop rule and a channel budget.
 - **Designing one flow for two arrival types.** Self-serve solo evaluators and sales-assisted teams hit value differently; a blended flow under-serves both. Segment the path if the drop-off differs by how they arrive.
+- **Reporting a blended before/after as proof.** If a healthy segment (e.g. sales-assisted) masks the segment you fixed, a flat blended number hides a real win — or a seasonal swing fakes one. Read the redesign against a same-segment holdout or pre/post cohorts.
 
 ## Tips
 - **Find the aha empirically, then design backward from it.** The strongest activation events come from "users who did X by day N retain at K×" analysis. Design the whole first run to make X happen sooner — that's the entire job.

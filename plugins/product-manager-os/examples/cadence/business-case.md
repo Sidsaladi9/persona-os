@@ -9,73 +9,75 @@
 **Author:** Priya Menon · **Date:** 2026-06-19 · **Decision owner:** Jenna Hartwell (VP Product) + Finance · **Horizon:** 12 months
 
 ## TL;DR — the ask
-**Recommendation: FUND A SMALLER VERSION** — build a thin v1 (rules + light model on existing check-in text) this quarter, not the full ML build.
-Blocker Detector flags at-risk work in the daily digest. The full build is the obvious-looking bet, but its payback is driven almost entirely by an unproven assumption (that flagged blockers actually retain teams). A thin v1 captures most of the upside at a third of the cost and *tests* that assumption before we commit the rest.
+**Recommendation: FUND A SMALLER VERSION** — build a thin v1 (rules + light model on existing check-in text) this quarter; do **not** authorize the full ML build yet.
+Blocker Detector flags at-risk work in the daily digest. The full build looks like the obvious bet, but its entire payback rests on one unproven assumption — that flagging blockers actually retains teams — and at base-case numbers the *full* build doesn't pay back inside the year. A thin v1 captures most of the upside at a third of the cost and *measures* that assumption before we commit the rest.
 - **Ask:** ~1.3 person-months (~$33K loaded) over ~5 weeks for v1 — vs. ~4 pm (~$100K) for the full ML build.
-- **Expected return:** ~$23K retained ARR / quarter · **Payback:** ~1.4 quarters (~4.3 months) · **12-mo ROI:** ~177%.
+- **Expected return:** ~$14.4K net / quarter · **Payback:** ~2.3 quarters (~6.9 months) · **12-mo ROI:** ~75%.
 - **Confidence:** Med — load-bearing on whether surfaced blockers actually lift week-2 retention. v1 exists to prove exactly that.
 
 ## Problem & cost of inaction
 Cadence replaces standup with async check-ins plus an AI digest. The digest summarizes *what happened* but not *what's at risk* — "still wrestling with the auth migration, third day" reads the same as routine progress. Blockers age in plain sight, and "we didn't catch problems early enough" is the most-cited churn reason.
 - **Evidence:** 12 of the last 18 churn interviews (Q1–Q2 2026) named "didn't catch problems early enough" as a top-2 cancel reason. 47 support tickets tagged "wish the digest flagged X" in 90 days. ~9% of 2,300 sampled check-ins contained an unflagged blocker phrase.
-- **Cost of doing nothing:** We have ~4,000 paying teams at ~$4/team/mo (~$192K ARR). Week-2 retention sits at 41% against a 60% Q3 target. Of the ~2,300 teams hitting the week-1→week-2 cliff each quarter, churn interviews attribute a meaningful slice to "blockers caught too late." We estimate this costs **~$10–14K ARR/quarter** in avoidable early churn today, and it compounds as we scale acquisition into the same leaky funnel.
+- **Cost of doing nothing:** Cadence has ~4,000 paying teams (~$4/active user/mo, ~6 active users/team ≈ ~$288 ACV/team/yr). Week-2 retention sits at 41% against a 60% Q3 target. ~2,300 teams hit the week-1→week-2 cliff each quarter; churn interviews attribute a meaningful slice to "blockers caught too late." We estimate this costs **~$15–20K of retained ARR per quarter** in avoidable early churn today ⚠, and it compounds as we pour acquisition into the same leaky funnel.
 
 ## Options considered
 | Option | What it is | One-time cost | Run cost/qtr | Expected benefit/qtr | Verdict |
 |---|---|---|---|---|---|
-| A — Do nothing | accept the late-blocker churn | $0 | $0 | −$12K (cost of inaction) | baseline |
-| B — Thin v1 | rules + keyword/light-model flagging on existing check-in text, surfaced in digest | ~1.3 pm (~$33K) | ~$1.5K | ~$24.5K gross / ~$23K net | **recommended** |
-| C — Full ML build | trained classifier, ranking, confidence UI, feedback loop | ~4 pm (~$100K) | ~$4K | ~$30K gross / ~$26K net | defer until v1 validates |
-| D — Buy/partner | no off-the-shelf vendor reads Cadence check-ins; would require custom integration anyway | n/a | n/a | n/a | not viable |
+| A — Do nothing | accept the late-blocker churn | $0 | $0 | −~$16K (cost of inaction) | baseline |
+| B — Thin v1 | rules + keyword/light-model flagging on existing check-in text, surfaced in digest | ~1.3 pm (~$33K) | ~$1.5K | ~$15.9K gross / ~$14.4K net | **recommended** |
+| C — Full ML build | trained classifier, ranking, confidence UI, feedback loop | ~4 pm (~$100K) | ~$4K | ~$21.9K gross / ~$17.9K net | defer until v1 validates |
+| D — Buy/partner | no off-the-shelf vendor reads Cadence check-ins; would need custom integration anyway | n/a | n/a | n/a | not viable |
 
-**Chosen:** Option B (thin v1). It captures ~80% of C's expected benefit at ~⅓ the build cost, and — critically — it tests the load-bearing retention assumption before we authorize C. Do-nothing loses ~$12K/quarter and forfeits the Q3 differentiator vs. Geekbot/Standuply.
+**Chosen:** Option B (thin v1). It tests the load-bearing retention assumption for ~$33K instead of betting ~$100K blind — and at base-case numbers the full build (C) doesn't even pay back within 12 months (payback ~16.8 mo, 12-mo ROI ~−29%), so funding C now would be funding an unproven link at a loss. Do-nothing forfeits ~$16K/quarter and the Q3 differentiator vs. Geekbot/Standuply.
 
 ## Value model (expected value)
-**Benefit / quarter = Reach × Adoption × Value-per-unit, discounted for confidence.** This is a *retained-revenue* (anti-churn) model, not new ARR.
+**Benefit / quarter = Reach × Adoption × Value-per-retained-team, then × confidence.** This is a *retained-revenue* (anti-churn) model, valued **per account/team** (not per user).
 
 | Factor | Value | Source / basis |
 |---|---|---|
-| Reach (teams at the week-1 cliff / qtr) | 2,300 | product analytics — teams reaching week-1→week-2 transition per quarter |
-| Adoption (teams active enough to generate + see flags) | ~40% → ~920 teams | ~40% of cliff teams post enough check-in text for v1 to flag ⚠ |
-| Blocker-attributable retention lift | +6 pts of those teams retained | est. ⚠ — late-blocker churn is a top-2 reason in 12/18 interviews; assume v1 recovers a fraction |
-| Teams retained / qtr | ~920 × 6% ≈ 55 teams | = adoption × lift |
-| Value per retained team | ~$48/yr (= $4/mo × 12) | current ARPA; conservative — ignores expansion |
-| Gross retained ARR / qtr | ~$24.5K annualized run-rate | = 55 teams × $48 × confidence framing below |
-| Confidence discount | ×0.6 already folded into the +6pt lift (a hedged, not best-case, number) | probability the retention link is real |
-| **Expected benefit / quarter** | **~$24.5K** | retained annual run-rate attributable to v1 |
+| Reach (teams at the week-1 cliff / qtr) | 2,300 | product analytics — teams reaching the week-1→week-2 transition per quarter |
+| Adoption (cliff teams active enough to generate + see flags) | ~40% | ~40% of cliff teams post enough check-in text for v1 to flag ⚠ |
+| → Teams reached | ~920 | = 2,300 × 40% |
+| Blocker-attributable retention lift | +6 pts | est. ⚠ — late-blocker churn is top-2 in 12/18 interviews; assume v1 recovers a fraction |
+| → Teams retained / qtr | ~55 | = 920 × 6% |
+| Value per retained team | ~$288/yr ACV | ~6 active users × $4/user/mo × 12 (current ARPA; conservative — ignores expansion) |
+| Gross benefit / quarter | ~$15.9K | = 55 × $288 (retained annual run-rate added this quarter) |
+| Confidence discount | ×1.0 (the +6pt lift is already hedged, not best-case) | folded into the lift assumption, not double-applied |
+| **Expected benefit / quarter** | **~$15.9K** | retained ARR added per quarter |
 
 ## Cost model
 | Cost | Amount | Basis |
 |---|---|---|
 | Build (one-time) | ~1.3 pm × ~$25K loaded/pm ≈ **$33K** | eng-sized (Marcus): rules + light model + digest surface, no training pipeline |
 | Run (per quarter) | **~$1.5K** | incremental inference + support; cheap vs. full ML serving |
-| **Net benefit / quarter** | **~$23K** | $24.5K − $1.5K |
+| **Net benefit / quarter** | **~$14.4K** | $15.9K − $1.5K |
 
 ## Payback & ROI
-- **Payback:** $33K build ÷ ~$23K net/quarter = **~1.4 quarters (~4.3 months)**
-- **12-month ROI:** (4 × $23K − ($33K + 4 × $1.5K)) ÷ ($33K + $6K) = ($92K − $39K) ÷ $39K = **~136%**
-  *(Conservative read using net/quarter directly; on gross-benefit-minus-build it runs higher — stated as ~177% in the TL;DR using the simpler build-only denominator. We lead with the conservative 136%.)*
-- **Cumulative net at 12 months:** ~$53K
+- **Payback:** $33K build ÷ ~$14.4K net/qtr = **~2.3 quarters (~6.9 months)**
+- **12-month ROI:** (4 × $14.4K − $33K) ÷ $33K = ($57.6K − $33K) ÷ $33K = **~75%**
+  *(run cost is already inside the $14.4K net — not subtracted again here)*
+- **Cumulative net at 12 months:** ~$24.6K
 
 ## Sensitivity — what the verdict hinges on
-Load-bearing input: **blocker-attributable retention lift** (the +6 pts).
+Load-bearing input: **blocker-attributable retention lift** (the +6 pts). Everything else is grounded in analytics; this is the bet.
 
 | Scenario | Retention lift | Net benefit/qtr | Payback | Verdict |
 |---|---|---|---|---|
-| Conservative | +3 pts | ~$11K | ~3 qtrs (~9 mo) | FUND v1 (still clears within horizon) |
-| Base | +6 pts | ~$23K | ~1.4 qtrs (~4.3 mo) | FUND v1 |
-| Optimistic | +10 pts | ~$40K | <1 qtr | FUND v1 → fast-track C |
+| Conservative | +3 pts | ~$6.4K | ~5.1 qtrs (~15 mo) | KILL v1 (payback past horizon) |
+| Base | +6 pts | ~$14.4K | ~2.3 qtrs (~6.9 mo) | FUND v1 |
+| Optimistic | +10 pts | ~$25.0K | ~1.3 qtrs (~4 mo) | FUND v1 → fast-track C |
 
-**Break-even:** v1 flips to KILL only if the retention lift falls below **~+1.5 pts** (payback slips past the 12-month horizon). Given late-blocker churn is a top-2 reason in 12 of 18 interviews, a sub-1.5pt lift is possible but not the likely case — which is exactly why v1 measures it before C is funded.
+**Break-even:** v1 flips to KILL if the retention lift falls below **~+3.7 pts** (payback slips past the 12-month horizon). Late-blocker churn being top-2 in 12 of 18 interviews makes a >3.7pt lift plausible but *not* certain — which is precisely why v1 measures it for $33K before C's $100K is on the table.
 
 ## Risks & assumptions (each with a number)
 | # | Risk / assumption | If it's wrong | Mitigation / cheapest test |
 |---|---|---|---|
-| 1 | Surfaced blockers actually retain teams (the +6pt lift) | at +3pt, payback doubles to ~9 mo; below +1.5pt the case is KILL | **This is what v1 is for** — A/B v1 on/off across cliff cohorts; measure week-2 retention delta directly |
-| 2 | ~40% of cliff teams post enough text for v1 to flag | if 25%, expected benefit drops ~⅓ to ~$15K, payback ~2 qtrs | check the 2,300-sample analysis: what % contain flaggable phrases (already ~9% had blocker phrases — refine) |
-| 3 | Run cost stays ~$1.5K/qtr (no heavy ML serving in v1) | if v1 quietly grows into C's infra, net benefit erodes | hard-scope v1 to rules + light model; gate any training pipeline behind C's separate decision |
-| 4 | Flags are precise enough that managers don't tune them out | low precision turns a retention win into a trust loss (negative benefit) | set a ≥70% precision bar in beta before broad rollout; pull if missed |
+| 1 | Surfaced blockers actually retain teams (the +6pt lift) | at +3pt, payback slips to ~15 mo (past horizon) → KILL; below ~3.7pt the case is dead | **This is what v1 is for** — A/B v1 on/off across cliff cohorts; measure week-2 retention delta directly |
+| 2 | ~40% of cliff teams post enough text for v1 to flag | if 25%, expected benefit drops ~⅜ to ~$9.9K, payback ~3.4 qtrs | refine the 2,300-sample analysis — what % contain flaggable phrases (~9% already had blocker phrases; widen the lexicon) |
+| 3 | Value per retained team ≈ $288 ACV (6 active users × $4) | if avg active team is 4 users (~$192 ACV), benefit drops ~⅓, payback ~3.5 qtrs | pull actual active-users-per-team distribution before locking the model |
+| 4 | Run cost stays ~$1.5K/qtr (no heavy ML serving in v1) | if v1 quietly grows into C's infra, net benefit erodes | hard-scope v1 to rules + light model; gate any training pipeline behind C's separate decision |
+| 5 | Flags are precise enough that managers don't tune them out | low precision turns a retention win into a trust loss (negative benefit) | set a ≥70% precision bar in beta before broad rollout; pull if missed |
 
 ## Decision ask
-**FUND A SMALLER VERSION** — authorize ~1.3 pm for the Blocker Detector thin v1 this quarter; **defer the full ML build (Option C) pending v1 results.** The single reason: the entire case rests on one unproven link — that flagging blockers retains teams — and v1 buys that proof for ~$33K instead of betting ~$100K on it blind. It also lands the Q3 differentiator on time.
-**What would change this call:** v1's A/B showing a week-2 retention lift at or above +3 pts fast-tracks Option C; a lift below +1.5 pts kills further investment and we redirect the spend to onboarding (the other top retention lever).
+**FUND A SMALLER VERSION** — authorize ~1.3 pm for the Blocker Detector thin v1 this quarter; **defer the full ML build (Option C) pending v1 results.** The single reason: the entire case rests on one unproven link — that flagging blockers retains teams — and at base numbers the full build doesn't even clear payback inside the year. v1 buys that proof for ~$33K instead of betting ~$100K on it blind, and lands the Q3 differentiator on time.
+**What would change this call:** v1's A/B showing a week-2 retention lift at or above ~+6 pts fast-tracks Option C; a lift below ~+3.7 pts kills further investment and we redirect the spend to onboarding (the other top retention lever).

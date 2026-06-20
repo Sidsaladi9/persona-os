@@ -18,15 +18,18 @@ product-manager-os/
 │   │  📊 Research/market   personas · journey-map · segmentation · market-sizing
 │   │                      · feedback-analysis · market-analysis
 │   │  🧭 Strategy          product-strategy · positioning · competitive-brief
-│   │                      · business-model · pricing · north-star
+│   │                      · business-model · pricing · business-case · north-star
 │   │  🛠️ Execution         write-spec · prioritize · okrs · roadmap · user-stories
 │   │                      · sprint-planning · stakeholder-map · test-scenarios
 │   │  📈 Data              metrics-review · experiment-analysis · cohort-analysis · sql-queries
-│   │  🚀 Go-to-market      launch-plan · release-notes · icp · growth-loops
-│   │  📣 Run the team      stakeholder-update · meeting-notes · retro · pre-mortem · red-team
-│   │  🧱 Extend            skill-creator
+│   │  🚀 Go-to-market      launch-plan · release-notes · icp · growth-loops · activation-flow-design
+│   │  📣 Run the team      stakeholder-update · meeting-notes · retro · pre-mortem · red-team · incident-comms
+│   │  🧱 Extend            skill-creator · house-style
 │   └── …                 (each SKILL.md names the book it's grounded in + a TPC article)
-├── commands/            # 5 chained slash-commands (multi-skill workflows)
+├── commands/            # /setup · /connect · /tune-up + 5 chained workflows
+│   ├── setup.md             guided onboarding — fills your memory in ~3 min
+│   ├── connect.md           wire your tracker / analytics / docs / chat
+│   ├── tune-up.md           self-improvement: propose new/tuned skills from your work
 │   ├── new-feature.md       brainstorm → opportunity tree → assumption-test → prioritize → spec → stories
 │   ├── discovery.md         interview plan → synthesize → opportunity tree
 │   ├── launch.md            launch-plan → pre-mortem → release-notes → stakeholder-update
@@ -34,6 +37,8 @@ product-manager-os/
 │   └── weekly.md            metrics-review → exec stakeholder-update
 ├── memory/              # Claude learns your product, team & preferences here
 │   ├── MEMORY.md · product.md · team.md · preferences.md · strategy.md  (templates)
+│   ├── activity-log.md      what you've done — how the OS spots work you repeat
+│   └── os-suggestions.md    the self-improvement queue (accept / tweak / reject)
 └── automations/         # Ready-to-wire routines: sprint-kickoff · weekly-metrics-review · daily-standup
 ```
 
