@@ -87,3 +87,6 @@ Prioritization fails in two ways: a gut-feel ranking nobody can defend, or a pre
 - Treat 50% Confidence as a "go validate first" floor for items you intend to commit to — but you MAY score below 50% to reflect an honest guess on a genuinely speculative item. A sub-50% score isn't forbidden; it's a flag that says "validate before committing," and it keeps a speculative item from being silently inflated to look more certain than it is.
 - Keep a one-line evidence note per score. Future-you (and skeptics) will ask "where did this come from?"
 - Re-run after big launches or data changes — priorities are perishable, not permanent.
+
+---
+*Make it shareable: the `visualize` skill renders this as a RICE / Kano matrix — a self-contained HTML visual you can screenshot into a deck or Slack.*

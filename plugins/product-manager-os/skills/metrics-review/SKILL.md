@@ -108,3 +108,6 @@ Before you hand off the scorecard, confirm:
 - **Use percentage points for rate changes.** Activation going 39% → 41% is +2pp (and +5% relative); say "pp" to avoid the classic ambiguity.
 - **Lead with the decision.** Executives read the actions first. Put what to do where the eye lands; relegate the table to evidence.
 - **Be consistent period over period.** Same metrics, same definitions, same order every time — so trends jump out and reviews get faster.
+
+---
+*Make it shareable: the `visualize` skill renders this as a KPI scorecard — a self-contained HTML visual you can screenshot into a deck or Slack.*

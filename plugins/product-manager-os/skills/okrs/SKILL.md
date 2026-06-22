@@ -78,3 +78,6 @@ RISKS / SANDBAGGING CHECK:
 - Keep Objectives free of numbers and KRs free of adjectives — the Objective inspires, the KRs measure.
 - **Launch-coupled KRs** (a KR whose number can only move after a dated mid-quarter dependency — a feature GA, migration, or partner launch): write the gating date into the KR and set a conditional re-baselining rule up front — if the dependency slips past <date>, re-cut the target to the time actually left rather than scoring it 0.0. And don't concentrate multiple KRs on a single unproven dependency; if one launch underpins the whole set and it slips, the entire quarter scores zero.
 - Review weekly, score at quarter-end. OKRs you only look at twice a year are theater.
+
+---
+*Make it shareable: the `visualize` skill renders this as an Objective → Key-Result tree — a self-contained HTML visual you can screenshot into a deck or Slack.*

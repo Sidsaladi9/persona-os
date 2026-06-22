@@ -37,6 +37,8 @@ This OS ships **40+ skills**, organized by the product lifecycle. Reach for them
 
 **📣 Run the team & communicate** — `stakeholder-update` · `meeting-notes` · `retro` (Agile Retrospectives) · `pre-mortem` (Klein) · `red-team` · `incident-comms` (blameless postmortem)
 
+**🎨 Make it shareable** — `visualize` (render any artifact as a self-contained HTML visual: RICE matrix, Now/Next/Later board, OKR tree, metrics scorecard, journey swimlane — built to screenshot)
+
 **🧱 Extend & customize** — `skill-creator` (turn any repeated job into a new OS skill) · `house-style` (capture the company's format so every output matches it)
 
 **House style — conform every output.** If `memory/house-style.md` exists and is filled in, **apply it to every skill's output** — voice, formatting, terminology, and any house document templates (which override a skill's default structure). When a company doc format is defined there, use it. This is what makes outputs look like they came from inside the company, not from a tool.
