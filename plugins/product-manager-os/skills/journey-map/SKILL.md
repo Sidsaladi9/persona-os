@@ -97,3 +97,6 @@ Lowest point: **[Stage X]** — [one line on why this valley matters most]
 - Quote users verbatim in the Thoughts and Pain lanes. "I have no idea if it saved" is more persuasive and harder to argue with than "user feels uncertain."
 - If a connector is available (Amplitude, Pendo, Intercom, Zendesk, GA), pull real drop-off rates and top support tags per stage — but the map must still work end-to-end from pasted data alone.
 - Build it once with the team in the room, then keep it living: re-walk it after a major release and retire stages or opportunities that no longer reflect reality.
+
+---
+*Make it shareable: the `visualize` skill renders this as a swimlane — a self-contained HTML visual you can screenshot into a deck or Slack.*

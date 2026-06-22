@@ -24,6 +24,7 @@ product-manager-os/
 │   │  📈 Data              metrics-review · experiment-analysis · cohort-analysis · sql-queries
 │   │  🚀 Go-to-market      launch-plan · release-notes · icp · growth-loops · activation-flow-design
 │   │  📣 Run the team      stakeholder-update · meeting-notes · retro · pre-mortem · red-team · incident-comms
+│   │  🎨 Make it shareable  visualize (RICE matrix · Now/Next/Later board · OKR tree · scorecard · swimlane)
 │   │  🧱 Extend            skill-creator · house-style
 │   └── …                 (each SKILL.md names the book it's grounded in + a TPC article)
 ├── commands/            # /setup · /connect · /tune-up + 5 chained workflows

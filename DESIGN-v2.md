@@ -144,7 +144,7 @@ Each phase ships on its own and sets up the next.
 |---|---|---|---|
 | **1** | `/setup` onboarding + passive memory capture | ✅ **shipped** | Fixes activation (empty memory). Also lays down the `activity-log.md` Phase 2 needs. |
 | **2** | Self-improving loop: capture → detect → suggest → generate → tune + `/tune-up` + weekly tune-up automation | ✅ **shipped** | The differentiator and the retention story. Capture redesigned around the in-session *correction* signal (observable) instead of post-session edits (not observable in a plugin). |
-| **3** | Visual output widgets (start: `prioritize`, `roadmap`, `okrs`) | next | Polish + shareability once the engine works. |
+| **3** | Visual output widgets — the `visualize` skill (RICE matrix, Now/Next/Later board, OKR tree, scorecard, swimlane) as self-contained HTML; wired into the 5 high-signal skills | ✅ **shipped** | Polish + shareability once the engine works. Self-contained HTML (no MCP dependency) — screenshot → distribution. |
 | **4** *(maybe)* | Read-only "PM home" dashboard | later | Only if users ask for a glanceable surface. |
 
 ---

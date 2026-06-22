@@ -86,3 +86,6 @@ Strategic themes this period:
 - **Protect "Now" from churn.** Every mid-stream addition has a switching cost. Default to "that's a strong Next," and make anyone who wants it in Now name what they'll drop.
 - **If everything is a priority, nothing is.** A "Now" with eight items is a planning failure, not a productive team.
 - **Re-derive, don't just append.** When reprioritizing, re-check every item against the themes — stale items hide in roadmaps that only ever grow.
+
+---
+*Make it shareable: the `visualize` skill renders this as a Now / Next / Later board — a self-contained HTML visual you can screenshot into a deck or Slack.*
