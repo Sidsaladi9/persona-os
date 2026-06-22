@@ -8,6 +8,7 @@ description: Facilitates a structured team retrospective using the well/wrong/co
 A retrospective that actually changes behavior: collect what went **well / wrong / confusing**, dig past symptoms to **root cause**, and walk out with 2-3 owned **actions**. The point isn't to vent — it's to fix the system that produced the outcome.
 
 **Grounded in:** *Agile Retrospectives* — Esther Derby & Diana Larsen: set the stage → gather data → generate insight → decide what to do, blamelessly.
+**Go deeper (The Product Channel):** [The Product Death Cycle](https://sidsaladi.substack.com/p/week-63-the-product-death-cycle-how)
 
 ## When to use this
 - End of a sprint, cycle, or milestone and you want a repeatable retro instead of an unstructured gripe session.
