@@ -8,7 +8,7 @@ description: Use when the user wants to update the roadmap, build a Now/Next/Lat
 A roadmap is a statement of intent, not a delivery contract. Its job is to communicate *what outcomes you're betting on, in what order, and with how much confidence* — not to promise dates for a list of features. This skill helps you update, reprioritize, or build a roadmap in Now / Next / Later format, and it will make you say out loud what moves when you add something new. Most "roadmap updates" go wrong because people quietly inflate scope without admitting the trade-off. Don't let that happen.
 
 **Grounded in:** *Product Roadmaps Relaunched* — Lombardo, McCarthy, Wills & Connors: outcome-themed Now/Next/Later, not a dated feature list.
-**Go deeper (The Product Channel):** [How to Build an Effective Product Roadmap](https://sidsaladi.substack.com/p/how-to-build-an-effective-product)
+**Go deeper (The Product Channel):** [How to Build an Effective Product Roadmap](https://sidsaladi.substack.com/p/week-15-how-to-build-an-effective)
 
 ## When to use this
 - Adding a new initiative and you need to decide what gets bumped to make room.

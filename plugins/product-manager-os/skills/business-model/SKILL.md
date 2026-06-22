@@ -8,7 +8,7 @@ description: Fills a complete Lean Canvas (or Business Model Canvas) across ever
 Captures an entire business or product bet on one page using Ash Maurya's Lean Canvas (the startup-oriented variant of Osterwalder's Business Model Canvas), then ranks blocks by risk so you validate the assumption most likely to kill the business — before you spend a quarter building.
 
 **Grounded in:** *Running Lean* — Ash Maurya: the Lean Canvas and finding the riskiest block to validate first.
-**Go deeper (The Product Channel):** [Product Led Growth](https://sidsaladi.substack.com/p/product-led-growth)
+**Go deeper (The Product Channel):** [Product Led Growth](https://sidsaladi.substack.com/p/week-10-product-led-growth)
 
 ## When to use this
 - A new product, feature line, or 0-to-1 bet needs a one-page model before it goes to leadership or a build team.

@@ -8,7 +8,7 @@ description: Sorts a pile of inbound feature requests from sales, support, and u
 Demand intake and theming: turn a noisy stream of individual asks into a small set of weighted themes, then make an explicit build / watch / decline call on each — so the loud minority doesn't set your roadmap.
 
 **Grounded in:** *Escaping the Build Trap* — Melissa Perri: tie every request to an outcome and say no to output-chasing.
-**Go deeper (The Product Channel):** [Effective Prioritization](https://sidsaladi.substack.com/p/effective-prioritization-for-product)
+**Go deeper (The Product Channel):** [Effective Prioritization](https://sidsaladi.substack.com/p/week-11-effective-prioritization)
 
 ## When to use this
 - You've collected a quarter's worth of feature requests across sales notes, support tickets, and user feedback and need to make sense of them.

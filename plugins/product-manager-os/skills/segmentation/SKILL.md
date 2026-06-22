@@ -8,7 +8,7 @@ description: Segment a market or user base by needs and behavior — not just de
 Useful segments group people by what they're trying to get done and how they behave — not by age, company size, or industry. Demographics and firmographics are addressable labels you bolt on *after* you've found a real need-and-behavior cluster; they are how you reach a segment, not what makes it one. This skill finds those clusters, sizes and scores them, and picks the one beachhead worth winning first.
 
 **Grounded in:** *Crossing the Chasm* — Geoffrey Moore: pick a single beachhead segment instead of boiling the ocean.
-**Go deeper (The Product Channel):** [How to Create a Customer Persona](https://sidsaladi.substack.com/p/how-to-create-a-customer-persona)
+**Go deeper (The Product Channel):** [How to Create a Customer Persona](https://sidsaladi.substack.com/p/week-21-how-to-create-a-customer)
 
 The test for a real segment: **the people in it share a need or behavior such that one product decision serves all of them and would change if you targeted a different segment.** If a single offering satisfies two "segments" equally, they're one segment.
 

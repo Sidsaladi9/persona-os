@@ -10,7 +10,7 @@ An ICP describes the *accounts* worth winning — the firmographic and behaviora
 A real ICP is grounded in your own retention and conversion data, not aspiration. The sharpest move is naming who to *avoid*: the accounts that close fast, churn faster, and poison your metrics and your roadmap. An ICP that excludes nobody isn't an ICP — it's a market description.
 
 **Grounded in:** *Crossing the Chasm* — Geoffrey Moore: define the best-fit account by who gets the most value and retains.
-**Go deeper (The Product Channel):** [How to Create a Customer Persona](https://sidsaladi.substack.com/p/how-to-create-a-customer-persona)
+**Go deeper (The Product Channel):** [How to Create a Customer Persona](https://sidsaladi.substack.com/p/week-21-how-to-create-a-customer)
 
 ## When to use this
 - Sales is closing logos that churn in two quarters, or win rates are sliding and you suspect mis-targeting.

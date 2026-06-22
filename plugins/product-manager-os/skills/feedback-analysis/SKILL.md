@@ -8,7 +8,7 @@ description: Turns a large volume of customer feedback (support tickets, app-sto
 At-scale feedback theming using the theme + sentiment + trend framework: cluster raw verbatims into recurring themes, score each theme's sentiment and volume, track how each moves over time, then rank by priority so the roadmap reflects what the data actually says — not the loudest anecdote. Use this for volume; use synthesize-research for the depth of a handful of interviews.
 
 **Grounded in:** *Continuous Discovery Habits* — Teresa Torres: theme at scale and weight by frequency and impact, not loudness.
-**Go deeper (The Product Channel):** [How Do You Learn from Users](https://sidsaladi.substack.com/p/how-do-you-learn-from-users-to-build)
+**Go deeper (The Product Channel):** [How Do You Learn from Users](https://sidsaladi.substack.com/p/week-7-how-do-you-learn-from-users)
 
 ## When to use this
 - You exported 800 support tickets / app reviews / NPS comments and need themes, not a wall of text.

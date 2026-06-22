@@ -8,7 +8,7 @@ description: Surfaces the hidden assumptions an idea depends on, sorts them by r
 This skill runs a riskiest-assumption test on an idea. It decomposes the idea into the leap-of-faith assumptions it silently depends on, classifies each across the four risk lenses — **desirability** (do they want it?), **viability** (does it make us money / fit strategy?), **feasibility** (can we build it?), and **usability** (can they use it?) — then ranks by risk and designs evidence-cheap experiments for the top few. The goal is not to validate the idea. It's to find the assumption that, if false, kills the idea, and test that first for the least money and time.
 
 **Grounded in:** *Testing Business Ideas* — David J. Bland & Alex Osterwalder: map desirability/viability/feasibility risks and test the riskiest cheaply.
-**Go deeper (The Product Channel):** [Learning from Experiments](https://sidsaladi.substack.com/p/learning-from-experiments-a-superpower)
+**Go deeper (The Product Channel):** [Learning from Experiments](https://sidsaladi.substack.com/p/week-26-learning-from-experiments)
 
 ## When to use this
 - A new feature, product, or business idea has momentum but no one has named what has to be true for it to work.

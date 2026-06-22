@@ -10,7 +10,7 @@ A market analysis applies four classic frameworks — SWOT, PESTEL, Porter's Fiv
 The discipline here is convergence. PESTEL surfaces the macro shifts. Five Forces explains why the market is (or isn't) attractive. SWOT positions *you* inside that market. Ansoff turns it into where-to-grow choices. The synthesis asks: given all four, what 2-3 things must we believe and do?
 
 **Grounded in:** *Competitive Strategy* — Michael Porter: Porter's Five Forces, synthesized into strategic implications.
-**Go deeper (The Product Channel):** [The Ultimate Guide to Product Strategy](https://sidsaladi.substack.com/p/the-ultimate-guide-to-crafting-a)
+**Go deeper (The Product Channel):** [The Ultimate Guide to Product Strategy](https://sidsaladi.substack.com/p/week-71-product-strategy-vision-and)
 
 ## When to use this
 - Assessing a new market, segment, or geography before committing resources to enter it.

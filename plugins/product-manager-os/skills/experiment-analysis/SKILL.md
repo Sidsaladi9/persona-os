@@ -8,7 +8,7 @@ description: Designs and reads A/B tests end to end — a sharp hypothesis, a pr
 A rigorous frequentist framework for designing and analyzing A/B tests: state a falsifiable hypothesis, pre-register one primary metric plus guardrails, compute the sample size needed to detect a meaningful effect, then read the result honestly — without peeking or p-hacking — and convert it into a ship/kill decision.
 
 **Grounded in:** *Trustworthy Online Controlled Experiments* — Kohavi, Tang & Xu: pre-registered metric, power, and an honest read of significance vs. MDE.
-**Go deeper (The Product Channel):** [Learning from Experiments](https://sidsaladi.substack.com/p/learning-from-experiments-a-superpower)
+**Go deeper (The Product Channel):** [Learning from Experiments](https://sidsaladi.substack.com/p/week-26-learning-from-experiments)
 
 ## When to use this
 - You're about to launch an A/B test and need a design that won't be ambiguous later ("here's the change, help me set it up properly").
