@@ -8,6 +8,7 @@ description: Designs pricing and packaging using value-metric selection, Van Wes
 Good pricing is a packaging decision before it's a number. This skill picks the **value metric** (what you charge on), chooses a **model**, sets **good-better-best** tiers, and pressure-tests willingness-to-pay with **Van Westendorp** before you commit to a price.
 
 **Grounded in:** *Monetizing Innovation* — Madhavan Ramanujam: design around willingness-to-pay and the value metric before building.
+**Go deeper (The Product Channel):** [The Art of Pricing](https://sidsaladi.substack.com/p/week-41-the-art-of-pricing-11-essential)
 
 ## When to use this
 - Launching a new product or paid tier and need to set prices from scratch.

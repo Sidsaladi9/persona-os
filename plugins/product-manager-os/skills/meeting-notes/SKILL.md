@@ -8,6 +8,7 @@ description: Turns raw, messy meeting notes or a transcript into a crisp, sharea
 Meetings end and the value leaks out — decisions get forgotten, action items lose their owners, and the recap never gets sent. This skill takes whatever you have (scribbled notes, a wall-of-text transcript, or a connected transcript source) and turns it into a clean, skimmable summary you can paste into Slack or email the same day. The goal is extraction, not transcription: surface what was decided, who owns what by when, and what's still open.
 
 **Grounded in:** *Death by Meeting* — Patrick Lencioni: separate decisions from discussion; every action has an owner and date.
+**Go deeper (The Product Channel):** [The Product Channel](https://sidsaladi.substack.com)
 
 ## When to use this
 - You have raw notes or a transcript and need a usable summary fast.

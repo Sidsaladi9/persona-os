@@ -8,6 +8,7 @@ description: Runs a Klein pre-mortem on a project — assumes it already failed,
 A pre-mortem (Gary Klein) flips a postmortem forward in time: you assume the project has already failed, then work backward to explain why. This "prospective hindsight" frames failure as a given, which licenses honest, specific concerns that optimism normally suppresses — and turns them into mitigations before they cost you anything.
 
 **Grounded in:** *Performing a Project Premortem (HBR)* — Gary Klein: assume it failed, list why, rate likelihood × impact, mitigate the top modes.
+**Go deeper (The Product Channel):** [6 Fatal Mistakes to Avoid](https://sidsaladi.substack.com/p/week-42-6-fatal-mistakes-to-avoid)
 
 ## When to use this
 - You're about to commit to a launch, migration, or large bet and want to stress-test it before sinking resources.

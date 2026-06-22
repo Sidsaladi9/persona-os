@@ -8,6 +8,7 @@ description: Sizes a market with both top-down and bottom-up methods using the T
 A market size is only as good as the assumptions under it. This skill sizes a market two independent ways — **top-down** (start from a published total, narrow down) and **bottom-up** (build up from units × price) — across the **TAM / SAM / SOM** layers, then reconciles them. The goal is a number that survives a skeptical exec or investor, not a single confident-sounding hand-wave.
 
 **Grounded in:** *Disciplined Entrepreneurship* — Bill Aulet: bottom-up TAM from a defined beachhead, cross-checked top-down.
+**Go deeper (The Product Channel):** [The Product Channel](https://sidsaladi.substack.com)
 
 The discipline is this: every figure is traceable to a stated assumption, and the two methods are forced to meet. When they diverge wildly, that gap is the finding — it tells you which assumption is doing the heavy lifting.
 
