@@ -8,7 +8,7 @@ description: Score and rank features, ideas, or bets and produce a defensible ra
 Prioritization fails in two ways: a gut-feel ranking nobody can defend, or a precise-looking spreadsheet built on guesses. This skill avoids both. You pick the framework that fits the decision, define the scoring scale before you score anything, score every item against the same goal, then sanity-check the result against your gut. The number is an input to the call, not the call itself.
 
 **Grounded in:** *Escaping the Build Trap* — Melissa Perri: prioritize by outcome with RICE/Kano as inputs, not as the decision.
-**Go deeper (The Product Channel):** [6 Prioritization Frameworks](https://sidsaladi.substack.com/p/6-most-effective-problem-prioritization-92d)
+**Go deeper (The Product Channel):** [6 Prioritization Frameworks](https://sidsaladi.substack.com/p/week-17-6-most-effective-problem)
 
 ## When to use this
 - A backlog or idea list is too long and you need a build order you can defend to eng and leadership.

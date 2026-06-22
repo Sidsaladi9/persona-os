@@ -8,7 +8,7 @@ description: Builds a go-to-market launch plan for a feature or product, scaled 
 A launch is a cross-functional event, not a ship date. This skill turns "we're shipping X" into a coordinated plan: the right tier of effort, a clear message, the channels that fit, a timeline with owners, the assets you need, the metrics that define success, and a runbook for launch day. Scale everything to impact — not every launch deserves a press release.
 
 **Grounded in:** *Crossing the Chasm* — Geoffrey Moore: tier the launch and target the segment that cares most.
-**Go deeper (The Product Channel):** [The Beginner's Guide to a Product Launch](https://sidsaladi.substack.com/p/the-beginners-guide-to-a-product)
+**Go deeper (The Product Channel):** [The Beginner's Guide to a Product Launch](https://sidsaladi.substack.com/p/week-19-the-beginners-guide-to-a)
 
 ## When to use this
 - A feature or product is about to ship and needs a coordinated rollout

@@ -8,7 +8,7 @@ description: Plans and scripts customer discovery interviews using The Mom Test.
 Most interviews fail before they start: the interviewer pitches their idea, asks people to predict the future, and walks away with polite lies that feel like validation. The Mom Test (Rob Fitzpatrick) fixes this — talk about the customer's life and what they've actually done, not your idea or what they think they'd do. This skill plans a discovery interview and writes a script that can't be answered with empty compliments. It's the BEFORE; once you've run the interviews, use the `synthesize-research` skill to analyze what you heard.
 
 **Grounded in:** *The Mom Test* — Rob Fitzpatrick: ask about specific past behavior, never pitch or ask hypotheticals.
-**Go deeper (The Product Channel):** [How to Discover Customer Needs](https://sidsaladi.substack.com/p/how-to-discover-customer-needs)
+**Go deeper (The Product Channel):** [How to Discover Customer Needs](https://sidsaladi.substack.com/p/week-19-how-to-discover-customer)
 
 ## When to use this
 - You're about to talk to users and want a plan + question script, not just a vibe

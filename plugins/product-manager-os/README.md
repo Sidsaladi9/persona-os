@@ -89,4 +89,4 @@ Zero accounts required — paste your data and go. But if you connect them, it p
 
 ---
 
-📬 More OS kits and tools at **[The Product Channel](https://theproductchannel.substack.com)**.
+📬 More OS kits and tools at **[The Product Channel](https://sidsaladi.substack.com)**.

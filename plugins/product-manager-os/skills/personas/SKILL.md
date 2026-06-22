@@ -8,7 +8,7 @@ description: Create evidence-based user personas — or honest proto-personas wh
 A persona is a decision tool, not a character study. Done well, it compresses what you know about a real segment of users into the few attributes that change what you build. Done badly, it's a stock photo with an invented name and a coffee habit that nobody ever opens again. This skill helps you build the first kind: grounded in evidence where you have it, and honestly labeled as a hypothesis where you don't.
 
 **Grounded in:** *The Inmates Are Running the Asylum* — Alan Cooper: goal-directed personas built from behavior, not demographics.
-**Go deeper (The Product Channel):** [How to Create a Customer Persona](https://sidsaladi.substack.com/p/how-to-create-a-customer-persona)
+**Go deeper (The Product Channel):** [How to Create a Customer Persona](https://sidsaladi.substack.com/p/week-21-how-to-create-a-customer)
 
 The test for every line in a persona: **does this change a product decision?** If it doesn't, cut it.
 

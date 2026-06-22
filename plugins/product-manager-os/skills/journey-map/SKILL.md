@@ -8,7 +8,7 @@ description: Build a customer journey map across stages — actions, thoughts, e
 A customer journey map traces one persona's experience through the stages of using your product — what they do, think, and feel at each step, where they touch you, where it hurts, and where the biggest opportunity to improve sits. Done well, it converts scattered research into a shared, prioritized view of where to fix the experience. Done badly, it's a colorful grid of guesses nobody acts on.
 
 **Grounded in:** *Mapping Experiences* — Jim Kalbach: align stages, emotions, and pain points to find the biggest opportunity per stage.
-**Go deeper (The Product Channel):** [User Journey Map](https://sidsaladi.substack.com/p/user-journey-map)
+**Go deeper (The Product Channel):** [User Journey Map](https://sidsaladi.substack.com/p/week-13-user-journey-map)
 
 The discipline is twofold: **one persona + one scenario per map**, and **every cell traces to evidence or is flagged as an assumption.** Mixing personas or laundering guesses as fact is how journey maps become wall art.
 

@@ -8,7 +8,7 @@ description: Maps stakeholders onto an influence/interest grid, captures each on
 A stakeholder map built on the influence/interest (power/interest) grid plus a RACI overlay: place each person by how much power they hold and how much they care, mark their current stance, then assign decision roles so you know exactly who to win, who to manage, and who to keep warm.
 
 **Grounded in:** *Mendelow's power-interest grid* — Aubrey Mendelow: map influence × interest and tailor engagement per quadrant.
-**Go deeper (The Product Channel):** [9 Ways to Influence Without Authority](https://sidsaladi.substack.com/p/9-ways-to-influence-people-without)
+**Go deeper (The Product Channel):** [9 Ways to Influence Without Authority](https://sidsaladi.substack.com/p/week-12-9-ways-to-influence-people)
 
 ## When to use this
 - Kicking off an initiative that needs sign-off or resources from people outside your direct team.

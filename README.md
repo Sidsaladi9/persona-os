@@ -4,7 +4,7 @@
 
 The part nothing else has: **it gets better the more you use it.** The OS watches the work you repeat and builds you custom skills for it — drafted from how *you* did it, all on your machine. A static skill pack is something the platform now gives away free; an OS that learns you and grows its own toolkit is a category of one.
 
-Built by [Sid Saladi](https://theproductchannel.substack.com) for **The Product Channel**.
+Built by [Sid Saladi](https://sidsaladi.substack.com) for **The Product Channel**.
 
 ---
 
@@ -63,4 +63,4 @@ It works with **zero connected accounts** — paste your data and go. Connect yo
 
 Free for subscribers of The Product Channel. Use it, fork it, adapt it to your team. If it helps, share the newsletter — that's the only ask.
 
-📬 **[Subscribe to The Product Channel](https://theproductchannel.substack.com)** for more tools like this.
+📬 **[Subscribe to The Product Channel](https://sidsaladi.substack.com)** for more tools like this.

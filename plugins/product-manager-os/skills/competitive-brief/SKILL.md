@@ -8,7 +8,7 @@ description: Use when you need a competitive analysis brief or competitor teardo
 A competitive brief turns scattered impressions about a rival into a decision. The point is never to list features side by side — it's to answer "where do we win, where do we lose, and what do we do about it?" This skill produces a strategy brief and a sales battlecard, both grounded in dated evidence and ending in a recommendation, not a shrug.
 
 **Grounded in:** *Obviously Awesome* — April Dunford: frame competitors by the value customers actually weigh, then build the battlecard.
-**Go deeper (The Product Channel):** [The Ultimate Guide to Product Strategy](https://sidsaladi.substack.com/p/the-ultimate-guide-to-crafting-a)
+**Go deeper (The Product Channel):** [The Ultimate Guide to Product Strategy](https://sidsaladi.substack.com/p/week-71-product-strategy-vision-and)
 
 Good competitive work is opinionated and honest. It names where the competitor is genuinely better, distinguishes what you *know* from what you *suspect*, and resists the urge to make your product look good on paper. A brief that flatters you is worse than useless — it loses deals quietly.
 

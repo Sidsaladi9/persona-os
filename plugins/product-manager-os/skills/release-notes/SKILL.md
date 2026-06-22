@@ -8,7 +8,7 @@ description: Turns a list of shipped changes into audience-tiered release notes 
 Built on the audience-tiered changelog framework: one set of shipped changes, three lenses. The same release reads differently to a user (what's in it for me), an internal team (what changed, why, and what it affects), and a social audience (a hook worth clicking). You write all three from a single source of truth so nothing drifts.
 
 **Grounded in:** *Working Backwards* — Bryar & Carr: lead with the customer benefit, audience-tiered.
-**Go deeper (The Product Channel):** [The Beginner's Guide to a Product Launch](https://sidsaladi.substack.com/p/the-beginners-guide-to-a-product)
+**Go deeper (The Product Channel):** [The Beginner's Guide to a Product Launch](https://sidsaladi.substack.com/p/week-19-the-beginners-guide-to-a)
 
 ## When to use this
 - A sprint or release closed and you have a pile of merged PRs, tickets, or commit messages to turn into something readable.
