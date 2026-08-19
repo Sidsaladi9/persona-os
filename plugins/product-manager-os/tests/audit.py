@@ -118,7 +118,7 @@ if pj["name"] != mk["plugins"][0]["name"]:
 if not os.path.isdir(os.path.join(ROOT, mk["plugins"][0]["source"])):
     fail("count", "marketplace.json source path does not resolve")
 
-for doc in ("README.md", "INSTALL.md", "QUICKSTART.md", "LAUNCH.md",
+for doc in ("README.md", "INSTALL.md", "LAUNCH.md",
             "plugins/product-manager-os/README.md"):
     fp = os.path.join(ROOT, doc)
     if not os.path.isfile(fp):

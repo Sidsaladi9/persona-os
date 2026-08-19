@@ -21,7 +21,7 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
 - [ ] **Confirm bundled MCPs connect** — `claude mcp list` shows `getprompts` and `getskills` **Connected** (needs Node 18+). Zero-config public npm packages; no keys.
 - [ ] **Decide whether `dist/` ships committed** — right now it's gitignored, so a Cursor or Codex user needs Python to build their bundle. Committing it removes that step at the cost of build output in the repo.
 - [ ] **Set the repo's About + topics** — `claude-code`, `product-management`, `claude-skills`, `ai-pm`. Substack URL as the website.
-- [ ] **Record a 60-second demo** (asciinema or screen capture): install → ask "write a PRD for X" → watch a skill fire → `/tune-up` proposes one. Single highest-converting asset.
+- [ ] **Record a 60-second demo.** Shot list and the exact lines to type: [`demo/SCRIPT.md`](demo/SCRIPT.md). Build the recordable environment first — `bash demo/setup-demo-env.sh ~/demo-cadence` — it seeds an activity log so `/tune-up` actually has a pattern to find on camera. Without that, the closing shot doesn't happen.
 - [ ] **Publish the launch article** — `output/articles/product-manager-os-101-2026-08-18.md` in TPC-OS, framed as a 101 guide, **not** "Introducing X" (that framing converted 1 free sub on GetSkills).
 
 ## 1. Why this wins (positioning vs. the field)

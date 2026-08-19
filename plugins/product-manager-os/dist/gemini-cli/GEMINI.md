@@ -139,7 +139,7 @@ This OS has a `memory/` folder. It is how you stop asking the same questions eve
 - **Offer 1 — first real request, if `Status: not-started`.** *"Want to spend ~3 minutes setting me up so I stop asking the basics? Run `/setup` — or skip and I'll learn as we go."* Offer it, never force it, never block their actual request.
 - **They skip → set `Status: skipped`, bump the counter, and drop it.** Do not bring it up again on a timer. Passive capture takes over from here.
 - **Offer 2 — only when a specific gap is costing them something in the task in front of you.** Not a reminder, a diagnosis: *"I can rank these, but with no north-star metric on file I'm ranking on my guess at what matters. Tell me the metric in one line and I'll redo it — or run `/setup` for the full 3 minutes."* Name the gap, name the cost, offer the one-field fix inline. Then log it.
-- **After two offers, stop forever.** Fill memory silently through passive capture instead. The command is documented in the README and QUICKSTART; a user who wants it will run it.
+- **After two offers, stop forever.** Fill memory silently through passive capture instead. The command is documented in the README and INSTALL.md; a user who wants it will run it.
 
 **Coming back later is a first-class path, not a restart.** `/setup` resumes — it asks only what's still empty and never re-asks an answered question. `/setup status` shows what you know and what you're missing, read-only. `/setup reset` wipes back to templates (confirm first). If a user ever asks *"what do you know about me?"*, *"can I redo the setup?"*, or *"I skipped that — how do I do it now?"*, the answer is `/setup status` — say so plainly.
 

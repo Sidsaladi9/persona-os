@@ -103,8 +103,8 @@ echo
 # $REPO may be a throwaway temp dir when we were fetched by get.sh, so point at
 # the canonical URL — a path that stops existing the moment the script ends is
 # worse than no path at all.
-if [ -f "$REPO/QUICKSTART.md" ] && [ -d "$REPO/.git" ]; then
-  echo "   Full guide: $REPO/QUICKSTART.md"
+if [ -f "$REPO/INSTALL.md" ] && [ -d "$REPO/.git" ]; then
+  echo "   Full guide: $REPO/INSTALL.md"
 else
   echo "   Full guide: https://github.com/Sidsaladi9/persona-os/blob/main/INSTALL.md"
 fi
