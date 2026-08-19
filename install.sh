@@ -100,4 +100,11 @@ echo "      asking you the basics. Skip it and it resumes later; nothing is lost
 echo "   2) Just describe the work:  \"Turn this idea into a spec: ...\""
 echo
 [ -f "$SRC/.mcp.json" ] && echo "   Optional: verify the libraries with  claude mcp list  (needs Node 18+)."
-echo "   Full guide: $REPO/QUICKSTART.md"
+# $REPO may be a throwaway temp dir when we were fetched by get.sh, so point at
+# the canonical URL — a path that stops existing the moment the script ends is
+# worse than no path at all.
+if [ -f "$REPO/QUICKSTART.md" ] && [ -d "$REPO/.git" ]; then
+  echo "   Full guide: $REPO/QUICKSTART.md"
+else
+  echo "   Full guide: https://github.com/Sidsaladi9/persona-os/blob/main/INSTALL.md"
+fi
