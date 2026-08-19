@@ -4,25 +4,31 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
 
 ## 0. Pre-launch checklist
 
-- [ ] **Battle-test green** — all 40+ skills verified by the agent battle-test. No skill below the quality bar.
-- [ ] **Run the live test** — install into a clean project, run `/setup`, do a few tasks, confirm capture fires in `memory/activity-log.md`, then `/tune-up` proposes a skill. The self-improving loop is the headline claim — it has to visibly work.
-- [ ] **Create the public repo** and push:
-  ```bash
-  cd ~/Claude_Code/Projects\ /persona-os
-  gh repo create Sidsaladi9/persona-os --public --source=. --push
-  ```
-- [ ] **Confirm the repo name in all docs** — README, marketplace.json, plugin.json reference `Sidsaladi9/persona-os`. If the repo lands under a different owner/name, find-and-replace before pushing.
-- [ ] **Test both install paths on a clean machine** (see §2). This is the "100% it works" gate.
-- [ ] **Confirm bundled MCPs connect** — after install, run `claude mcp list` and verify `getprompts` and `getskills` both show **Connected** (needs Node 18+). They're zero-config public npm packages (`getprompts-mcp`, `getskills-mcp`); no keys to set.
-- [ ] **Set the repo's About + topics** on GitHub: `claude-code`, `product-management`, `claude-skills`, `ai-pm`. Add the Substack URL as the website.
-- [ ] **Add a LICENSE** (recommend MIT or CC BY 4.0 so people can fork freely — currently none committed).
-- [ ] **Record a 60-second demo** (asciinema or screen capture): install → ask "write a PRD for X" → watch a skill fire. This is the single highest-converting asset.
+**Done**
+
+- [x] **Repo is public** — `Sidsaladi9/persona-os`, MIT licensed. This launch is an *announcement*, not a publish.
+- [x] **Quality is measurable, not asserted** — 53 skills scored by `tests/run_all.py` (mean 98.5, 39 at 100, floor 85), 51 worked examples checked against their own output templates by `tests/check_all_artifacts.py`. CI fails on **regression**, not just breakage.
+- [x] **Resumable onboarding** — `/setup` · `/setup status` · `/setup reset`, with state in `memory/onboarding.md`. Skipping is a first-class path.
+- [x] **Artifacts land somewhere** — `workspace/` (projects · research · strategy · metrics · meetings · comms · decisions).
+- [x] **Failure + relevance loops** — `memory/incidents.md` (1× threshold) and `tests/relevance_report.py` feed `/tune-up`.
+- [x] **Two isolated workers** — `critic` and `researcher` in `agents/`, used by 9 skills.
+- [x] **Runs beyond Claude Code** — `scripts/build_targets.py` emits 6 bundles (Claude Code, Cowork, Codex, Cursor, Gemini CLI, generic).
+
+**Still to do before announcing**
+
+- [ ] **Run the live test** — install into a clean project, run `/setup`, do a few real tasks, confirm capture fires in `memory/activity-log.md`, then `/tune-up` proposes a skill. **The self-improving loop is the headline claim — it has to visibly work**, and nothing in CI can prove it does.
+- [ ] **Test both install paths on a clean machine** (see §2). The "100% it works" gate.
+- [ ] **Confirm bundled MCPs connect** — `claude mcp list` shows `getprompts` and `getskills` **Connected** (needs Node 18+). Zero-config public npm packages; no keys.
+- [ ] **Decide whether `dist/` ships committed** — right now it's gitignored, so a Cursor or Codex user needs Python to build their bundle. Committing it removes that step at the cost of build output in the repo.
+- [ ] **Set the repo's About + topics** — `claude-code`, `product-management`, `claude-skills`, `ai-pm`. Substack URL as the website.
+- [ ] **Record a 60-second demo** (asciinema or screen capture): install → ask "write a PRD for X" → watch a skill fire → `/tune-up` proposes one. Single highest-converting asset.
+- [ ] **Publish the launch article** — `output/articles/product-manager-os-101-2026-08-18.md` in TPC-OS, framed as a 101 guide, **not** "Introducing X" (that framing converted 1 free sub on GetSkills).
 
 ## 1. Why this wins (positioning vs. the field)
 
 The space has skill packs (Paweł Huryn's `pm-skills`, Carl Vellotti's `carls-product-os`, deanpeters, aakashg) — and, now, Anthropic's own free `product-management` plugin that overlaps a generic skill pack nearly 1:1. **Competing on skill count is a losing game against the platform vendor.** Don't. Our angle:
 
-> **The only PM toolkit that gets better the more you use it.** Not a skill pack — an OS: an operating brain, a memory that learns your product, and a self-improving loop that watches the work you repeat and builds you custom skills for it, all on your machine. Plus 40+ book-grounded skills and live connectors that write your work back to Linear/Notion/Slack. Install in 60 seconds.
+> **The only PM toolkit that gets better the more you use it.** Not a skill pack — an OS: an operating brain, a memory that learns your product, and a self-improving loop that watches the work you repeat and builds you custom skills for it, all on your machine. Plus 53 book-grounded skills — every one scored in CI, so "battle-tested" is a number you can check out and run — and live connectors that write your work back to Linear/Notion/Slack. Install in 60 seconds.
 
 Lead the launch with **"gets better the more you use it"** and **"learns your product"** — the static packs (and the free base plugin) structurally can't say either. Skill count is a footnote, not the headline.
 

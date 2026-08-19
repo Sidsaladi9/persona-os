@@ -12,7 +12,11 @@ From **The Product Channel** by Sid Saladi.
 product-manager-os/
 ├── CLAUDE.md            # The operating brain — how Claude behaves as your PM partner
 ├── .mcp.json           # Bundled getprompts + getskills MCP libraries (zero-config)
-├── skills/              # 40+ book-grounded playbooks Claude uses by intent
+├── skills/              # 53 book-grounded playbooks Claude uses by intent
+├── agents/              # critic + researcher — isolated workers, used by 9 skills
+├── workspace/           # where artifacts land: projects, research, strategy,
+│                        #   metrics, meetings, comms, decisions
+├── tests/               # the loss function: every skill scored, gated on regression
 │   │  🔍 Discovery        customer-interview · synthesize-research · opportunity-solution-tree
 │   │                      · assumption-test · triage-requests · product-brainstorm
 │   │  📊 Research/market   personas · journey-map · segmentation · market-sizing

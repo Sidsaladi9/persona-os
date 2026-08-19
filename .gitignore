@@ -1,3 +1,9 @@
 logs/
 *.log
 .DS_Store
+
+__pycache__/
+
+# dist/ is deliberately COMMITTED — see .gitattributes.
+# It's the install path for Codex/Cursor/Gemini users, who shouldn't need Python
+# to get a bundle. CI regenerates it and fails if what's committed is stale.

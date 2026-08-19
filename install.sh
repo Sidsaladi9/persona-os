@@ -1,58 +1,103 @@
 #!/usr/bin/env bash
-# Product Manager OS — file installer (no plugin marketplace required).
-# Installs the OS into a project so Claude Code loads it natively.
-# Usage:  bash install.sh [TARGET_PROJECT_DIR]   (defaults to current directory)
+# Product Manager OS — file installer. No plugin marketplace, no Python required.
+#
+#   bash install.sh                              # Claude Code, into the current dir
+#   bash install.sh ~/code/my-project            # Claude Code, into that dir
+#   bash install.sh --target cursor ~/code/app   # Cursor / Codex / Gemini / any agent
+#   bash install.sh --list                       # what targets exist
+#
+# Everything it copies is already built and committed under dist/ — this script
+# just puts the right bundle in the right place and refuses to clobber your work.
 set -euo pipefail
 
-SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/plugins/product-manager-os" && pwd)"
-TARGET="${1:-$PWD}"
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DIST="$REPO/plugins/product-manager-os/dist"
+TARGET_HOST="claude-code"
+DEST=""
 
-echo "Installing Product Manager OS"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --target) TARGET_HOST="${2:?--target needs a value}"; shift 2 ;;
+    --list)
+      echo "Targets:"
+      for d in "$DIST"/*/; do echo "  $(basename "$d")"; done
+      exit 0 ;;
+    -h|--help) sed -n '2,10p' "${BASH_SOURCE[0]}"; exit 0 ;;
+    *) DEST="$1"; shift ;;
+  esac
+done
+
+DEST="${DEST:-$PWD}"
+SRC="$DIST/$TARGET_HOST"
+
+if [ ! -d "$SRC" ]; then
+  echo "Unknown target '$TARGET_HOST'. Run: bash install.sh --list" >&2
+  exit 1
+fi
+
+echo "Installing Product Manager OS ($TARGET_HOST)"
 echo "  from: $SRC"
-echo "  into: $TARGET"
+echo "  into: $DEST"
 echo
 
-mkdir -p "$TARGET/.claude/skills" "$TARGET/.claude/commands" "$TARGET/memory"
+mkdir -p "$DEST"
 
-# --- CLAUDE.md (don't clobber an existing one) ---
-if [ -f "$TARGET/CLAUDE.md" ]; then
-  cp "$SRC/CLAUDE.md" "$TARGET/CLAUDE-product-manager-os.md"
-  echo "• You already have a CLAUDE.md — wrote the OS brain to CLAUDE-product-manager-os.md."
-  echo "  Append its contents into your CLAUDE.md (or add a line: @CLAUDE-product-manager-os.md)."
+# The operating brief — never clobber an existing one.
+ENTRY="$(ls "$SRC" | grep -E '^(CLAUDE|AGENTS|GEMINI)\.md$' | head -1)"
+if [ -f "$DEST/$ENTRY" ]; then
+  cp "$SRC/$ENTRY" "$DEST/${ENTRY%.md}-product-manager-os.md"
+  echo "• You already have $ENTRY — wrote the OS brain to ${ENTRY%.md}-product-manager-os.md."
+  echo "  Append it into yours, or reference it with: @${ENTRY%.md}-product-manager-os.md"
 else
-  cp "$SRC/CLAUDE.md" "$TARGET/CLAUDE.md"
-  echo "• CLAUDE.md → project root"
+  cp "$SRC/$ENTRY" "$DEST/$ENTRY"
+  echo "• $ENTRY → project root"
 fi
 
-# --- skills + commands (OS-owned, safe to overwrite) ---
-cp -R "$SRC/skills/." "$TARGET/.claude/skills/"
-echo "• $(find "$SRC/skills" -name SKILL.md | wc -l | tr -d ' ') skills → .claude/skills/"
-cp -R "$SRC/commands/." "$TARGET/.claude/commands/"
-echo "• $(ls -1 "$SRC/commands" | wc -l | tr -d ' ') commands → .claude/commands/"
+# Everything else the bundle ships. OS-owned dirs are safe to overwrite;
+# memory/ and workspace/ hold YOUR content, so never overwrite those.
+for item in "$SRC"/*/ "$SRC"/.claude "$SRC"/.cursor; do
+  [ -d "$item" ] || continue
+  name="$(basename "$item")"
+  case "$name" in
+    memory|workspace)
+      mkdir -p "$DEST/$name"
+      cp -Rn "$item/." "$DEST/$name/" 2>/dev/null || true
+      echo "• $name/ → seeded (your existing files left untouched)" ;;
+    *)
+      mkdir -p "$DEST/$name"
+      cp -R "$item/." "$DEST/$name/"
+      echo "• $name/ → installed" ;;
+  esac
+done
 
-# --- automations (OS-owned routines, incl. the weekly OS tune-up) ---
-mkdir -p "$TARGET/automations"
-cp -R "$SRC/automations/." "$TARGET/automations/"
-echo "• $(ls -1 "$SRC/automations"/*.md | grep -v README | wc -l | tr -d ' ') automations → automations/ (schedule with /schedule or cron)"
+for f in COMMANDS.md WORKERS.md MCP-SETUP.md; do
+  [ -f "$SRC/$f" ] && cp "$SRC/$f" "$DEST/$f" && echo "• $f → project root"
+done
 
-# --- memory (DON'T overwrite a user's filled-in memory) ---
-cp -Rn "$SRC/memory/." "$TARGET/memory/" 2>/dev/null || true
-echo "• memory templates → memory/ (existing files left untouched)"
-
-# --- .mcp.json (libraries) ---
-if [ -f "$TARGET/.mcp.json" ]; then
-  echo "• .mcp.json already exists — not overwriting. Add the libraries with:"
-  echo "    claude mcp add getprompts -- npx -y getprompts-mcp"
-  echo "    claude mcp add getskills  -- npx -y getskills-mcp"
-else
-  cp "$SRC/.mcp.json" "$TARGET/.mcp.json"
-  echo "• .mcp.json → project root (getprompts + getskills)"
+# MCP config goes where THIS host reads it, and never overwrites an existing one.
+if [ -f "$SRC/.mcp.json" ]; then
+  if [ -f "$DEST/.mcp.json" ]; then
+    echo "• .mcp.json exists — not overwriting. Add the libraries with:"
+    echo "    claude mcp add getprompts -- npx -y getprompts-mcp"
+    echo "    claude mcp add getskills  -- npx -y getskills-mcp"
+  else
+    cp "$SRC/.mcp.json" "$DEST/.mcp.json"
+    echo "• .mcp.json → project root (getprompts + getskills)"
+  fi
+elif [ -f "$SRC/.cursor/mcp.json" ] && [ ! -f "$DEST/.cursor/mcp.json" ]; then
+  mkdir -p "$DEST/.cursor"
+  cp "$SRC/.cursor/mcp.json" "$DEST/.cursor/mcp.json"
+  echo "• .cursor/mcp.json → getprompts + getskills"
 fi
 
+N_SKILLS="$(find "$SRC" -name SKILL.md | wc -l | tr -d ' ')"
 echo
-echo "✅ Done. Open this project in Claude Code, then:"
-echo "   1) run  /setup  — a 3-min guided onboarding that fills your memory"
-echo "      (or fill memory/product.md, team.md, strategy.md, house-style.md by hand)"
-echo "   2) verify libraries:  claude mcp list"
-echo "      (if your org blocks MCP, skip — the 40+ skills still work)"
-echo "   3) just ask, e.g.:  \"Turn this idea into a spec: ...\""
+echo "✅ Done — $N_SKILLS skills installed for $TARGET_HOST."
+echo
+echo "   1) Open this project in your agent, then run  /setup  (or just ask it to"
+echo "      \"set me up\") — a 3-minute onboarding that fills memory/ so it stops"
+echo "      asking you the basics. Skip it and it resumes later; nothing is lost."
+echo "   2) Just describe the work:  \"Turn this idea into a spec: ...\""
+echo
+[ -f "$SRC/.mcp.json" ] && echo "   Optional: verify the libraries with  claude mcp list  (needs Node 18+)."
+echo "   Full guide: $REPO/QUICKSTART.md"

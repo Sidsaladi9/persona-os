@@ -1,0 +1,172 @@
+name: Skills
+
+# Two gates, both graded rather than pass/fail:
+#   1. Every SKILL.md is scored 0-100 and must not regress against tests/baseline.json
+#   2. Every worked example is checked against the output template its skill promises
+#
+# The point is not a green badge. It's that editing a skill moves a number, and the
+# number is committed, so a quality regression shows up in the diff like any other bug.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  score:
+    name: Score skills (loss function + regression gate)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: plugins/product-manager-os
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Score every skill
+        run: python3 tests/run_all.py --check
+
+      - name: Check every worked example against its output template
+        run: python3 tests/check_all_artifacts.py
+
+      - name: Confirm the worked-examples document is current
+        run: python3 tests/build_sample_outputs.py --check
+
+      - name: Confirm the committed scoreboard is current
+        run: |
+          python3 tests/run_all.py > /dev/null
+          if ! git diff --quiet -- tests/RESULTS.md ../../README.md; then
+            echo "::error::The scoreboard or the README badge is stale. Run 'python3 tests/run_all.py' and commit the result."
+            git --no-pager diff -- tests/RESULTS.md ../../README.md
+            exit 1
+          fi
+
+  manifest:
+    name: Validate manifests and skill wiring
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Manifests parse
+        run: |
+          python3 -c "import json; json.load(open('.claude-plugin/marketplace.json'))"
+          python3 -c "import json; json.load(open('plugins/product-manager-os/.claude-plugin/plugin.json'))"
+          python3 -c "import json; json.load(open('plugins/product-manager-os/.mcp.json'))"
+
+      - name: Skill count in plugin.json matches what ships
+        working-directory: plugins/product-manager-os
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          n = sum(1 for d in os.listdir('skills')
+                  if os.path.isfile(os.path.join('skills', d, 'SKILL.md')))
+          desc = json.load(open('.claude-plugin/plugin.json'))['description']
+          m = re.search(r'Ships (\d+) battle-tested skills', desc)
+          assert m, "plugin.json description must state 'Ships N battle-tested skills'"
+          claimed = int(m.group(1))
+          assert claimed == n, f"plugin.json claims {claimed} skills, {n} ship"
+          print(f"OK — {n} skills, manifest agrees")
+          PY
+
+      - name: Subagents are well-formed and every reference resolves
+        working-directory: plugins/product-manager-os
+        run: |
+          python3 - <<'PY'
+          import os, re
+          agents = {}
+          for fn in sorted(os.listdir('agents')):
+              if not fn.endswith('.md'):
+                  continue
+              txt = open(os.path.join('agents', fn), encoding='utf-8').read()
+              m = re.match(r'^---\n(.*?)\n---\n(.*)$', txt, re.S)
+              assert m, f"agents/{fn}: no frontmatter"
+              fm = dict(re.findall(r'^(\w+):\s*(.+)$', m.group(1), re.M))
+              assert fm.get('name') == fn[:-3], f"agents/{fn}: name must match filename"
+              assert len(fm.get('description', '')) >= 80, f"agents/{fn}: description too thin"
+              assert len(m.group(2).split()) >= 300, f"agents/{fn}: body too thin to be a real brief"
+              agents[fm['name']] = 0
+          # every subagent a skill references must exist, and every subagent must be used
+          for d in sorted(os.listdir('skills')):
+              f = os.path.join('skills', d, 'SKILL.md')
+              if not os.path.isfile(f):
+                  continue
+              for ref in re.findall(r'`(\w+)` subagent', open(f, encoding='utf-8').read()):
+                  assert ref in agents, f"skills/{d} references unknown subagent '{ref}'"
+                  agents[ref] += 1
+          unused = [a for a, n in agents.items() if n == 0]
+          assert not unused, f"subagents defined but never referenced: {unused}"
+          print("OK — " + ", ".join(f"{a} ({n} skills)" for a, n in agents.items()))
+          PY
+
+      - name: Every skill is listed in CLAUDE.md
+        working-directory: plugins/product-manager-os
+        run: |
+          python3 - <<'PY'
+          import os
+          brain = open('CLAUDE.md', encoding='utf-8').read()
+          skills = sorted(d for d in os.listdir('skills')
+                          if os.path.isfile(os.path.join('skills', d, 'SKILL.md')))
+          missing = [s for s in skills if f'`{s}`' not in brain]
+          if missing:
+              raise SystemExit("not listed in CLAUDE.md: " + ", ".join(missing))
+          print(f"OK — all {len(skills)} skills are reachable from the brain")
+          PY
+
+  targets:
+    name: Multi-agent bundles build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build every target
+        working-directory: plugins/product-manager-os
+        run: python3 scripts/build_targets.py
+
+      - name: Committed bundles match a fresh build
+        run: |
+          if ! git diff --quiet -- plugins/product-manager-os/dist; then
+            echo "::error::dist/ is stale. Run 'python3 scripts/build_targets.py' from plugins/product-manager-os and commit."
+            git --no-pager diff --stat -- plugins/product-manager-os/dist
+            exit 1
+          fi
+          echo "dist/ is current"
+
+      - name: Each bundle has its entry file, its skills, and no wrong-host branding
+        working-directory: plugins/product-manager-os
+        run: |
+          python3 - <<'PY'
+          import os, sys
+          sys.path.insert(0, 'scripts')
+          from build_targets import TARGETS
+          bad = []
+          for t, cfg in TARGETS.items():
+              d = os.path.join('dist', t)
+              entry = os.path.join(d, cfg['entry'])
+              skills = os.path.join(d, cfg['skills_dir'])
+              if not os.path.isfile(entry):
+                  bad.append(f"{t}: missing {cfg['entry']}"); continue
+              n = len([x for x in os.listdir(skills)
+                       if os.path.isdir(os.path.join(skills, x))]) if os.path.isdir(skills) else 0
+              if n == 0:
+                  bad.append(f"{t}: no skills in {cfg['skills_dir']}")
+              # a non-Claude bundle must not tell the user to talk to Claude
+              if t not in ('claude-code', 'claude-cowork'):
+                  txt = open(entry, encoding='utf-8').read()
+                  if 'Claude Code' in txt:
+                      bad.append(f"{t}: entry file still says 'Claude Code'")
+              print(f"OK — {t}: {cfg['entry']}, {n} skills")
+          if bad:
+              raise SystemExit("\n".join(bad))
+          PY

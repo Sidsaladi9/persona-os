@@ -1,18 +1,26 @@
 Run the weekly OS tune-up. This is how the Product Manager OS improves itself from the work I actually do. Be concise and **never apply anything without my explicit yes** — you only propose.
 
-## 1. Read the signal
-Read `memory/activity-log.md` (the `## Log` section only — ignore the example block) and `memory/os-suggestions.md` (so you don't re-propose something already pending or rejected).
+## 1. Read the three signals
+- **`memory/incidents.md`** → the `## Open` section. Every open incident gets a proposal at **1×**, before anything else. A defect that produced unusable output does not need to repeat to be worth fixing.
+- **`memory/activity-log.md`** → the `## Log` section only (ignore the example block), for 3× patterns.
+- **`python3 tests/relevance_report.py`** → skills whose artifacts are never referenced or revisited after they're written.
 
-If the log has fewer than ~5 real entries, say so and stop — there isn't enough signal yet. Don't invent patterns.
+Also read `memory/os-suggestions.md` so you don't re-propose something already pending or rejected.
 
-## 2. Detect patterns (threshold: 3×)
-Look only for these, and only when they repeat **3 or more times**:
+If there are no open incidents, fewer than ~5 real log entries, and no relevance flags, say so and stop — there isn't enough signal yet. Don't invent patterns.
 
+## 2. Detect, at the threshold that fits each source
+
+**At 1× — incidents.** Every open incident. Route the fix by its root cause: skill defect → edit the skill; missing input → add it to that skill's `inputs:`; stale fact → fix the memory file; wrong tier → fix the frontmatter. **If the same root cause appears under two different skills, the problem is in `CLAUDE.md`** — call that out first, it's the most valuable thing you'll find all week.
+
+**At 3× — behaviour patterns.** Only when they genuinely repeat:
 - **Missing skill** — the same *kind of job* done with `skill: none` 3+ times. (e.g. three hand-rolled launch emails.)
 - **Skill needs tuning** — the same skill with the *same correction* 3+ times. (e.g. `prioritize` + "changed RICE weights" three times.)
-- **Stale/contradicted memory** — a knowledge file that the recent work shows is now wrong (only if obvious).
+- **Stale/contradicted memory** — a knowledge file that recent work shows is wrong (only if obvious).
 
-Be ruthless: a vague resemblance is not a pattern. If nothing clears 3×, report "nothing to propose this week" and stop.
+**At ≥3 artifacts, ≥2/3 dead — relevance.** A skill that runs and produces things nobody revisits. Propose a change to *what* it produces or *when* it fires, not a new skill — it's usually a wrong output template or a wrong tier.
+
+Be ruthless on the 3× rules: a vague resemblance is not a pattern. Be the opposite on incidents — those are already evidence.
 
 ## 3. Anti-bloat check (required before proposing a new skill)
 For each missing-skill candidate, search `skills/` for the nearest existing skill. **Prefer tuning or extending an existing skill over creating a new one.** Only propose a brand-new skill if no existing skill reasonably covers the job. State the nearest skill and why it's not a fit.
