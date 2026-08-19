@@ -31,6 +31,8 @@ Ask for anything missing before planning — don't guess capacity.
 - **Recurring overhead** — standing meetings, ceremonies, support rotations per person.
 
 ## Process
+
+**Ask before you plan.** Ask 2-4 questions and wait for the answers: *"What's carrying over from last sprint?"* · *"Who's out, and for how long?"* · *"What's the one outcome that makes this sprint worth running?"* · *"Anything already committed to a date?"* Planning a sprint on assumed capacity is the single most reliable way to miss it. If `workspace/projects/` holds last sprint, read it first and state what you took from it.
 1. **Compute realistic capacity.** For each person, subtract overhead first, then take the buffer off what's left — the **20% buffer is 20% of the subtotal AFTER subtracting PTO/holidays, meetings, and on-call**, not 20% of raw working days. Formula: `Available = (working days − meetings − PTO/holidays − on-call) × 0.8`. The buffer absorbs interrupts, reviews, and the unknown. Sum each person's Available to a team total. This number, not the calendar, is your budget.
 2. **Set ONE sprint goal.** A single sentence stating the outcome and why it matters — not a list of tickets. If you can't name one goal, the sprint isn't scoped yet.
 3. **Rank against the goal.** Tag each item **P0** (goal fails without it), **P1** (high value, goal survives without it), or **Stretch** (nice if time remains). Carryover competes on the same ranking — it is not auto-committed.
@@ -80,6 +82,14 @@ _Committed total: [Xd] / [capacity Yd]_
 - [ ] Every committed item has exactly **one** owner; no person is overloaded.
 - [ ] Carryover is explicitly re-ranked, not silently rolled in.
 - [ ] Dependencies and risks each have an owner and a mitigation.
+
+## Avoid (anti-patterns)
+- **Planning to 100% capacity.** Interrupts, support, and review are real work. A sprint planned to full capacity is a sprint that misses.
+- **Ignoring carryover.** Unfinished work from last sprint is committed capacity, not a bonus. Count it first, then plan what's left.
+- **A sprint goal that's a list.** "Ship A, B, and C" is not a goal. The goal is the outcome that makes the sprint worth running, and it survives dropping C.
+- **Stories with no acceptance criteria.** They will be re-litigated at review, in front of stakeholders, at the worst possible moment.
+- **No PTO or holiday check.** The single most common cause of a missed sprint, and the easiest to catch.
+- **Pulling in the biggest unknown.** If an item can't be estimated, the sprint's job is to spike it, not to commit to it.
 
 ## Tips
 - **Never plan to 100%.** Buffered capacity is the real ceiling — full calendars always overrun.

@@ -29,7 +29,10 @@ Installed as a plugin, the skills and commands load from the plugin cache but **
 2. **If it doesn't**, say one line — *"Setting up the OS in this folder — one moment"* — then create:
    - `memory/` seeded with `MEMORY.md`, `product.md`, `team.md`, `strategy.md`, `preferences.md`, `house-style.md`, `onboarding.md`, `activity-log.md`, `os-suggestions.md`, `incidents.md`
    - `workspace/` with `projects/ research/ strategy/ metrics/ meetings/ comms/ decisions/`
-   Copy them from `${CLAUDE_PLUGIN_ROOT}/memory/` and `${CLAUDE_PLUGIN_ROOT}/workspace/` if that path resolves. If it doesn't, write the template files yourself — the structure and the guidance headers matter more than matching the originals byte for byte.
+   - `automations/` — the schedulable routines, since this file points the user at `automations/README.md`
+   - `tests/` — `relevance_report.py`, `score_skill.py`, `run_all.py`, `check_artifact.py`, `index_workspace.py`. **These are not dev tooling.** `/tune-up` runs the relevance report, `skill-creator` tells the user to score what they wrote, and `workspace/README.md` tells them to regenerate the index. Without them those instructions fail.
+
+   Copy all four from `${CLAUDE_PLUGIN_ROOT}/` if that path resolves. If it doesn't, write the memory and workspace templates yourself — the structure and guidance headers matter more than matching byte for byte — and tell the user plainly that `automations/` and `tests/` weren't available, rather than referring them to scripts that aren't there.
 3. **Then answer what they actually asked**, and offer onboarding once at the end. Never make setup the price of a first answer.
 
 **Check the folder makes sense.** If the working directory looks like a wrong place to keep months of product context — `~`, `~/Downloads`, `/tmp`, a system path — say so in one line and suggest a dedicated folder before writing anything. A PM who doesn't write code often has no habit of "opening a project," and quietly scattering their strategy docs across `~/Downloads` is a bad first experience.

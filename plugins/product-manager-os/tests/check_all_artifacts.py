@@ -20,6 +20,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from score_skill import find_skills_dir  # noqa: E402
 EXAMPLES = os.path.join(ROOT, "examples", "cadence")
 MIN_CONFORMANCE = 70.0
 MIN_DENSITY = 25.0
@@ -33,8 +35,9 @@ EXEMPT = {
 
 
 def main():
-    skills = sorted(d for d in os.listdir(os.path.join(ROOT, "skills"))
-                    if os.path.isfile(os.path.join(ROOT, "skills", d, "SKILL.md")))
+    sdir = find_skills_dir(ROOT)
+    skills = sorted(d for d in os.listdir(sdir)
+                    if os.path.isfile(os.path.join(sdir, d, "SKILL.md")))
     rows, failures, skipped = [], [], []
 
     for skill in skills:

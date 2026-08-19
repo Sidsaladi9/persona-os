@@ -149,6 +149,15 @@ Before delivering, verify every box:
 - [ ] A reviewer reading only the TL;DR understands what's being built and why.
 - [ ] No implementation details masquerading as requirements (the "how" is left to eng).
 
+## Avoid (anti-patterns)
+- **A goal with no metric.** "Improve the onboarding experience" is a wish. If you can't name the number and the target, it's not a goal and reviewers can't hold you to it.
+- **Non-goals left blank.** This is the section that saves you three scope arguments later. Empty non-goals means every reviewer imagines a different v1.
+- **Requirements written as adjectives.** "Fast", "intuitive", "seamless" are untestable. "Loads in under 400ms at p95" is a requirement.
+- **Solution before problem.** If the Problem section describes a missing feature rather than a user's cost, you specced the answer and skipped the question.
+- **Acceptance criteria that restate the requirements.** They should describe an observable outcome someone could verify without reading your mind.
+- **Success metrics with no measurement plan.** A target nobody has instrumented is a target nobody will report on. Run `tracking-plan` before you ship.
+- **Phasing that's really a wish list.** If Phase 2 has no trigger and no owner, it's not deferred — it's abandoned, and you should say so in Non-goals instead.
+
 ## Tips
 - **Write non-goals before goals.** Naming what you won't do is the fastest path to real scope.
 - **One-pager before full PRD.** Get alignment on TL;DR + goals + non-goals first; expand only after reviewers nod.

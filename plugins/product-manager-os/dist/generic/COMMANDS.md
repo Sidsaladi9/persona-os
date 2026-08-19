@@ -99,7 +99,7 @@ Run onboarding for the Product Manager OS. Goal: fill `memory/` so every future 
 they should never have to re-answer something they already answered.
 
 ## Step 0 — make sure the folders exist
-Before any questions: if `memory/MEMORY.md` doesn't exist in the working directory, create `memory/` and `workspace/` first (see the first-run section in `CLAUDE.md`). On a plugin install nothing is created in the user's project, so this is the common case, not the edge case. Do it quietly — one line, not a report.
+Before any questions: if `memory/MEMORY.md` doesn't exist in the working directory, create `memory/`, `workspace/`, `automations/`, and `tests/` first (see the first-run section in `CLAUDE.md`). On a plugin install nothing is created in the user's project, so this is the common case, not the edge case. Do it quietly — one line, not a report.
 
 If the working directory looks wrong for months of product context (`~`, `~/Downloads`, `/tmp`), ask where they'd like it before writing anything.
 

@@ -9,6 +9,8 @@ outputs: projects/<project>/visuals/<artifact>.html
 
 # Visualize
 
+**Grounded in:** *The Visual Display of Quantitative Information* — Edward Tufte: maximise the data-ink ratio and let the structure of the data pick the form. The rule that does the work here — a PM artifact is usually a **comparison**, a **ranking**, or a **sequence**, and each has one obvious right shape. A RICE table is a ranking, a Now/Next/Later board is a sequence, an OKR tree is a hierarchy. Match the form to the structure and the visual needs almost no decoration.
+
 Turns the structured output of a PM skill into a **single self-contained HTML file** — no server, no build, no external fonts or CDNs — that opens in any browser and is built to be screenshotted into a deck, a Slack post, or a doc. Text artifacts inform; a clean visual *persuades* and travels. This is the skill that makes the work shareable.
 
 It renders five PM artifacts, each with a purpose-built layout:

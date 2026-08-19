@@ -1,7 +1,7 @@
 # Persona OS — by The Product Channel
 
 [![Skills](https://github.com/Sidsaladi9/persona-os/actions/workflows/skills.yml/badge.svg)](https://github.com/Sidsaladi9/persona-os/actions/workflows/skills.yml)
-[![Skills scored](https://img.shields.io/badge/53%20skills-mean%2098.5%2F100-2ea44f)](plugins/product-manager-os/tests/RESULTS.md)
+[![Skills scored](https://img.shields.io/badge/53%20skills-mean%20100.0%2F100-2ea44f)](plugins/product-manager-os/tests/RESULTS.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 **Drop-in operating systems for knowledge workers.** Each "OS" turns Claude Code into a senior partner for one role — an operating brain, a memory that learns you, 53 book-grounded skills, and automations for your weekly work.
@@ -86,7 +86,7 @@ It works with **zero connected accounts** — paste your data and go. Connect yo
 
 Every skill is **scored, not vibe-checked**. `tests/score_skill.py` grades each `SKILL.md` out of 100 across six dimensions; `tests/check_all_artifacts.py` then checks a real produced artifact against the output template that skill promised. Both run in CI, and CI fails when a score goes **down**, not just when a file breaks.
 
-Current: **53 skills · mean 98.5 · 39 at 100 · floor 85** — [see the scoreboard](plugins/product-manager-os/tests/RESULTS.md).
+Current: **53 skills · all 53 at 100/100** — [see the scoreboard](plugins/product-manager-os/tests/RESULTS.md).
 
 That's the difference between "battle-tested" as a claim and as something you can check out and run.
 

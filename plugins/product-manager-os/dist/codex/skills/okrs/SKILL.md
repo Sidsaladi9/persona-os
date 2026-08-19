@@ -35,6 +35,8 @@ OKRs work when the Objective says *where we're going and why it matters*, and th
 Ask for anything missing before drafting. Don't invent baselines or targets.
 
 ## Process
+
+**Ask before you draft.** Ask 2-4 questions and wait: *"What's the strategic bet this quarter has to advance?"* · *"What's the baseline for each metric you'd want to move?"* · *"Which of these are you committing to vs. aspiring to?"* · *"What's the guardrail you must not break while chasing this?"* Drafting OKRs without baselines produces targets nobody can score. If the numbers are in `workspace/metrics/`, read them and state what you used.
 1. **Anchor up.** Restate the higher-level objective/strategy this serves. Every KR you propose should be a believable contributor to it.
 2. **Draft the Objective.** Write the qualitative, inspiring "where we're going and why." Make it memorable and time-bound. Strip out any numbers.
 3. **Derive 3 outcome KRs.** For each, name a metric, its baseline, its target, and its data source. Ask of each: *if this number moves, did the world actually change for a user or the business?* If not, it's an output — rewrite it.

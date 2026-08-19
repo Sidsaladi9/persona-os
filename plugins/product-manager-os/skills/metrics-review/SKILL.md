@@ -103,6 +103,14 @@ Before you hand off the scorecard, confirm:
 - [ ] **Status thresholds stated** — the reader knows what 🟡 vs 🔴 means here.
 - [ ] **2–3 priorities, not ten** — the review ends in a decision, not a backlog. (This caps *findings*, not table rows — one red may need both an investigate- and a build-row.)
 
+## Avoid (anti-patterns)
+- **A number with no comparison.** 27% is neither good nor bad. Against last week, against the target, against the cohort's own baseline — that's a finding.
+- **Reading a week-over-week move as a trend.** Most weekly noise is noise. Say how much movement would be surprising before you interpret the movement you got.
+- **Averages hiding the segments.** A flat overall metric routinely conceals one segment collapsing and another growing. Cut before you conclude.
+- **Explaining a change you haven't verified is real.** The first question is "did this actually move?", not "why did it move?". Tracking bugs look exactly like behaviour changes.
+- **Reporting metrics nobody owns.** A number with no owner produces no action, and it will be on the deck again next month unchanged.
+- **Burying the bad one.** The metric you'd rather not lead with is the one the room needs first.
+
 ## Tips
 - **Beware vanity metrics.** Total signups, pageviews, and registered users feel good and move nothing. Prefer rates and per-user metrics (activation %, retention %, ARPU, NRR) that are robust to growth and survive scaling.
 - **Always compare to a baseline.** A number alone is uninterpretable. Prior period answers "is this changing?"; target answers "is this good?". Show both whenever you can.

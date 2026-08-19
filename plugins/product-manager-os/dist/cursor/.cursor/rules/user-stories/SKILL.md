@@ -86,6 +86,20 @@ so that [outcome].
 2. [story] — [why next: unblocks X / highest value]
 3. [story] — ...
 
+
+## Worked example (the split that matters)
+An epic arrives as *"bulk CSV export."* The lazy split is by layer — backend story, frontend story, QA story — which produces three stories none of which ship value alone.
+
+The useful split is by **thin vertical slice**, each independently shippable:
+
+1. *As an ops manager, I want to export the current filtered view as CSV, so I can hand my director numbers without asking data for a pull.* — one view, ≤1,000 rows, synchronous download.
+2. *As an ops manager, I want exports over 1,000 rows to arrive by email, so a big export doesn't time out in my browser.*
+3. *As an ops manager, I want my last export's filters remembered, so the Monday report takes one click.*
+
+Story 1 alone is worth shipping. That's the test: if a story can't be released on its own and be worth something, it's a task, not a story.
+
+Notice the "so that" clauses — each names a real outcome, not a restatement of the action. *"so that I can export a CSV"* is the tell that the value wasn't understood.
+
 ## Avoid (anti-patterns)
 - **Horizontal / technical-layer stories** — "build the API," "create the schema," "wire up the service." They deliver no user value alone. Slice vertically. *Exception:* a detection/eval-only story for an ML or quality-bar feature — verified against an eval set with no UI — is not a horizontal layer; the measured accuracy is real, demonstrable value and is a valid first slice.
 - **Untestable acceptance criteria** — "works well," "is fast," "is intuitive." If you can't write a pass/fail check, rewrite it as Given/When/Then.

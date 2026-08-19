@@ -41,6 +41,8 @@ Get these, or ask sharp questions until you have them — thin inputs produce a 
 If the advantage or the crux is vague, stop and interrogate it — a strategy built on "we're just better" or "we'll out-execute" is fiction.
 
 ## Process
+
+**Ask before you write.** Strategy starts with a diagnosis, and you cannot diagnose from the outside. Ask 2-4 questions and wait: *"What's actually in the way — the honest version?"* · *"What have you already tried that didn't work?"* · *"What can you not change: budget, headcount, platform, timing?"* · *"What would you have to believe for this to be the right bet?"* If `memory/` and `workspace/strategy/` already carry this, skip the questions and open with an explicit Assumptions block so they can correct it in one line.
 1. **Write the diagnosis.** Name the situation and the *crux* — the one critical challenge that, if solved, unlocks the goal. Be specific and uncomfortable. Strip away noise to the essential difficulty.
 2. **Define the vision.** Where are we going and why does it matter? The future state if we win. One or two sentences, concrete, not slogan-y. Keep the vision outcome-focused and defer the competitive *mechanism* to how-to-win — so the vision doesn't duplicate how-to-win.
 3. **Where to play.** Which segments, customers, use cases, geographies, channels? Equally important: which ones we're explicitly NOT serving. Narrow is a feature.

@@ -39,6 +39,8 @@ Scale audience, channels, timeline, assets, and metrics to the tier. When unsure
 Ask for anything missing before drafting — don't invent a date, an owner, or a metric.
 
 ## Process
+
+**Ask before you plan.** Ask 2-4 sharp questions first: *"What date is real, and what's driving it?"* · *"Which segment is this launch for — and who is it explicitly not for?"* · *"What has to be true for us to launch at all?"* · *"What's the one thing that would make us delay?"* A launch plan built on an assumed date and an assumed audience is a checklist, not a plan. Where `workspace/strategy/` already answers these, open with an Assumptions block.
 1. **Set the tier.** Classify T1/T2/T3 by impact and state why. This caps scope.
 2. **Define audience + core message + proof.** Who it's for, the single core message (problem → what changed → why they should care), and the proof (data, demo, customer quote, before/after).
 3. **Choose channels.** Pick only channels that fit the tier and reach the audience: changelog, in-app, email, blog, social, docs, sales deck, webinar, press/analyst, community. Don't default to "all."

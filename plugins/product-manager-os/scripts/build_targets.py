@@ -174,6 +174,31 @@ def build(target):
         shutil.copytree(os.path.join(ROOT, "commands"), os.path.join(out, cfg["commands"]))
         n_cmds = len([f for f in os.listdir(os.path.join(ROOT, "commands")) if f.endswith(".md")])
 
+    # automations travel with every target — CLAUDE.md points at automations/README.md,
+    # and a brief that references a folder the user doesn't have is a broken promise.
+    shutil.copytree(os.path.join(ROOT, "automations"), os.path.join(out, "automations"))
+
+    # The user-facing tools. These are NOT dev tooling: skill-creator tells the user
+    # to score a new skill, /tune-up runs the relevance report, and workspace/README
+    # tells them to regenerate the index. Ship what they're told to run.
+    tools_dst = os.path.join(out, "tests")
+    os.makedirs(tools_dst, exist_ok=True)
+    USER_TOOLS = ("score_skill.py", "run_all.py", "check_artifact.py",
+                  "relevance_report.py", "index_workspace.py")
+    for tool in USER_TOOLS:
+        shutil.copy2(os.path.join(ROOT, "tests", tool), os.path.join(tools_dst, tool))
+    open(os.path.join(tools_dst, "README.md"), "w", encoding="utf-8").write(
+        "# Tools\n\n"
+        "Scripts the OS actually asks you to run. Plain Python 3, no dependencies.\n\n"
+        "| Command | When |\n|---|---|\n"
+        "| `python3 tests/relevance_report.py` | Which artifacts you never opened again. `/tune-up` runs it. |\n"
+        "| `python3 tests/score_skill.py skills/<name>/SKILL.md` | After writing a skill with `skill-creator`. Ship at 100. |\n"
+        "| `python3 tests/run_all.py` | Score every skill you have, including your own. |\n"
+        "| `python3 tests/check_artifact.py --skill <name> <file>` | Does a produced artifact match what the skill promised? |\n"
+        "| `python3 tests/index_workspace.py` | Regenerate `workspace/INDEX.md`. |\n\n"
+        "The full suite — including the CI gates and the worked-example checks — lives in "
+        "[the repo](https://github.com/Sidsaladi9/persona-os/tree/main/plugins/product-manager-os/tests).\n")
+
     # memory + workspace scaffolding travel with every target
     shutil.copytree(os.path.join(ROOT, "memory"), os.path.join(out, "memory"))
     ws_src, ws_dst = os.path.join(ROOT, "workspace"), os.path.join(out, "workspace")
@@ -249,7 +274,7 @@ overwritten on the next build.
 - **{n_skills} skills** in `{cfg['skills_dir']}/`
 - **Operating brief:** `{cfg['entry']}`
 - **Workflows:** {'`COMMANDS.md` (invoke by name)' if cfg['commands'] == 'inline' else f'`{cfg["commands"]}/` ({n_cmds} slash commands)'}
-- **Memory:** `memory/` · **Workspace:** `workspace/`
+- **Memory:** `memory/` · **Workspace:** `workspace/` · **Automations:** `automations/` · **Tools:** `tests/`
 - **Workers:** {agents_note}
 - **Bundled libraries:** {mcp_note}
 

@@ -20,8 +20,14 @@ Every other skill in this OS produces a generic-but-solid format by default. Thi
 - Onboarding the OS for a new team with its own conventions.
 
 ## Before you start (gather these)
-- Ideally **a sample**: paste a representative doc (a PRD, an update, a launch plan) or a brand/style guide. One good example beats a long questionnaire.
-- If you have no sample, this skill will ask a short set of questions instead.
+
+Format is learned from an example, never asked cold. Get one of these in hand:
+- **A real document the company published** — a shipped PRD, a launch update, a board memo. The more recent and the more "normal" it is, the better; a showpiece teaches you the exception.
+- **The audience it was written for** — an exec memo and a team update follow different rules, and merging them produces a style that fits neither.
+- **Anything already written down** — a style guide, a brand doc, a template someone maintains. Even a stale one tells you what they *think* the rules are.
+- **The terminology that matters** — what they call their users, their teams, their releases. Getting "teams" vs "customers" wrong is the fastest way to sound external.
+
+One good sample beats a description of the style. If they offer to describe it instead, ask for the document anyway — people describe the style they intend, not the one they write.
 
 ## Process
 1. **Ingest the sample(s).** If the user pastes a doc, read it as evidence — don't ask what you can observe.

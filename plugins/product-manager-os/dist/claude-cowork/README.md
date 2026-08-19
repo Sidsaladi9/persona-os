@@ -7,7 +7,7 @@ overwritten on the next build.
 - **53 skills** in `skills/`
 - **Operating brief:** `CLAUDE.md`
 - **Workflows:** `commands/` (8 slash commands)
-- **Memory:** `memory/` · **Workspace:** `workspace/`
+- **Memory:** `memory/` · **Workspace:** `workspace/` · **Automations:** `automations/` · **Tools:** `tests/`
 - **Workers:** `agents/` (critic + researcher)
 - **Bundled libraries:** `.mcp.json` — loads automatically
 

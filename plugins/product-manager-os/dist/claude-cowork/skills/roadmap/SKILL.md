@@ -30,6 +30,8 @@ A roadmap is a statement of intent, not a delivery contract. Its job is to commu
 If any of these are missing, ask before proceeding — especially the strategic themes and capacity. A roadmap without themes is just a backlog with optimistic dates.
 
 ## Process
+
+**Ask before you draft.** A roadmap is a set of refusals, and you cannot make them for someone else. Ask 2-4 clarifying questions and wait: *"What's the strategic bet this roadmap has to advance?"* · *"What's actually committed vs. still a direction?"* · *"What's the team's real capacity — and what's carrying over?"* · *"What are you willing to take off to make room?"* If `workspace/strategy/` already answers these, skip the questions and open with an explicit Assumptions block instead.
 1. **Anchor to strategic themes first.** List the 2-4 outcomes you're driving toward (e.g. "reduce activation drop-off," "land enterprise-ready security," not "ship SSO"). Every roadmap item must trace to one. If an item traces to none, it's a candidate for the parking lot.
 2. **Restate items as outcomes, not features.** "SSO + audit logs" becomes "Unblock enterprise deals stuck on security review." This keeps the conversation on *why* and lets you swap the *how* later without re-litigating priority.
 3. **Place items in Now / Next / Later by confidence × value.** **Now** = committed, in-flight or starting, high confidence on both the problem and the approach. **Next** = strong intent, sequenced, but details may shift. **Later** = directional bets; deliberately fuzzy. Resist the urge to overload "Now" — capacity is the constraint, not ambition.
@@ -83,6 +85,14 @@ Strategic themes this period:
 - [ ] Dependencies are flagged on every Now/Next item.
 - [ ] "Later" is allowed to be fuzzy — no fake owners or dates forced onto it.
 - [ ] "Changes this update" explains *why* each move happened, not just *what* moved.
+
+## Avoid (anti-patterns)
+- **Dates on things you haven't scoped.** A quarter attached to an unspecced item is a promise you'll break in public. Now/Next/Later exists precisely to avoid this.
+- **A roadmap that's a feature list.** If every row is a thing to build rather than an outcome to move, you've published a backlog and called it strategy.
+- **Everything in Now.** If the current column has nine items, nothing is prioritized. A roadmap that doesn't say no isn't doing its job.
+- **Silent removals.** Taking something off without saying so is how stakeholders stop trusting the artifact. Every drop needs a line and a reason.
+- **No capacity check.** A Now column that exceeds what the team can actually deliver isn't a plan, it's a wish with a header.
+- **Confusing the roadmap with the commitment.** Later is a direction, not a promise. Say that on the artifact itself, or someone will quote it back to you.
 
 ## Tips
 - **A roadmap is a statement of intent, not a contract.** Say this to stakeholders explicitly. Confidence decreases as you move right; communicate that, don't hide it.

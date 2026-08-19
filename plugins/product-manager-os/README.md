@@ -4,7 +4,7 @@ A complete operating system for product managers. It turns your AI assistant int
 
 The part nothing else has: **it gets better the more you use it.** It watches the work you repeat and offers to build you a custom skill for it, drafted from how *you* did it.
 
-**53 skills · mean score 98.5/100 · [see the scoreboard](tests/RESULTS.md)** — every skill is graded in CI, and CI fails when a score goes *down*.
+**53 skills, every one scoring 100/100 · [see the scoreboard](tests/RESULTS.md)** — every skill is graded in CI, and CI fails when a score goes *down*.
 
 From **The Product Channel** by Sid Saladi. MIT.
 

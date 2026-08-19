@@ -128,6 +128,14 @@ Research mode: [live web search / user-provided only / mixed]
 - [ ] Unknowns are flagged as unknowns (—), not papered over.
 - [ ] It ends with a **recommendation and owners** — not just a comparison table.
 
+## Avoid (anti-patterns)
+- **A feature grid.** It always concludes you're ahead, because you chose the rows. Compare on the value customers actually weigh.
+- **Built from their marketing site.** Their site describes their ambition. Your lost deals describe their product — start there.
+- **No honest weakness.** A brief with no place you lose is a brief nobody in sales will trust, and they'll go back to improvising.
+- **Analysis with no decision attached.** If it doesn't change positioning, pricing, or the roadmap, it's a reading exercise. State the decision it informs up front.
+- **Treating "no decision" as not a competitor.** Inertia wins more deals than any named rival and is systematically under-recorded.
+- **Stale by default.** Competitive facts rot in weeks. Date it and set a review, or it will be confidently wrong.
+
 ## Tips
 - **Date every data point.** "Pricing as of [date]" is the difference between a brief that ages gracefully and one that gets someone fired in a deal.
 - **Competitors change fast.** A brief is a snapshot, not a monument — note when it should be re-pulled, and re-verify before any high-stakes use (board deck, big deal).

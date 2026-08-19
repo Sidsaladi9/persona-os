@@ -7,7 +7,7 @@ overwritten on the next build.
 - **53 skills** in `.cursor/rules/`
 - **Operating brief:** `AGENTS.md`
 - **Workflows:** `COMMANDS.md` (invoke by name)
-- **Memory:** `memory/` · **Workspace:** `workspace/`
+- **Memory:** `memory/` · **Workspace:** `workspace/` · **Automations:** `automations/` · **Tools:** `tests/`
 - **Workers:** `WORKERS.md` (described — this host has no subagents)
 - **Bundled libraries:** `.cursor/mcp.json` — loads automatically
 

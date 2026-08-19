@@ -97,6 +97,14 @@ The raw tag trail — what makes the synthesis defensible. One row per tagged ob
 - [ ] Themes are named in users' language; quotes are verbatim and attributed to a segment.
 - [ ] Every recommendation ties back to a named theme.
 
+## Avoid (anti-patterns)
+- **Theming by loudness.** The longest, angriest interview counts once. Weight by frequency and impact, not by how memorable the quote was.
+- **Paraphrasing into business language.** "Visibility challenges" erases what the person actually said. Keep the verbatim; the phrasing carries the finding.
+- **Resolving contradictions.** When sources disagree, that's usually a segmentation signal. Report both sides with counts instead of averaging them away.
+- **Dropping the n=1.** The single strange response is often a segment nobody has noticed. Keep it, flagged.
+- **Conclusions the evidence can't carry.** Six interviews can tell you a problem exists; they cannot tell you what share of your base has it. Say which you have.
+- **No traceability.** Every theme needs the quotes behind it, or nobody can check you and the synthesis becomes an opinion with a chart.
+
 ## Tips
 - **Count before you conclude.** Form the theme list from the tags, not from the two interviews that stuck in your memory — recency and vividness are not frequency.
 - **One strong quote per theme beats five weak ones.** Evidence is about representativeness, not volume.

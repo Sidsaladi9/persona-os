@@ -13,10 +13,11 @@ run yourself.
 | [`run_all.py`](run_all.py) | Scores all 53, writes [`RESULTS.md`](RESULTS.md), enforces four gates |
 | [`check_artifact.py`](check_artifact.py) | Checks a produced artifact against the output template its skill promised |
 | [`check_all_artifacts.py`](check_all_artifacts.py) | Runs that check across every worked example in `examples/cadence/` |
+| [`audit.py`](audit.py) | The broken-promise check: does every path the OS tells someone to use actually exist after install? |
 | [`relevance_report.py`](relevance_report.py) | Checks whether produced artifacts were ever referenced or revisited — the "did this output matter?" signal |
 | [`index_workspace.py`](index_workspace.py) | Regenerates `workspace/INDEX.md` |
 
-## Three different questions
+## Four different questions
 
 **`run_all.py` asks: is the instruction good?** Does the frontmatter tell a PM
 whether they can start right now. Is the judgment grounded in a named source.
@@ -28,6 +29,15 @@ A skill can score 100 and still yield a thin artifact. This reads the skill's
 declared `## Output template`, extracts the structure, and checks a real output
 against it — including a density check that catches the artifact with every
 heading present and nothing underneath them.
+
+**`audit.py` asks: does the thing we promised actually exist where the user will
+be standing?** This is the one that catches the bugs the others structurally
+can't. Every file the brain, a command, an automation, or a skill names is a
+promise — and a promise that holds in the repo but not in a shipped bundle is
+broken for every user and invisible in review. It found `automations/`
+referenced by a brief that shipped without it, `/tune-up` invoking a script
+absent from all six bundles, and `skill-creator` telling users to score their
+work with a file they didn't have. It runs first in CI, before anything else.
 
 **`relevance_report.py` asks: was the output worth producing?** The other two run
 in CI against fixtures. This one runs against *your* `workspace/` and answers the

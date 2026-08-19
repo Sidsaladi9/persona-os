@@ -29,6 +29,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Broken-promise audit (paths, bundles, counts, coverage, links)
+        run: |
+          python3 scripts/build_targets.py > /dev/null
+          python3 tests/audit.py --check
+
       - name: Score every skill
         run: python3 tests/run_all.py --check
 
@@ -147,6 +152,32 @@ jobs:
             exit 1
           fi
           echo "dist/ is current"
+
+      - name: Install each target and run every tool it ships
+        run: |
+          # The bug this catches: a script that works in the repo and dies after
+          # install, because the repo layout is not the installed layout. Three
+          # of the shipped tools scanned for ./skills, which doesn't exist on the
+          # two hosts that use .claude/skills and .cursor/rules.
+          set -e
+          fails=0
+          for t in claude-code claude-cowork codex cursor gemini-cli generic; do
+            d="$(mktemp -d)"
+            bash install.sh --target "$t" "$d" > /dev/null
+            n=$(find "$d" -name SKILL.md | wc -l | tr -d ' ')
+            if [ "$n" -ne 53 ]; then echo "::error::$t installed $n skills, expected 53"; fails=1; fi
+            for tool in "relevance_report.py" "run_all.py" "index_workspace.py"; do
+              if ! (cd "$d" && python3 "tests/$tool" > /dev/null 2>&1); then
+                echo "::error::$t: tests/$tool fails after install"; fails=1
+              fi
+            done
+            if ! (cd "$d" && python3 tests/check_artifact.py --skill write-spec --template-only > /dev/null 2>&1); then
+              echo "::error::$t: tests/check_artifact.py fails after install"; fails=1
+            fi
+            echo "  $t: $n skills, tools OK"
+            rm -rf "$d"
+          done
+          [ "$fails" -eq 0 ] || exit 1
 
       - name: Each bundle has its entry file, its skills, and no wrong-host branding
         working-directory: plugins/product-manager-os

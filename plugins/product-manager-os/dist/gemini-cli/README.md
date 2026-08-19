@@ -7,7 +7,7 @@ overwritten on the next build.
 - **53 skills** in `skills/`
 - **Operating brief:** `GEMINI.md`
 - **Workflows:** `COMMANDS.md` (invoke by name)
-- **Memory:** `memory/` · **Workspace:** `workspace/`
+- **Memory:** `memory/` · **Workspace:** `workspace/` · **Automations:** `automations/` · **Tools:** `tests/`
 - **Workers:** `WORKERS.md` (described — this host has no subagents)
 - **Bundled libraries:** `MCP-SETUP.md` — this host's MCP config path varies, so the server definition ships instead
 

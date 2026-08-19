@@ -37,6 +37,8 @@ When in doubt, you probably have a proto-persona. Don't promote it until the evi
 - **No data?** Say so out loud, build a proto-persona, and write down what you'd need to observe to confirm it.
 
 ## Process
+
+**Ask before you build.** Ask 2-4 questions first: *"What evidence do we have — interviews, usage data, support volume?"* · *"How many distinct behaviours are you actually seeing?"* · *"What decision will these personas be used to make?"* · *"Which segment matters most right now?"* Personas built without evidence are the team's assumptions with stock photos attached. If the evidence is thin, say so and run `synthesize-research` first.
 1. **Cluster by behavior and needs, not demographics.** Group users by what they're trying to accomplish, how they currently do it, and what blocks them. Two people with the same job title can be different personas; two with different titles can be the same one.
 2. **Find the distinct segments.** Look for clusters where the *product decision would differ* — different goals, different triggers, different workarounds. If two clusters would lead you to build the same thing, merge them.
 3. **For each segment, capture:** goals, jobs-to-be-done ("when I ___, I want to ___, so I can ___"), pains and frustrations, context and triggers (what's happening when they reach for a solution), current behavior and workarounds (what they do today, including the spreadsheet/hack/competitor), and what success looks like.

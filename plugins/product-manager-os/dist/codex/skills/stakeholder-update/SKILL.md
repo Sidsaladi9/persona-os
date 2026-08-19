@@ -96,6 +96,14 @@ When: <date or "available now">
 - [ ] Exec and customer versions contain **zero** internal jargon, acronyms, or ticket numbers.
 - [ ] The three versions state the same facts and the same status color — no version softens the truth.
 
+## Avoid (anti-patterns)
+- **Burying the risk.** If something's off track, it goes near the top. Discovering it in paragraph six is how trust gets spent.
+- **Activity instead of outcomes.** "Shipped 14 tickets" tells an exec nothing. What moved, and what does it mean for the goal?
+- **Uniform detail for every audience.** An exec needs the headline and the ask; the eng team needs the specifics. Same facts, different documents.
+- **No ask.** If you need a decision, headcount, or a nudge, say so explicitly. Updates without asks train people to skim.
+- **Green when it isn't.** A status that only goes red the week before the deadline is a status nobody can act on.
+- **Rewriting last week's update.** If nothing changed, say that in one line. Padding an update to look busy is how the whole ritual dies.
+
 ## Tips
 - **Bury nothing.** If there's bad news, it goes near the top with the mitigation, not in a footnote. Stakeholders forgive problems; they don't forgive being surprised.
 - **Lead with the ask if there is one.** If you need a decision, make that the reason the email exists — don't make the reader earn it.

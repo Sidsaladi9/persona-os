@@ -7,7 +7,7 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
 **Done**
 
 - [x] **Repo is public** — `Sidsaladi9/persona-os`, MIT licensed. This launch is an *announcement*, not a publish.
-- [x] **Quality is measurable, not asserted** — 53 skills scored by `tests/run_all.py` (mean 98.5, 39 at 100, floor 85), 51 worked examples checked against their own output templates by `tests/check_all_artifacts.py`. CI fails on **regression**, not just breakage.
+- [x] **Quality is measurable, not asserted** — 53 skills scored by `tests/run_all.py` — **all 53 at 100/100**, floor 100, 51 worked examples checked against their own output templates by `tests/check_all_artifacts.py`. CI fails on **regression**, not just breakage.
 - [x] **Resumable onboarding** — `/setup` · `/setup status` · `/setup reset`, with state in `memory/onboarding.md`. Skipping is a first-class path.
 - [x] **Artifacts land somewhere** — `workspace/` (projects · research · strategy · metrics · meetings · comms · decisions).
 - [x] **Failure + relevance loops** — `memory/incidents.md` (1× threshold) and `tests/relevance_report.py` feed `/tune-up`.
@@ -57,7 +57,7 @@ All three are documented in the repo README. Verify each before announcing.
 
 **Body skeleton:**
 - Hook: every PM is drowning in the same recurring work — specs, prioritization, OKRs, stakeholder updates, interview synthesis. What if Claude already knew how to do all of it *your* way — and got better every week?
-- What it is: a free, installable "OS" — an operating brain (CLAUDE.md), a memory that learns your product/team (3-min `/setup`), 40+ book-grounded skills across discovery → strategy → execution → launch, connectors that write your work back to Linear/Notion/Slack, and weekly automations.
+- What it is: a free, installable "OS" — an operating brain (CLAUDE.md), a memory that learns your product/team (3-min `/setup`), 53 scored, book-grounded skills across discovery → strategy → execution → launch, connectors that write your work back to Linear/Notion/Slack, and weekly automations.
 - The differentiator: it **watches the work you repeat and builds you a custom skill for it** — drafted from how *you* did it, on your machine, only when you say yes. The more you use it, the more it's yours. Nothing static can do that. (Drop the `/tune-up` proposing-a-skill screenshot.)
 - Proof: show one real before/after (rough idea → full PRD), and the loop minting a `launch-comms` skill from three hand-written emails.
 - CTA: two install lines + the repo link. "Reply and tell me which role OS you want next."
@@ -65,7 +65,7 @@ All three are documented in the repo README. Verify each before announcing.
 
 ## 4. Social cuts (X / LinkedIn)
 
-- The demo GIF + "I built a Product Manager OS for Claude that **gets better the more you use it** — it watches the work you repeat and builds you custom skills for it. Operating brain, a memory that learns your product, 40+ book-grounded skills. Free. 🧵"
+- The demo GIF + "I built a Product Manager OS for Claude that **gets better the more you use it** — it watches the work you repeat and builds you custom skills for it. Operating brain, a memory that learns your product, 53 scored, book-grounded skills. Free. 🧵"
 - Carousel: the stack — brain · memory · self-improving loop · skills · connectors — one slide each.
 - A screen recording of the loop: do a task 3×, run `/tune-up`, watch it propose and write a new skill.
 
