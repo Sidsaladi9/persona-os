@@ -1,95 +1,146 @@
 # 🧭 Product Manager OS
 
-A complete operating system for product managers, running on Claude Code. It turns Claude into a senior PM partner — one that drafts your specs, reviews your metrics, preps your stakeholder updates, and remembers your product across sessions. And it **gets better the more you use it**: it watches the work you repeat and offers to build you a custom skill for it, drafted from how *you* did it.
+A complete operating system for product managers. It turns your AI assistant into a senior PM partner — one that drafts your specs, reads your metrics, preps your stakeholder updates, and **remembers your product across sessions**.
 
-From **The Product Channel** by Sid Saladi.
+The part nothing else has: **it gets better the more you use it.** It watches the work you repeat and offers to build you a custom skill for it, drafted from how *you* did it.
+
+**53 skills · mean score 98.5/100 · [see the scoreboard](tests/RESULTS.md)** — every skill is graded in CI, and CI fails when a score goes *down*.
+
+From **The Product Channel** by Sid Saladi. MIT.
 
 ---
 
-## What's inside
+## Install
+
+**Claude Code** — one command:
+
+```bash
+claude plugin marketplace add Sidsaladi9/persona-os && claude plugin install product-manager-os@persona-os
+```
+
+**Cursor · Codex · Gemini · anything else** — one command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Sidsaladi9/persona-os/main/get.sh | bash
+```
+
+Run it in the folder you want the OS to live in — that folder becomes your product brain. Full per-tool steps and troubleshooting → **[INSTALL.md](../../INSTALL.md)**.
+
+---
+
+## The 53 skills
+
+You never name them. You describe the work and the right one fires. Each declares a **tier** so you know what it costs you before you start:
+
+⚡ `quick` — paste in, get the artifact (5–40 min) · 🧭 `guided` — asks 3–5 questions first (30–90 min) · 🗓 `campaign` — runs across sessions (days–weeks)
+
+| Area | Skills |
+|---|---|
+| 🔍 **Discovery** | 🗓 `customer-interview` · 🧭 `synthesize-research` · 🗓 `opportunity-solution-tree` · 🧭 `assumption-test` · ⚡ `triage-requests` · 🧭 `product-brainstorm` |
+| 📊 **Research & market** | 🧭 `personas` · 🧭 `journey-map` · 🧭 `segmentation` · ⚡ `market-sizing` · 🧭 `feedback-analysis` · 🧭 `market-analysis` · 🧭 `win-loss` |
+| 🧭 **Strategy & positioning** | 🧭 `product-vision` · 🧭 `product-strategy` · 🧭 `positioning` · 🧭 `value-proposition` · 🧭 `competitive-brief` · 🧭 `business-model` · 🧭 `pricing` · 🧭 `business-case` · ⚡ `north-star` |
+| 🛠️ **Planning & execution** | 🧭 `write-spec` · ⚡ `prioritize` · 🗓 `okrs` · 🗓 `roadmap` · ⚡ `user-stories` · 🧭 `sprint-planning` · ⚡ `stakeholder-map` · ⚡ `test-scenarios` · ⚡ `spec-vs-shipped` |
+| 📈 **Data & analytics** | 🧭 `metrics-review` · 🗓 `experiment-analysis` · ⚡ `cohort-analysis` · ⚡ `sql-queries` · 🧭 `tracking-plan` |
+| 🚀 **Go-to-market & growth** | 🧭 `gtm-strategy` · 🗓 `launch-plan` · 🧭 `press-release` · ⚡ `battlecard` · ⚡ `release-notes` · 🧭 `icp` · 🧭 `growth-loops` · 🧭 `activation-flow-design` |
+| 📣 **Run the team** | ⚡ `stakeholder-update` · ⚡ `meeting-notes` · 🧭 `retro` · 🧭 `pre-mortem` · 🧭 `red-team` · ⚡ `incident-comms` |
+| 🎨 **Make it shareable** | ⚡ `visualize` — renders any artifact as a self-contained HTML page, built to screenshot |
+| 🧱 **Extend** | 🧭 `skill-creator` · ⚡ `house-style` |
+
+**Every skill names the book it's grounded in.** Not decoration — an instruction it follows. `customer-interview` won't write "Would you use this?" because the Mom Test discipline is in the skill. `experiment-analysis` won't read significance without a pre-registered metric because Kohavi is. See all 53 with their sources in [CLAUDE.md](CLAUDE.md), and the output of every one in [examples/SAMPLE-OUTPUTS.md](examples/SAMPLE-OUTPUTS.md).
+
+---
+
+## What's in the box
 
 ```
 product-manager-os/
-├── CLAUDE.md            # The operating brain — how Claude behaves as your PM partner
-├── .mcp.json           # Bundled getprompts + getskills MCP libraries (zero-config)
-├── skills/              # 53 book-grounded playbooks Claude uses by intent
-├── agents/              # critic + researcher — isolated workers, used by 9 skills
-├── workspace/           # where artifacts land: projects, research, strategy,
-│                        #   metrics, meetings, comms, decisions
-├── tests/               # the loss function: every skill scored, gated on regression
-│   │  🔍 Discovery        customer-interview · synthesize-research · opportunity-solution-tree
-│   │                      · assumption-test · triage-requests · product-brainstorm
-│   │  📊 Research/market   personas · journey-map · segmentation · market-sizing
-│   │                      · feedback-analysis · market-analysis
-│   │  🧭 Strategy          product-strategy · positioning · competitive-brief
-│   │                      · business-model · pricing · business-case · north-star
-│   │  🛠️ Execution         write-spec · prioritize · okrs · roadmap · user-stories
-│   │                      · sprint-planning · stakeholder-map · test-scenarios
-│   │  📈 Data              metrics-review · experiment-analysis · cohort-analysis · sql-queries
-│   │  🚀 Go-to-market      launch-plan · release-notes · icp · growth-loops · activation-flow-design
-│   │  📣 Run the team      stakeholder-update · meeting-notes · retro · pre-mortem · red-team · incident-comms
-│   │  🎨 Make it shareable  visualize (RICE matrix · Now/Next/Later board · OKR tree · scorecard · swimlane)
-│   │  🧱 Extend            skill-creator · house-style
-│   └── …                 (each SKILL.md names the book it's grounded in + a TPC article)
-├── commands/            # /setup · /connect · /tune-up + 5 chained workflows
-│   ├── setup.md             guided onboarding — fills your memory in ~3 min
-│   ├── connect.md           wire your tracker / analytics / docs / chat
-│   ├── tune-up.md           self-improvement: propose new/tuned skills from your work
-│   ├── new-feature.md       brainstorm → opportunity tree → assumption-test → prioritize → spec → stories
-│   ├── discovery.md         interview plan → synthesize → opportunity tree
-│   ├── launch.md            launch-plan → pre-mortem → release-notes → stakeholder-update
-│   ├── strategy.md          market-analysis → product-strategy → positioning → red-team
-│   └── weekly.md            metrics-review → exec stakeholder-update
-├── memory/              # Claude learns your product, team & preferences here
-│   ├── MEMORY.md · product.md · team.md · preferences.md · strategy.md  (templates)
-│   ├── activity-log.md      what you've done — how the OS spots work you repeat
-│   └── os-suggestions.md    the self-improvement queue (accept / tweak / reject)
-└── automations/         # Ready-to-wire routines: sprint-kickoff · weekly-metrics-review · daily-standup
+├── CLAUDE.md          the operating brain — how it thinks, when to push back, what to remember
+├── skills/            53 book-grounded playbooks, reached for by intent
+├── agents/            critic + researcher — two isolated workers (see below)
+├── commands/          /setup /connect /tune-up + 5 chained workflows
+├── memory/            what it learns about you — product, team, strategy, style
+├── workspace/         where your artifacts land — projects, research, strategy,
+│                      metrics, meetings, comms, decisions
+├── automations/       sprint kickoff · weekly metrics · daily standup · weekly tune-up
+├── examples/          every skill run against one demo company, so you can see it first
+├── tests/             the loss function — every skill scored, gated against regression
+└── .mcp.json          getprompts + getskills, wired in zero-config
 ```
 
-> Full skill map (with the book each is grounded in) lives in [CLAUDE.md](CLAUDE.md).
+---
 
-## Quick start
+## Five things that make it an OS, not a prompt pack
 
-1. **Install it** (see the [repo README](../../README.md) for both install paths).
-2. **Fill in your memory** — open `memory/product.md`, `team.md`, and `strategy.md` and replace the templates with your reality (or just start working and let Claude fill them in as it learns).
-3. **Ask for something.** You don't name skills — you describe the work:
-   - *"Turn this idea into a spec: [paste idea]"* → `write-spec`
-   - *"Why did activation drop this week? Here are the numbers: [paste]"* → `metrics-review`
-   - *"Build me a battlecard against [competitor]"* → `competitive-brief`
-   - *"Plan next sprint — here's the backlog and who's out"* → `sprint-planning`
-   - *"Draft a leadership update on where we are"* → `stakeholder-update`
-   - *"Help me think through whether we should build X"* → `product-brainstorm`
-4. **Wire up automations** (optional) — see `automations/README.md` to run weekly reviews and sprint kickoffs on a schedule.
+**1. It remembers your product.** `memory/` holds what you're building, your team, your north star, and how you like things written. Run `/setup` — nine questions, ~3 minutes, all skippable. Fastest path is *"bootstrap from a doc"*: paste a real PRD and it infers your product **and** your house format in one pass.
 
-## How it gets smarter
+Skipped it? Nothing is lost. `/setup` resumes and only asks what's still blank; `/setup status` shows what it knows and what it's missing.
 
-The first time you work on something, Claude may ask a couple of setup questions. It writes the answers to `memory/`, so the next session it already knows your north-star metric, your team's sprint cadence, and how you like updates formatted. The more you use it, the less it asks.
+**2. Your work lands somewhere.** Every artifact is written to a predictable path under `workspace/` instead of scrolling away in a chat window. Skills **read it before asking you anything**, so you stop re-pasting context you already gave. `workspace/decisions/` is the record of *why*, six months later.
 
-## Bundled: getprompts + getskills libraries
+**3. It improves itself from three signals.** `/tune-up` (or the weekly automation) proposes new and tuned skills — you accept, tweak, or reject; nothing is automatic.
 
-This OS ships with two MCP servers wired in, so you also get live access to The Product Channel's curated libraries — **no account or API key needed** (read-only):
+| Signal | Fires at | Because |
+|---|---|---|
+| Repeated **corrections** | 3× | three edits of the same kind is a preference worth encoding |
+| An **incident** — output you couldn't use | **1×** | that's a defect, and waiting for it to recur is waiting to get burned again |
+| **Dead artifacts** — never opened again | ≥3, ⅔ dead | the skill is producing the wrong thing, or at the wrong moment |
 
-- **[getprompts](https://getprompts.org)** — 900+ battle-tested, most-copied PM prompts. Ask *"find me a proven pain-point analysis prompt"* and Claude pulls it.
-- **[getskills](https://getskillsai.org)** — 3,000+ installable Claude skills, incl. a **PM starter pack**. Ask *"install the PM pack"* and Claude writes them into your skills folder.
+New skills are drafted from **your last ~3 real examples**, marked `status: draft`, and graduate after 3 clean uses.
 
-If you installed via the **plugin**, these are automatically active. If you **cloned-and-dropped**, add them once:
+**4. Two workers, where isolation actually matters.**
+
+- **`critic`** receives your spec, strategy, or plan **alone** — none of the conversation that produced it. By the time you've helped write a document you've been persuaded by it, and so has any review run in that context. Used by `red-team`, `pre-mortem`, `assumption-test`.
+- **`researcher`** reads a corpus cold and returns attributed, verbatim evidence with counts and distribution — and deliberately does *not* conclude. It's what stops the first theme you noticed from becoming the only one you find. Used by `synthesize-research`, `feedback-analysis`, `win-loss`, `competitive-brief`, `market-analysis`, `triage-requests`.
+
+They keep no memory — the learning belongs to the calling skill. Nine of 53 skills delegate; the rest don't, because most work doesn't need it.
+
+**5. It's scored, not vibe-checked.** [`tests/score_skill.py`](tests/score_skill.py) grades each skill out of 100 across six dimensions. [`tests/check_all_artifacts.py`](tests/check_all_artifacts.py) then checks a real produced artifact against the output template that skill promised. Both run in CI, and **CI fails when a score regresses**, not just when a file breaks.
+
+That found two genuine defects on its first run — `product-brainstorm` at 68 and `skill-creator` at 81. Both fixed, both now 100.
+
+---
+
+## Using it
+
+You describe the work:
+
+- *"Turn this into a spec: sales keeps asking for bulk CSV export, but I think the real problem is they can't get data out at all. Here's the thread: [paste]"* → `write-spec`
+- *"Activation dropped 34% → 27% week over week. Here's the funnel: [paste]. What happened?"* → `metrics-review`
+- *"Why are we losing deals to [competitor]?"* → `win-loss`
+- *"Plan next sprint — here's the backlog and who's out"* → `sprint-planning`
+- *"Should we build X?"* → `product-brainstorm`
+
+Or run a whole workflow: `/new-feature [idea]` · `/discovery [question]` · `/launch [thing]` · `/strategy [area]` · `/weekly`.
+
+---
+
+## Bundled libraries
+
+Two MCP servers ship wired in — no account, no API key, read-only:
+
+- **[getprompts](https://getprompts.org)** — 900+ battle-tested PM prompts. *"Find me a proven pain-point analysis prompt."*
+- **[getskills](https://getskillsai.org)** — 3,000+ installable skills including a PM starter pack.
+
+Active automatically on a plugin install. Otherwise:
 
 ```bash
 claude mcp add getprompts -- npx -y getprompts-mcp
-claude mcp add getskills  -- npx -y getskills-mcp
-claude mcp list   # both should show "Connected"  (needs Node 18+)
 ```
+```bash
+claude mcp add getskills -- npx -y getskills-mcp
+```
+
+Needs Node 18+. If your org blocks MCP servers, skip it — all 53 skills work without them.
+
+---
 
 ## Works with your tools (optional)
 
-Zero accounts required — paste your data and go. But if you connect them, it pulls live:
+Zero accounts required — paste your data and go. Connect them and it pulls live, then **writes the finished work back**: stories → your tracker, spec → your docs, update → your channel. It always drafts and asks before posting.
 
-- **Linear / Jira / Asana** → backlog + sprints
-- **Amplitude / Mixpanel / GA** → metrics
-- **Notion / Confluence / Drive** → existing docs
-- **Slack** → post updates
-- **Web search** → competitor research
+**Linear · Jira · Asana** → backlog and sprints · **Amplitude · Mixpanel · GA** → metrics · **Notion · Confluence · Drive** → existing docs · **Slack · Teams** → updates · **web search** → competitor research
+
+Run `/connect` to wire them up.
 
 ---
 

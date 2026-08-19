@@ -107,18 +107,23 @@ jobs:
           print("OK — " + ", ".join(f"{a} ({n} skills)" for a, n in agents.items()))
           PY
 
-      - name: Every skill is listed in CLAUDE.md
+      - name: Every skill is listed in CLAUDE.md and the plugin README
         working-directory: plugins/product-manager-os
         run: |
           python3 - <<'PY'
           import os
-          brain = open('CLAUDE.md', encoding='utf-8').read()
           skills = sorted(d for d in os.listdir('skills')
                           if os.path.isfile(os.path.join('skills', d, 'SKILL.md')))
-          missing = [s for s in skills if f'`{s}`' not in brain]
-          if missing:
-              raise SystemExit("not listed in CLAUDE.md: " + ", ".join(missing))
-          print(f"OK — all {len(skills)} skills are reachable from the brain")
+          problems = []
+          for doc, why in (('CLAUDE.md', 'the model cannot reach a skill it was never told about'),
+                           ('README.md', 'a skill nobody can find is a skill nobody uses')):
+              text = open(doc, encoding='utf-8').read()
+              missing = [s for s in skills if f'`{s}`' not in text]
+              if missing:
+                  problems.append(f"{doc}: missing {', '.join(missing)} — {why}")
+          if problems:
+              raise SystemExit("\n".join(problems))
+          print(f"OK — all {len(skills)} skills appear in CLAUDE.md and README.md")
           PY
 
   targets:
