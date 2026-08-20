@@ -100,6 +100,99 @@ That found two genuine defects on its first run — `product-brainstorm` at 68 a
 
 ---
 
+## Commands
+
+You rarely need these — describing the work is enough. They exist for the multi-step jobs where the order matters.
+
+| Command | What it does |
+|---|---|
+| `/setup` | 3-minute onboarding that fills `memory/` so it stops asking you the basics. **`/setup status`** shows what it knows and what's missing. **`/setup reset`** wipes back to templates. Re-run any time — it resumes and only asks what's still blank. |
+| `/tune-up` | Reads your activity log, incidents, and relevance report, then proposes new or tuned skills. You accept, tweak, or reject. |
+| `/connect` | Wires up your tracker, analytics, docs, and chat so the OS pulls live data and writes work back. |
+| `/new-feature [idea]` | Raw idea → build-ready backlog. Chains brainstorm → opportunity tree → assumption-test → prioritize → spec → user-stories. |
+| `/discovery [question]` | A discovery cycle: interview plan → synthesize → opportunity map. |
+| `/strategy [area]` | Build or pressure-test strategy: market-analysis → product-strategy → positioning → red-team. |
+| `/launch [thing]` | Launch end-to-end: launch-plan → pre-mortem → release-notes → stakeholder-update. |
+| `/weekly` | Your weekly review: metrics scorecard → leadership update. |
+
+*On hosts without slash commands (Codex, Cursor, Gemini), these ship as `COMMANDS.md` and you invoke them by name — "run the weekly workflow".*
+
+---
+
+## Automations
+
+Four routines in `automations/`, ready to put on a schedule with `/schedule` or cron. They're plain markdown prompts, so edit them freely.
+
+| Routine | When | What it does |
+|---|---|---|
+| `daily-standup` | each morning | Drafts your standup from what actually moved |
+| `sprint-kickoff` | start of sprint | Runs `sprint-planning` against the backlog and who's out |
+| `weekly-metrics-review` | Friday | Metrics scorecard plus a stakeholder update draft |
+| `weekly-os-tuneup` | weekly | The self-improvement pass — proposes skills from your repeated work |
+
+---
+
+## Memory — what it learns about you
+
+Nine files in `memory/`. Claude reads them at session start and writes to them as it learns. All local; nothing syncs anywhere.
+
+`MEMORY.md` is the index Claude reads first — one line pointing at each file below. The rest:
+
+**What's true about you**
+
+| File | Holds |
+|---|---|
+| `product.md` | What you're building, for whom, business model, goals |
+| `team.md` | Who's on the team, who owns what, rituals and tools |
+| `strategy.md` | Current bets, themes, constraints, deadlines |
+| `preferences.md` | How you like to work — tone, formats, how hard to push |
+| `house-style.md` | Your company's format: voice, terminology, doc templates. **Every skill conforms to this**, which is what makes output look like it came from inside your company |
+
+**What it's noticed** — the self-improvement layer
+
+| File | Holds |
+|---|---|
+| `onboarding.md` | How much it knows about you, what's missing, whether setup was offered or skipped |
+| `activity-log.md` | One line per real task. How it spots work you repeat |
+| `incidents.md` | Output you couldn't use, and why. Acted on at 1×, not 3× |
+| `os-suggestions.md` | Pending "want me to build you a skill?" proposals |
+
+---
+
+## Workspace — where the work lands
+
+Artifacts get written to a predictable path instead of scrolling away in chat. Skills **read this before asking you anything**, so you stop re-pasting context.
+
+| Folder | Holds |
+|---|---|
+| `projects/<slug>/` | Everything about one piece of work — spec, stories, prioritization, launch plan, pre-mortem |
+| `research/` | Interviews, synthesis, personas, journeys, market and competitor work |
+| `strategy/` | The slow-changing calls — strategy, vision, positioning, pricing, ICP, roadmap, OKRs |
+| `metrics/` | Reviews, cohorts, experiment readouts, saved queries |
+| `meetings/` | Notes and retros, by date |
+| `comms/` | Stakeholder updates, release notes, incident comms |
+| `decisions/` | One file per call you don't want to relitigate. Six months later, this is the only record of *why* |
+
+Confidential product context? Add `workspace/` to `.gitignore`. Everything works the same.
+
+---
+
+## Tools you can run
+
+Plain Python 3, no dependencies. The OS points you at these; you don't have to go looking.
+
+| Command | When you'd run it |
+|---|---|
+| `python3 tests/relevance_report.py` | Which artifacts you never opened again — a skill producing the wrong thing, or at the wrong moment. `/tune-up` runs it for you |
+| `python3 tests/score_skill.py skills/<name>/SKILL.md` | After writing your own skill with `skill-creator`. Ship at 100 |
+| `python3 tests/run_all.py` | Score every skill you have, including yours |
+| `python3 tests/check_artifact.py --skill <name> <file>` | Does a produced artifact match what the skill promised? |
+| `python3 tests/index_workspace.py` | Regenerate `workspace/INDEX.md` |
+
+*The repo also runs `audit.py`, `check_all_artifacts.py` and `build_sample_outputs.py` in CI — those are for maintaining the OS, not using it.*
+
+---
+
 ## Using it
 
 You describe the work:

@@ -129,12 +129,47 @@ for doc in ("README.md", "INSTALL.md", "LAUNCH.md",
         if int(m.group(1)) != len(skills):
             fail("count", f"{doc} claims {m.group(1)} skills")
 
-# ── 5. Every skill appears where people and models look for it ───────────────
-for doc in ("CLAUDE.md", "README.md"):
-    txt = open(f"{P}/{doc}", encoding="utf-8").read()
-    for s in skills:
-        if f"`{s}`" not in txt:
-            fail("coverage", f"{s} is not listed in {doc}")
+# ── 5. Every user-facing component is documented ─────────────────────────────
+# A feature nobody can find is a feature nobody uses. The brain needs the skills;
+# the README needs everything a person could reach for.
+brain_txt = open(f"{P}/CLAUDE.md", encoding="utf-8").read()
+readme_txt = open(f"{P}/README.md", encoding="utf-8").read()
+
+for s in skills:
+    if f"`{s}`" not in brain_txt:
+        fail("coverage", f"skill {s} is not listed in CLAUDE.md")
+    if f"`{s}`" not in readme_txt:
+        fail("coverage", f"skill {s} is not listed in README.md")
+
+for c in sorted(commands):
+    if f"/{c}" not in readme_txt:
+        fail("coverage", f"command /{c} is not explained in README.md")
+
+for a in sorted(f[:-3] for f in os.listdir(f"{P}/automations")
+                if f.endswith(".md") and f != "README.md"):
+    if f"`{a}`" not in readme_txt:
+        fail("coverage", f"automation {a} is not explained in README.md")
+
+for m in sorted(f for f in os.listdir(f"{P}/memory") if f.endswith(".md")):
+    if f"`{m}`" not in readme_txt:
+        fail("coverage", f"memory file {m} is not explained in README.md")
+
+for w in sorted(d for d in os.listdir(f"{P}/workspace")
+                if os.path.isdir(os.path.join(P, "workspace", d))):
+    if f"`{w}/" not in readme_txt and f"{w}/`" not in readme_txt:
+        fail("coverage", f"workspace/{w} is not explained in README.md")
+
+for wk in sorted(workers):
+    if f"`{wk}`" not in readme_txt:
+        fail("coverage", f"worker {wk} is not explained in README.md")
+
+# the tools the OS tells a user to run must be findable in the README
+USER_TOOLS = ("relevance_report.py", "score_skill.py", "run_all.py",
+              "check_artifact.py", "index_workspace.py")
+for t in USER_TOOLS:
+    if t not in readme_txt:
+        fail("coverage", f"tests/{t} is something the OS asks users to run, "
+                         f"but the README never mentions it")
 
 # ── 6. Relative links resolve ────────────────────────────────────────────────
 for dp, dn, fn in os.walk(ROOT):
