@@ -20,9 +20,9 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
 
 **Still to do before announcing**
 
-- [ ] **Run the live test** — install into a clean project, run `/setup`, do a few real tasks, confirm capture fires in `memory/activity-log.md`, then `/tune-up` proposes a skill. **The self-improving loop is the headline claim — it has to visibly work**, and nothing in CI can prove it does.
-- [ ] **Test both install paths on a clean machine** (see §2). The "100% it works" gate.
-- [ ] **Confirm bundled MCPs connect** — `claude mcp list` shows `getprompts` and `getskills` **Connected** (needs Node 18+). Zero-config public npm packages; no keys.
+- [ ] **Run the live test** — step-by-step protocol with pass conditions: [`demo/LIVE-TEST.md`](demo/LIVE-TEST.md). 20 minutes, 7 checks. Test 6 (`/tune-up` proposes a skill from a 3× pattern) is the gate — **the self-improving loop is the headline claim and nothing in CI can prove it works.** Note: this cannot be automated from a headless session; `claude -p` has no credentials and computer-use blocks typing into terminals.
+- [ ] **Test both install paths on a clean machine.** The `get.sh` path is verified live from GitHub; the `/plugin install` path has zero automated coverage and is step 1 of the live test.
+- [ ] **Confirm bundled MCPs connect** — step 7 of the live test. Both packages verified published on npm (`getprompts-mcp` v0.1.0, `getskills-mcp` v0.2.3).
 - [ ] **Record a 60-second demo.** Shot list and the exact lines to type: [`demo/SCRIPT.md`](demo/SCRIPT.md). Build the recordable environment first — `bash demo/setup-demo-env.sh ~/demo-cadence` — it seeds an activity log so `/tune-up` actually has a pattern to find on camera. Without that, the closing shot doesn't happen.
 - [ ] **Publish the launch article** — `output/articles/product-manager-os-101-2026-08-18.md` in TPC-OS, framed as a 101 guide, **not** "Introducing X" (that framing converted 1 free sub on GetSkills).
 
