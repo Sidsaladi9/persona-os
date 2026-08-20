@@ -13,14 +13,16 @@ Internal playbook for shipping Product Manager OS as a free tool for The Product
 - [x] **Failure + relevance loops** — `memory/incidents.md` (1× threshold) and `tests/relevance_report.py` feed `/tune-up`.
 - [x] **Two isolated workers** — `critic` and `researcher` in `agents/`, used by 9 skills.
 - [x] **Runs beyond Claude Code** — `scripts/build_targets.py` emits 6 bundles (Claude Code, Cowork, Codex, Cursor, Gemini CLI, generic).
+- [x] **`dist/` ships committed**, marked `linguist-generated` so diffs collapse, with a CI gate that fails if it drifts from a fresh build. A Cursor user needs no toolchain.
+- [x] **Repo topics set** — ai-pm, claude, claude-code, claude-skills, mcp, pm-tools, product-management, product-manager.
+- [x] **Bundled MCPs are published and installable** — `getprompts-mcp` v0.1.0 and `getskills-mcp` v0.2.3 both resolve on npm. (Still worth confirming `claude mcp list` shows Connected after a real install.)
 
 **Still to do before announcing**
 
 - [ ] **Run the live test** — install into a clean project, run `/setup`, do a few real tasks, confirm capture fires in `memory/activity-log.md`, then `/tune-up` proposes a skill. **The self-improving loop is the headline claim — it has to visibly work**, and nothing in CI can prove it does.
 - [ ] **Test both install paths on a clean machine** (see §2). The "100% it works" gate.
 - [ ] **Confirm bundled MCPs connect** — `claude mcp list` shows `getprompts` and `getskills` **Connected** (needs Node 18+). Zero-config public npm packages; no keys.
-- [ ] **Decide whether `dist/` ships committed** — right now it's gitignored, so a Cursor or Codex user needs Python to build their bundle. Committing it removes that step at the cost of build output in the repo.
-- [ ] **Set the repo's About + topics** — `claude-code`, `product-management`, `claude-skills`, `ai-pm`. Substack URL as the website.
+- [ ] **Fix the repo About + website.** Topics are set (8). But the description still says *"40 book-grounded skills… for Claude Code"* — it's 53 now and runs on 6 hosts — and the website field points at `theproductchannel.substack.com`, which **404s**. Every one of the 306 links inside the repo correctly uses `sidsaladi.substack.com`; only the GitHub metadata is wrong.
 - [ ] **Record a 60-second demo.** Shot list and the exact lines to type: [`demo/SCRIPT.md`](demo/SCRIPT.md). Build the recordable environment first — `bash demo/setup-demo-env.sh ~/demo-cadence` — it seeds an activity log so `/tune-up` actually has a pattern to find on camera. Without that, the closing shot doesn't happen.
 - [ ] **Publish the launch article** — `output/articles/product-manager-os-101-2026-08-18.md` in TPC-OS, framed as a 101 guide, **not** "Introducing X" (that framing converted 1 free sub on GetSkills).
 
