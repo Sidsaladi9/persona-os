@@ -85,3 +85,90 @@ If any skill or prompt from this OS is featured in a newsletter article, run it 
 ## 7. Next personas (same repo, same structure)
 
 Each new persona is one folder under `plugins/`. Candidates in likely demand order: **Team OS** (eng/product leads), **Founder OS**, **Marketer OS**, **Engineering Lead OS**. Reuse this exact build → battle-test → launch pipeline.
+
+---
+
+# Distribution plan — how this gets stars
+
+## The honest starting position
+
+| Repo | Stars | Created |
+|---|---|---|
+| `phuryn/pm-skills` | **25,430** | 2026-03-01 |
+| `deanpeters/Product-Manager-Skills` | 6,545 | 2026-02-05 |
+| `carlvellotti/carls-product-os` | 222 | 2026-02-05 |
+| **`Sidsaladi9/persona-os`** | **0** | 2026-06-18 |
+
+Two months public, zero stars. Not because the product is worse — because **nothing has ever pointed at it.** That's the entire diagnosis.
+
+**You will not out-volume Pawel.** He has 25k stars, 100+ skills, and a five-month head start. Any plan whose thesis is "more skills" is already lost.
+
+**But he did you a favour.** He proved the category and pre-qualified 25,000 people who star PM skill repos. That's your exact audience, already identified, already interested. The play is to be *the other one worth having* — not to pretend he doesn't exist.
+
+## The one claim to lead with
+
+Every competitor is a skill pack. **Only this one learns your product and writes you new skills from the work you repeat.** Pawel bolted a separate memory tool on beside his; ours is inside.
+
+> *The PM toolkit that gets better the more you use it.*
+
+Do not lead with 53 skills. Skill count is the axis where you lose, and it's a number a competitor can beat in a weekend. Memory + the self-improving loop is the thing nobody can screenshot back at you.
+
+## What your own data says will travel
+
+Your biggest post ever is **"50+ Product Management Prompts for ChatGPT" — 16,923 views, 235 subs, 29% of traffic from LinkedIn, 6% from Reddit.**
+
+Every post of yours that travelled off-platform is a **numbered giveaway**: 50+ prompts · 20+ plugins · 20 AI tools · 100+ resources. That's the proven shape, and *53 free PM skills* fits it exactly.
+
+Your traffic mix across the catalogue:
+
+| Channel | Share | Read |
+|---|---|---|
+| Email | **39.5%** | Biggest lever. But it converts *subscribers*, not stars — needs an explicit ask |
+| Google | 14.9% | Compounds later, irrelevant on launch day |
+| Direct | 13.0% | |
+| **LinkedIn** | **12.0%** | Hits 29–30% on numbered-list posts. Proven and currently underused |
+| Substack app / Notes | 6.2% | Pawel's actual mechanism |
+| Reddit | 2.7% | But 6–9% on list posts. **Most under-exploited channel you have** |
+
+## The mechanic everyone forgets
+
+**A GitHub star is a bookmark.** People star what they intend to come back to. Most of your readers will not star anything unless you ask, in one line, and give them a reason:
+
+> *If you'll want this later, star it — that's how you find it again, and it's the only thing that helps other PMs find it.*
+
+Put that line in the article, the LinkedIn post, and the repo README. Pawel posted **star milestones as content** ("1,300 in 72 hours", "star history 😀"). Momentum is itself the story once it starts.
+
+## Launch sequence
+
+Don't fire everything at once. Stars compound visibly, and each wave becomes evidence for the next.
+
+**Day 0 — Tuesday or Wednesday morning**
+1. Publish the 101 article. Email it — this one clears the send bar.
+2. LinkedIn post (not a link-dump): the *problem*, the loop, one screenshot of `/tune-up` proposing a skill, link last.
+3. Substack Note with the demo GIF. Short, "steal this" framing.
+4. X thread — same beats, 6–8 posts, GIF on post 1.
+
+**Day 0 evening — Reddit.** Your least-used, best-fit channel. `r/ProductManagement`, `r/ClaudeAI`, `r/ChatGPTCoding`. Read each sub's self-promo rules first. Lead with the free thing and the honest limits; never with the newsletter.
+
+**Day 1–2 — ask for amplification.** Pawel's launch was boosted when Jeff Gothelf shared it. Pick 5–10 PM voices who've engaged with you, send a *personal* note with the repo and one line on why it's different. Not a broadcast.
+
+**Day 2–3 — Show HN.** Free lottery ticket. Title it plainly: *"Show HN: An open-source PM operating system for Claude Code that writes its own skills."* Be present in the comments all day or don't post.
+
+**Day 3–7 — milestone content.** First 100 stars, first outside contribution, first "it built me a skill" reply. Each is a Note and a LinkedIn post.
+
+**Ongoing — the owned surfaces.** getprompts.org and getskillsai.org both have traffic and neither points at this yet. Add it. Also cross-link from the 26 newsletter articles the skills already reference — those posts get Google traffic forever.
+
+## What not to do
+
+- **Don't lead with skill count.** You lose that comparison and it invites it.
+- **Don't post the same text to five channels.** Native format per channel or the reach collapses.
+- **Don't launch without the demo.** The loop is unbelievable in prose and obvious in 15 seconds of video.
+- **Don't hide the limits.** "It's not multiplayer, memory is local, needs two weeks of use before the loop has signal" buys more credibility than it costs.
+- **Don't buy or trade stars.** It's detectable, and it poisons the only signal you're trying to build.
+
+## What's realistic
+
+Your median post is ~3,000 views. If the launch lands at 2–3× that and 3–5% of readers star it, that's **150–400 stars in week one.** Pawel's 1,300-in-72-hours came off a much larger audience and an established X presence.
+
+The number that actually matters in month one isn't stars — it's **installs that survive to a second session**, and whether anyone replies saying `/tune-up` built them something. One of those replies is worth more than 500 stars, because it's the only proof the differentiator is real.
+
