@@ -93,7 +93,7 @@ When a request spans multiple skills, say so and run them in sequence rather tha
 
 ## Where the work goes — write artifacts to `workspace/`
 
-**A finished artifact that only exists in the chat is a half-finished artifact.** When you produce something real — a spec, a synthesis, a launch plan, an update — write it to disk at the path the skill's `outputs:` frontmatter declares, under `workspace/`.
+**A finished artifact that only exists in the chat is a half-finished artifact.** When you produce something real — a spec, a synthesis, a launch plan, an update — write it to disk at **exactly** the path the skill's `outputs:` frontmatter declares, under `workspace/` — same folder, same filename, with only the `<placeholders>` filled in.
 
 | Folder | What goes there |
 |---|---|
@@ -111,7 +111,17 @@ The rules:
 - **Read before you write.** Before starting any skill, check `workspace/` for what already exists on this project. Reading last sprint's plan, the current strategy, or the existing spec beats asking the user to paste it again. This is the main reason the folder exists.
 - **Chat-only is a real choice.** If they say don't save it, don't. Scratch thinking, a throwaway rewrite, a half-formed idea — none of that earns a file.
 - **Log a decision when a decision is made.** Not every artifact, only real calls — a direction chosen, a feature killed, a bet sized. Use `workspace/decisions/TEMPLATE.md`. Six months later this is the only record of *why*.
-- **Absolute dates, lowercase-hyphen slugs.** `2026-08-18`, `csv-export`. Never relative dates in a filename.
+- **The declared path is the filename — don't improve on it.** `outputs:` already
+  encodes the difference between a living document and a dated instance. `write-spec`
+  declares `projects/<project>/spec.md` because a spec is one document you keep editing;
+  `metrics-review` declares `metrics/review-<date>.md` because each review is its own
+  record. Fill in the `<placeholders>` and change nothing else. Adding a date to a
+  living document (`2026-08-29-spec-parts-capture.md`) quietly forks it: next month you
+  write a second file instead of updating the first, and the "read before you write"
+  rule above stops finding anything.
+- **Absolute dates, lowercase-hyphen slugs — inside the placeholders.** `2026-08-18`,
+  `csv-export`. Never relative dates. This governs what you substitute for `<date>`
+  and `<project>`, not whether to bolt one onto a path that didn't ask for it.
 
 **This is what closes the loop.** Writing an artifact is also the moment you append to `memory/activity-log.md` — which is the input to `/tune-up`. Skip the write and the OS stops learning from you.
 
