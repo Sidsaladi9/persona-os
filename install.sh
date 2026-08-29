@@ -42,15 +42,34 @@ echo
 
 mkdir -p "$DEST"
 
-# The operating brief — never clobber an existing one.
+# The operating brief — never clobber someone else's, but do update our own.
+# Re-running the installer to upgrade is the common case; without the identity
+# check below it left the user with two brains, both loaded, both ~8k tokens,
+# neither obviously authoritative.
 ENTRY="$(ls "$SRC" | grep -E '^(CLAUDE|AGENTS|GEMINI)\.md$' | head -1)"
-if [ -f "$DEST/$ENTRY" ]; then
+BRAIN_MARK="# Product Manager OS"
+if [ ! -f "$DEST/$ENTRY" ]; then
+  cp "$SRC/$ENTRY" "$DEST/$ENTRY"
+  echo "• $ENTRY → project root"
+elif head -1 "$DEST/$ENTRY" | grep -qF "$BRAIN_MARK"; then
+  # It's ours from a previous install. Upgrade in place.
+  if cmp -s "$SRC/$ENTRY" "$DEST/$ENTRY"; then
+    echo "• $ENTRY → already current"
+  else
+    cp "$SRC/$ENTRY" "$DEST/$ENTRY"
+    echo "• $ENTRY → updated in place (it was a previous version of the OS brain)"
+  fi
+  # Clean up the redundant sidecar an older installer may have left behind.
+  SIDE="$DEST/${ENTRY%.md}-product-manager-os.md"
+  if [ -f "$SIDE" ] && head -1 "$SIDE" | grep -qF "$BRAIN_MARK"; then
+    rm -f "$SIDE"
+    echo "• removed the duplicate ${ENTRY%.md}-product-manager-os.md left by an earlier install"
+  fi
+else
+  # Someone else's brief. Leave it completely alone.
   cp "$SRC/$ENTRY" "$DEST/${ENTRY%.md}-product-manager-os.md"
   echo "• You already have $ENTRY — wrote the OS brain to ${ENTRY%.md}-product-manager-os.md."
   echo "  Append it into yours, or reference it with: @${ENTRY%.md}-product-manager-os.md"
-else
-  cp "$SRC/$ENTRY" "$DEST/$ENTRY"
-  echo "• $ENTRY → project root"
 fi
 
 # Everything else the bundle ships. OS-owned dirs are safe to overwrite;

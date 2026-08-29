@@ -179,6 +179,34 @@ jobs:
           done
           [ "$fails" -eq 0 ] || exit 1
 
+      - name: Re-installing upgrades in place and never clobbers someone else's brief
+        run: |
+          # Re-running the installer to upgrade is the common case. It used to
+          # leave two brains in the project — the old CLAUDE.md and an identical
+          # CLAUDE-product-manager-os.md — both loaded, neither authoritative.
+          set -e
+          d="$(mktemp -d)"
+          bash install.sh --target claude-code "$d" > /dev/null
+          bash install.sh --target claude-code "$d" > /dev/null
+          n=$(ls "$d"/CLAUDE*.md | wc -l | tr -d ' ')
+          [ "$n" -eq 1 ] || { echo "::error::re-install left $n brain files, expected 1"; ls "$d"/CLAUDE*.md; exit 1; }
+
+          # A brief that isn't ours must survive untouched, with the OS beside it.
+          e="$(mktemp -d)"
+          printf '# My own project brain\n' > "$e/CLAUDE.md"
+          bash install.sh --target claude-code "$e" > /dev/null
+          grep -q 'My own project brain' "$e/CLAUDE.md" || { echo "::error::clobbered the user's CLAUDE.md"; exit 1; }
+          [ -f "$e/CLAUDE-product-manager-os.md" ] || { echo "::error::did not write the OS brain beside theirs"; exit 1; }
+
+          # User content in memory/ is never overwritten.
+          f="$(mktemp -d)"
+          bash install.sh --target claude-code "$f" > /dev/null
+          printf 'MY OWN NOTES\n' > "$f/memory/product.md"
+          bash install.sh --target claude-code "$f" > /dev/null
+          grep -q 'MY OWN NOTES' "$f/memory/product.md" || { echo "::error::re-install overwrote memory/"; exit 1; }
+          echo "re-install is idempotent, non-destructive, and upgrades in place"
+          rm -rf "$d" "$e" "$f"
+
       - name: Each bundle has its entry file, its skills, and no wrong-host branding
         working-directory: plugins/product-manager-os
         run: |
