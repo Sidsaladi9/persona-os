@@ -1,0 +1,16 @@
+{
+  "description": "Loads the Product Manager OS operating brain into the session. A plugin cannot ship a CLAUDE.md that Claude reads — only the project's own CLAUDE.md is loaded — so without this hook an install gets the skills and none of the OS: no memory, no workspace, no activity log, no self-improving loop.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

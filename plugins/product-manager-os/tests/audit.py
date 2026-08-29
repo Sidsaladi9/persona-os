@@ -118,7 +118,7 @@ if pj["name"] != mk["plugins"][0]["name"]:
 if not os.path.isdir(os.path.join(ROOT, mk["plugins"][0]["source"])):
     fail("count", "marketplace.json source path does not resolve")
 
-for doc in ("README.md", "INSTALL.md", "LAUNCH.md",
+for doc in ("README.md", "INSTALL.md",
             "plugins/product-manager-os/README.md"):
     fp = os.path.join(ROOT, doc)
     if not os.path.isfile(fp):
@@ -185,6 +185,88 @@ for dp, dn, fn in os.walk(ROOT):
                 continue
             if not os.path.exists(os.path.normpath(os.path.join(dp, t))):
                 fail("links", f"{os.path.relpath(fp, ROOT)} → {t}")
+
+# ── 7. The plugin install path actually delivers the OS ──────────────────────
+# A plugin cannot ship a CLAUDE.md that Claude reads — only the project's own
+# CLAUDE.md is loaded. So on `/plugin install` the brain reaches the session
+# ONLY through the SessionStart hook. If that breaks, the plugin still installs,
+# still lists 53 skills, and silently becomes a prompt pack: no bootstrap, no
+# memory, no workspace, no activity log. Nothing else in this suite sees it.
+import subprocess
+
+hooks_json = f"{P}/hooks/hooks.json"
+hook_sh = f"{P}/hooks/session-start.sh"
+
+if not os.path.isfile(hooks_json):
+    fail("plugin", "hooks/hooks.json is missing — the operating brain will not "
+                   "load on a /plugin install")
+elif not os.path.isfile(hook_sh):
+    fail("plugin", "hooks/session-start.sh is missing")
+else:
+    try:
+        hj = json.load(open(hooks_json, encoding="utf-8"))
+    except Exception as e:
+        hj = None
+        fail("plugin", f"hooks/hooks.json does not parse: {e}")
+    if hj is not None:
+        starts = hj.get("hooks", {}).get("SessionStart")
+        if not starts:
+            fail("plugin", "hooks.json declares no SessionStart hook")
+        else:
+            cmds = [h.get("command", "") for g in starts for h in g.get("hooks", [])]
+            if not any("session-start.sh" in c for c in cmds):
+                fail("plugin", "SessionStart hook does not invoke session-start.sh")
+            if not any("${CLAUDE_PLUGIN_ROOT}" in c for c in cmds):
+                fail("plugin", "SessionStart command must go through "
+                               "${CLAUDE_PLUGIN_ROOT} — a relative path breaks "
+                               "once the plugin is installed from a cache")
+
+    if not os.access(hook_sh, os.X_OK):
+        warn("plugin", "hooks/session-start.sh is not executable")
+
+    # Run it the way Claude Code will, from a directory that is not the plugin.
+    for label, cwd, setup in (("cold", "/tmp", False), ("set-up", None, True)):
+        import tempfile
+        d = tempfile.mkdtemp()
+        if setup:
+            os.makedirs(f"{d}/memory", exist_ok=True)
+            open(f"{d}/memory/MEMORY.md", "w").write("# Memory Index\n")
+        env = dict(os.environ, CLAUDE_PLUGIN_ROOT=P)
+        try:
+            r = subprocess.run(["bash", hook_sh], cwd=d, env=env,
+                               capture_output=True, text=True, timeout=15)
+        except Exception as e:
+            fail("plugin", f"session-start.sh ({label}) failed to run: {e}")
+            continue
+        if r.returncode != 0:
+            fail("plugin", f"session-start.sh ({label}) exited {r.returncode}")
+        out = r.stdout
+        if not out.strip():
+            fail("plugin", f"session-start.sh ({label}) produced no context")
+        # SessionStart context is truncated at ~2KB, in every output form we
+        # tried (plain stdout AND hookSpecificOutput.additionalContext). Going
+        # over the cap is the worst failure mode available: the plugin looks
+        # installed and behaves like a prompt pack. See hooks/README.md.
+        if len(out.encode()) > 2048:
+            fail("plugin", f"session-start.sh ({label}) emits "
+                           f"{len(out.encode())} bytes; SessionStart context is "
+                           f"capped at ~2048 and the remainder is dropped "
+                           f"silently")
+        if "CLAUDE.md" not in out:
+            fail("plugin", f"session-start.sh ({label}) never points the model "
+                           f"at the operating brain")
+        if setup is False and "memory/" not in out:
+            fail("plugin", "session-start.sh (cold) does not mention bootstrapping "
+                           "memory/ — a fresh install has nowhere to put anything")
+
+    # Docs must teach the namespaced form. On a plugin install the commands are
+    # /product-manager-os:setup, not /setup, and every doc said /setup.
+    for doc, path in (("plugin README", f"{P}/README.md"),
+                      ("INSTALL.md", f"{ROOT}/INSTALL.md")):
+        if "product-manager-os:setup" not in open(path, encoding="utf-8").read():
+            fail("plugin", f"{doc} never shows the namespaced command form "
+                           f"(/product-manager-os:setup) — it is what a plugin "
+                           f"user actually has to type")
 
 # ── report ───────────────────────────────────────────────────────────────────
 for cat, msg in FAIL:

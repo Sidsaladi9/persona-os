@@ -16,6 +16,9 @@
 
 Run it **inside the folder you want the OS to live in** — see below, it's the one thing worth thirty seconds of thought. Then restart your tool and type `/setup`.
 
+> **A note on command names.** Installed as a plugin, Claude Code namespaces the commands: type **`/product-manager-os:setup`**, `/product-manager-os:tune-up`, `/product-manager-os:weekly`, and so on. Installed with `get.sh` or `install.sh`, they are the plain `/setup`, `/tune-up`, `/weekly`. Both are written as `/setup` throughout these docs for readability — prefix them if you installed the plugin, or just say what you want in plain English, which works either way.
+
+
 The `get.sh` one-liner detects your tool, needs no git and no Python, installs nothing system-wide, and stops to ask if you're about to install into `~` or `~/Downloads`.
 
 *Prefer not to pipe a script into bash? Reasonable:*
@@ -166,7 +169,7 @@ Each bundle carries the same OS, packaged the way that host expects.
 
 The first time you ask for anything, the OS creates `memory/` and `workspace/` in your folder — that's where your product context and every artifact it writes will live. It'll say one line about it and then answer your question.
 
-Nine short questions, about three minutes, and you can skip any of them or the whole thing. Fastest path is **"bootstrap from a doc"** — paste a real PRD or strategy doc and it infers your product *and* your house format in one pass.
+Nine short questions, about three minutes, and you can skip any of them or the whole thing. Fastest path is **"bootstrap from a doc"** — paste a real PRD or strategy doc and it infers your product *and* your house format in one pass. No doc handy? There's a sample one at [`examples/sample-prd.md`](plugins/product-manager-os/examples/sample-prd.md) you can paste to see what it does.
 
 Skipped it? Nothing is lost. `/setup` resumes later and only asks what's still blank, and `/setup status` shows what it knows and what it's missing.
 

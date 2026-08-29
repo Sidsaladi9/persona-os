@@ -57,6 +57,8 @@ product-manager-os/
 ├── CLAUDE.md          the operating brain — how it thinks, when to push back, what to remember
 ├── skills/            53 book-grounded playbooks, reached for by intent
 ├── agents/            critic + researcher — two isolated workers (see below)
+├── hooks/             loads the brain on a `/plugin install`, where a plugin's
+│                      CLAUDE.md is otherwise never read (see hooks/README.md)
 ├── commands/          /setup /connect /tune-up + 5 chained workflows
 ├── memory/            what it learns about you — product, team, strategy, style
 ├── workspace/         where your artifacts land — projects, research, strategy,
@@ -71,7 +73,9 @@ product-manager-os/
 
 ## Five things that make it an OS, not a prompt pack
 
-**1. It remembers your product.** `memory/` holds what you're building, your team, your north star, and how you like things written. Run `/setup` — nine questions, ~3 minutes, all skippable. Fastest path is *"bootstrap from a doc"*: paste a real PRD and it infers your product **and** your house format in one pass.
+> **A note on command names.** Installed as a plugin, Claude Code namespaces the commands: type **`/product-manager-os:setup`**, `/product-manager-os:tune-up`, `/product-manager-os:weekly`, and so on. Installed with `get.sh` or `install.sh`, they are the plain `/setup`, `/tune-up`, `/weekly`. Both are written as `/setup` throughout these docs for readability — prefix them if you installed the plugin, or just say what you want in plain English, which works either way.
+
+**1. It remembers your product.** `memory/` holds what you're building, your team, your north star, and how you like things written. Run `/setup` — nine questions, ~3 minutes, all skippable. Fastest path is *"bootstrap from a doc"*: paste a real PRD and it infers your product **and** your house format in one pass — try it with [`examples/sample-prd.md`](examples/sample-prd.md) if you don't have one to hand.
 
 Skipped it? Nothing is lost. `/setup` resumes and only asks what's still blank; `/setup status` shows what it knows and what it's missing.
 

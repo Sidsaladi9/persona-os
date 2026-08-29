@@ -85,6 +85,6 @@ Two things degrade honestly off Claude: slash commands become named workflows in
 
 ## License & sharing
 
-Free for subscribers of The Product Channel. Use it, fork it, adapt it to your team. If it helps, share the newsletter — that's the only ask.
+**MIT.** Free for everyone, no account and no email required. Use it, fork it, strip my name off it, ship it inside your company. If it helps, share the newsletter — that's the only ask.
 
 📬 **[Subscribe to The Product Channel](https://sidsaladi.substack.com)** for more tools like this.

@@ -1,10 +1,10 @@
 {
   "name": "product-manager-os",
-  "description": "A complete operating system for product managers. Ships 53 battle-tested skills across the full product lifecycle — discovery, research, strategy, planning, execution, data, go-to-market, and team comms — each grounded in the most popular book on its topic (Mom Test, Inspired, Continuous Discovery Habits, Obviously Awesome, Good Strategy Bad Strategy, Measure What Matters, and more). Plus 5 chained slash-commands, a skill-creator, a CLAUDE.md operating brain, a learning memory system with a resumable 3-minute /setup, two isolated workers (critic + researcher), ready-to-wire automations, and bundled getprompts + getskills libraries. From The Product Channel by Sid Saladi.",
-  "version": "1.0.0",
+  "description": "A complete operating system for product managers. Ships 53 battle-tested skills across the full product lifecycle \u2014 discovery, research, strategy, planning, execution, data, go-to-market, and team comms \u2014 each grounded in the most popular book on its topic (Mom Test, Inspired, Continuous Discovery Habits, Obviously Awesome, Good Strategy Bad Strategy, Measure What Matters, and more). Plus 5 chained slash-commands, a skill-creator, a CLAUDE.md operating brain, a learning memory system with a resumable 3-minute /setup, two isolated workers (critic + researcher), ready-to-wire automations, and bundled getprompts + getskills libraries. From The Product Channel by Sid Saladi.",
+  "version": "1.1.0",
   "author": {
-    "name": "Sid Saladi — The Product Channel",
-    "email": "hello@theproductchannel.com"
+    "name": "Sid Saladi \u2014 The Product Channel",
+    "email": "theproductchannel@gmail.com"
   },
   "homepage": "https://sidsaladi.substack.com",
   "keywords": [
