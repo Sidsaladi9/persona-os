@@ -179,6 +179,41 @@ jobs:
           done
           [ "$fails" -eq 0 ] || exit 1
 
+      - name: Shipped tools survive a plugin install (skills are NOT in the project)
+        working-directory: plugins/product-manager-os
+        run: |
+          # On `/plugin install` the project gets memory/, workspace/ and tests/.
+          # The skills stay in the plugin cache. Every tool here used to die on an
+          # unhandled FileNotFoundError in that layout — including relevance_report.py,
+          # which /tune-up runs, and run_all.py, which skill-creator points at.
+          # The install.sh smoke test above cannot see this: it copies skills in.
+          set -e
+          d="$(mktemp -d)"
+          mkdir -p "$d/tests" "$d/memory" "$d/workspace/projects"
+          cp tests/*.py "$d/tests/"
+          cp memory/*.md "$d/memory/"
+          printf '# A spec\n\nbody\n' > "$d/workspace/projects/demo-spec.md"
+
+          # 1. Workspace-only tools must work with no skills reachable at all.
+          (cd "$d" && env -u CLAUDE_PLUGIN_ROOT HOME=/nonexistent python3 tests/relevance_report.py) \
+            || { echo "::error::relevance_report.py dies without skills — /tune-up calls it"; exit 1; }
+
+          # 2. Skill-reading tools must resolve the plugin root when it's exported.
+          (cd "$d" && CLAUDE_PLUGIN_ROOT="$GITHUB_WORKSPACE/plugins/product-manager-os" python3 tests/run_all.py > /dev/null) \
+            || { echo "::error::run_all.py cannot find skills via CLAUDE_PLUGIN_ROOT"; exit 1; }
+          (cd "$d" && CLAUDE_PLUGIN_ROOT="$GITHUB_WORKSPACE/plugins/product-manager-os" python3 tests/score_skill.py write-spec > /dev/null) \
+            || { echo "::error::score_skill.py cannot resolve a bare skill name"; exit 1; }
+
+          # 3. With nothing reachable, they must explain themselves, not traceback.
+          out="$( (cd "$d" && env -u CLAUDE_PLUGIN_ROOT HOME=/nonexistent python3 tests/run_all.py) 2>&1 || true )"
+          case "$out" in
+            *Traceback*) echo "::error::run_all.py tracebacks instead of explaining"; echo "$out"; exit 1 ;;
+            *"Could not find the skills"*) : ;;
+            *) echo "::error::run_all.py gave no usable message"; echo "$out"; exit 1 ;;
+          esac
+          echo "shipped tools behave on a plugin install"
+          rm -rf "$d"
+
       - name: Re-installing upgrades in place and never clobbers someone else's brief
         run: |
           # Re-running the installer to upgrade is the common case. It used to

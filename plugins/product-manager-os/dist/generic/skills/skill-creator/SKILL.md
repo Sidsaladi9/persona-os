@@ -32,11 +32,21 @@ If any are vague, ask 2–3 sharp questions before writing — a skill built on 
 4. **Add anti-patterns** — the 3–5 ways this task is commonly done badly. This is half the value.
 5. **Score it — this is not optional.** Run the loss function and fix what it flags:
    ```bash
-   python3 tests/score_skill.py skills/<name>/SKILL.md
+   python3 tests/score_skill.py <name>
    ```
+   (A path to the `SKILL.md` works too. The bare name is safer — on a plugin install there is no `skills/` folder in the project.)
    **A new skill ships at 100, never at the 85 floor.** The floor is what a skill is allowed to decay to, not what it's allowed to arrive at. Every failed check is a real gap: no `Avoid` section means you never wrote down how this goes wrong; a failed `asks_before_producing` on a `guided` skill means it will confidently invent the inputs it should have asked for.
 6. **Battle-test it** — run it once on a realistic input, then read the output as a skeptic: could a real PM ship this? Is the template complete? Does the artifact land at the declared `outputs` path? Fix what breaks.
-7. **Place it and re-run the suite** — write to `skills/<name>/SKILL.md`, then `python3 tests/run_all.py`. That checks the whole set, so you find out immediately if the new skill collides with an existing one or routes somewhere that doesn't exist. It's live next session.
+7. **Place it where this host actually loads skills from, and re-run the suite.** The destination depends on how the OS was installed, and getting it wrong means the skill scores 100 and never fires:
+
+   | How the OS was installed | Write the new skill to |
+   |---|---|
+   | `install.sh` / `get.sh` on Claude Code | `.claude/skills/<name>/SKILL.md` |
+   | `install.sh` / `get.sh` on Cursor | `.cursor/rules/<name>/SKILL.md` |
+   | `install.sh` / `get.sh` elsewhere | `skills/<name>/SKILL.md` |
+   | **`/plugin install`** | **`.claude/skills/<name>/SKILL.md` in the project** — never into the plugin cache under `~/.claude/plugins/`, which is overwritten on the next upgrade and would silently lose the skill |
+
+   If none of those directories exists yet, create the first one that matches. Then run `python3 tests/run_all.py`. That checks the whole set, so you find out immediately if the new skill collides with an existing one or routes somewhere that doesn't exist. It's live next session.
 
 
 ## The frontmatter contract (get this right or nothing else matters)

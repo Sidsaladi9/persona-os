@@ -22,7 +22,8 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from score_skill import split_frontmatter, section, find_skills_dir  # noqa: E402
+from score_skill import (split_frontmatter, section, find_skills_dir,  # noqa: E402
+                         require_skills_dir)
 
 # Placeholders that mean "the model fills this in" — never required literally.
 PLACEHOLDER = re.compile(r"[<\[][^>\]]{0,60}[>\]]")
@@ -30,7 +31,7 @@ PLACEHOLDER = re.compile(r"[<\[][^>\]]{0,60}[>\]]")
 
 def required_elements(skill):
     """Pull the promised structure out of a skill's Output template section."""
-    path = os.path.join(find_skills_dir(ROOT), skill, "SKILL.md")
+    path = os.path.join(require_skills_dir(ROOT), skill, "SKILL.md")
     if not os.path.isfile(path):
         sys.exit(f"no such skill: {skill}")
     fm, body = split_frontmatter(open(path, encoding="utf-8").read())

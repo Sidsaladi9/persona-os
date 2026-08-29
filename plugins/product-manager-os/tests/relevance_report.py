@@ -30,7 +30,7 @@ from datetime import datetime, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from score_skill import find_skills_dir  # noqa: E402
+from score_skill import find_skills_dir, require_skills_dir  # noqa: E402
 WS = os.path.join(ROOT, "workspace")
 MEM = os.path.join(ROOT, "memory")
 
@@ -39,9 +39,18 @@ SKIP = {"README.md", "INDEX.md", "TEMPLATE.md"}
 
 
 def skill_outputs():
-    """Map an output-path pattern to the skill that declares it."""
+    """Map an output-path pattern to the skill that declares it.
+
+    This is the only tool /tune-up runs by itself, and its real job — finding
+    artifacts nobody came back to — reads workspace/, not skills/. On a plugin
+    install the skills are in the plugin cache and may not be reachable at all.
+    Losing the skill attribution is a smaller loss than losing the whole report,
+    so this degrades instead of exiting.
+    """
     out = {}
     sdir = find_skills_dir(ROOT)
+    if not os.path.isdir(sdir):
+        return out
     for name in sorted(os.listdir(sdir)):
         f = os.path.join(sdir, name, "SKILL.md")
         if not os.path.isfile(f):

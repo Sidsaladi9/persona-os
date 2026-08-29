@@ -23,7 +23,8 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from score_skill import score_file, find_skills_dir, DIM_NAMES  # noqa: E402
+from score_skill import (score_file, find_skills_dir, require_skills_dir,  # noqa: E402
+                         DIM_NAMES)
 
 MIN_SCORE = 85.0
 BASELINE = os.path.join(HERE, "baseline.json")
@@ -37,7 +38,7 @@ VALID_ROOTS = {
 
 
 def all_skills():
-    d = find_skills_dir(ROOT)
+    d = require_skills_dir(ROOT)
     out = []
     for name in sorted(os.listdir(d)):
         p = os.path.join(d, name, "SKILL.md")
@@ -55,9 +56,10 @@ def main():
     failures = []
 
     # gate 3 — structural integrity
-    dirs = [d for d in sorted(os.listdir(find_skills_dir(ROOT)))
-            if os.path.isdir(os.path.join(find_skills_dir(ROOT), d))]
-    missing = [d for d in dirs if not os.path.isfile(os.path.join(find_skills_dir(ROOT), d, "SKILL.md"))]
+    sdir = require_skills_dir(ROOT)
+    dirs = [d for d in sorted(os.listdir(sdir))
+            if os.path.isdir(os.path.join(sdir, d))]
+    missing = [d for d in dirs if not os.path.isfile(os.path.join(sdir, d, "SKILL.md"))]
     for d in missing:
         failures.append(f"UNIQUENESS: skills/{d}/ has no SKILL.md")
 

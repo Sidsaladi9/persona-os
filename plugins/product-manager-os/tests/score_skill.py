@@ -14,6 +14,7 @@ Usage:
   python3 tests/score_skill.py skills/write-spec/SKILL.md --json
 """
 import json
+import glob
 import os
 import re
 import sys
@@ -21,20 +22,72 @@ import sys
 TIERS = {"quick", "guided", "campaign"}
 
 
-def find_skills_dir(root):
-    """Where the skills live, which depends on the host.
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    The repo and most bundles use <root>/skills. Claude Code puts them in
-    .claude/skills and Cursor in .cursor/rules — so a hard-coded 'skills' path
-    silently finds nothing in exactly the two most common installs.
+
+def _has_skills(p):
+    try:
+        return os.path.isdir(p) and any(
+            os.path.isfile(os.path.join(p, d, "SKILL.md")) for d in os.listdir(p))
+    except OSError:
+        return False
+
+
+def find_skills_dir(root):
+    """Where the skills live, which depends on how the OS was installed.
+
+    The repo and most bundles use <root>/skills. Claude Code's own installer
+    puts them in .claude/skills and Cursor in .cursor/rules — so a hard-coded
+    'skills' path silently finds nothing in the two commonest file installs.
+
+    And on a `/plugin install` the skills are not in the project AT ALL: they
+    live in the plugin cache, and the project only ever gets memory/, workspace/
+    and this tests/ folder. Every tool here used to die on an unhandled
+    FileNotFoundError there — including relevance_report.py, which /tune-up runs,
+    and score_skill.py, which skill-creator tells the user to run. CLAUDE.md
+    promises both. CI never saw it because its smoke test installs with
+    install.sh, which does copy the skills into the project.
     """
     for cand in ("skills", ".claude/skills", ".cursor/rules"):
         p = os.path.join(root, cand)
-        if os.path.isdir(p) and any(
-            os.path.isfile(os.path.join(p, d, "SKILL.md")) for d in os.listdir(p)
-        ):
+        if _has_skills(p):
             return p
+
+    # Installed as a plugin: ask the host where the plugin lives.
+    plugin_root = os.environ.get("CLAUDE_PLUGIN_ROOT")
+    if plugin_root and _has_skills(os.path.join(plugin_root, "skills")):
+        return os.path.join(plugin_root, "skills")
+
+    # Last resort: the plugin cache, newest version first. Running a tool from a
+    # plain shell means CLAUDE_PLUGIN_ROOT is unset, which is the normal case for
+    # someone following an instruction the OS printed.
+    cache = os.path.expanduser("~/.claude/plugins/cache")
+    if os.path.isdir(cache):
+        cands = glob.glob(os.path.join(cache, "*", "product-manager-os", "*", "skills"))
+        cands += glob.glob(os.path.join(cache, "*", "*", "*", "skills"))
+        for c in sorted(set(cands), reverse=True):
+            if _has_skills(c):
+                return c
+
     return os.path.join(root, "skills")
+
+
+def require_skills_dir(root):
+    """find_skills_dir, but with a human answer instead of a traceback."""
+    d = find_skills_dir(root)
+    if _has_skills(d):
+        return d
+    sys.stderr.write(
+        "Could not find the skills.\n\n"
+        "Looked in ./skills, ./.claude/skills, ./.cursor/rules, "
+        "$CLAUDE_PLUGIN_ROOT/skills, and ~/.claude/plugins/cache.\n\n"
+        "If you installed Product Manager OS as a plugin, the skills live in the\n"
+        "plugin cache rather than in this project — that is normal. Run this from\n"
+        "the plugin directory, or set CLAUDE_PLUGIN_ROOT to it:\n\n"
+        "  CLAUDE_PLUGIN_ROOT=~/.claude/plugins/cache/persona-os/product-manager-os/<version> \\\n"
+        "    python3 tests/" + os.path.basename(sys.argv[0]) + "\n\n"
+        "Tools that only read workspace/ (relevance_report.py) work either way.\n")
+    sys.exit(2)
 
 WORKSPACE_ROOTS = {
     "projects", "research", "strategy", "metrics",
@@ -221,7 +274,27 @@ def main():
     if not args:
         print(__doc__)
         sys.exit(2)
-    res = score_file(args[0])
+    target = args[0]
+    # Accept a bare skill name as well as a path. On a plugin install the skills
+    # are not under the project at all, so "skills/<name>/SKILL.md" — what
+    # skill-creator prints — resolves to nothing and the open() below used to
+    # raise FileNotFoundError at the user.
+    if not os.path.isfile(target):
+        name = target
+        for suffix in ("/SKILL.md",):
+            if name.endswith(suffix):
+                name = name[: -len(suffix)]
+        name = os.path.basename(name.rstrip("/"))
+        cand = os.path.join(find_skills_dir(ROOT), name, "SKILL.md")
+        if os.path.isfile(cand):
+            target = cand
+        else:
+            sys.stderr.write(
+                f"No skill at '{args[0]}', and no skill named '{name}' in "
+                f"{find_skills_dir(ROOT)}.\n"
+                "Pass a path to a SKILL.md, or a skill name.\n")
+            sys.exit(2)
+    res = score_file(target)
     if "--json" in sys.argv:
         print(json.dumps(res, indent=2))
         return
