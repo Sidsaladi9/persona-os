@@ -198,27 +198,46 @@ jobs:
           grep -q 'MY CUSTOM' "$d/skills/write-spec/SKILL.md" \
             && { echo "::error::--force did not overwrite"; exit 1; }
 
+          # get.sh REFUSES to install into /tmp — that's a feature, and on Linux
+          # `mktemp -d` hands you /tmp/tmp.XXXX, so these two cases must run
+          # somewhere that looks like a real project directory or the test trips
+          # the product's own safety guard instead of testing what it means to.
+          SANDBOX="$GITHUB_WORKSPACE/../ci-installer-sandbox"
+          mkdir -p "$SANDBOX"
+
           # Ambiguous host signals must refuse, not guess. The old detect()
           # returned the first hit with Claude ahead of Codex, so any folder that
           # had ever run Claude Code got the Claude bundle with AGENTS.md present.
-          e="$(mktemp -d)"; mkdir -p "$e/.claude"; touch "$e/AGENTS.md"
+          e="$SANDBOX/ambiguous"; mkdir -p "$e/.claude"; touch "$e/AGENTS.md"
           out="$( cd "$e" && PERSONA_OS_SRC="$GITHUB_WORKSPACE" bash "$GITHUB_WORKSPACE/get.sh" 2>&1 || true )"
           case "$out" in
             *"more than one tool"*) : ;;
             *) echo "::error::ambiguous folder did not refuse"; echo "$out"; exit 1 ;;
           esac
-          [ ! -f "$e/CLAUDE.md" ] && [ ! -d "$e/skills" ] \
-            || { echo "::error::wrote into an ambiguous folder"; exit 1; }
+          if [ -f "$e/CLAUDE.md" ] || [ -d "$e/skills" ]; then
+            echo "::error::wrote into an ambiguous folder"; exit 1
+          fi
 
           # An unambiguous Codex folder must resolve to codex
-          f="$(mktemp -d)"; touch "$f/AGENTS.md"
-          out="$( cd "$f" && PERSONA_OS_SRC="$GITHUB_WORKSPACE" bash "$GITHUB_WORKSPACE/get.sh" 2>&1 )"
+          f="$SANDBOX/codex"; mkdir -p "$f"; touch "$f/AGENTS.md"
+          out="$( cd "$f" && PERSONA_OS_SRC="$GITHUB_WORKSPACE" bash "$GITHUB_WORKSPACE/get.sh" 2>&1 || true )"
           case "$out" in
             *"detected: codex"*) : ;;
             *) echo "::error::AGENTS.md folder did not detect codex"; echo "$out"; exit 1 ;;
           esac
-          echo "installer refuses to clobber and refuses to guess"
-          rm -rf "$d" "$e" "$f"
+
+          # And the guard itself still holds. Use a literal /tmp path: `mktemp -d`
+          # gives /tmp/… on Linux but /var/folders/… on macOS, so relying on it
+          # makes this assertion true on one platform and false on the other.
+          g="/tmp/ci-guard-check"; rm -rf "$g"; mkdir -p "$g"; touch "$g/AGENTS.md"
+          out="$( cd "$g" && PERSONA_OS_SRC="$GITHUB_WORKSPACE" bash "$GITHUB_WORKSPACE/get.sh" 2>&1 || true )"
+          case "$out" in
+            *"Stopped. Nothing was written"*) : ;;
+            *) echo "::error::get.sh installed into a temp dir; the guard is gone"; echo "$out"; exit 1 ;;
+          esac
+
+          echo "installer refuses to clobber, refuses to guess, and refuses /tmp"
+          rm -rf "$d" "$g" "$SANDBOX"
 
       - name: Shipped tools survive a plugin install (skills are NOT in the project)
         working-directory: plugins/product-manager-os
