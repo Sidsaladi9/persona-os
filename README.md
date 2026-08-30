@@ -70,7 +70,7 @@ That's the difference between "battle-tested" as a claim and as something you ca
 
 The skills are plain markdown; the packaging isn't. Each host looks for its brief in a different place and not all have slash commands, so the OS ships a **pre-built bundle per host** — Claude Code, Cowork, Codex, Cursor, Gemini CLI, and a generic one. Browse them in [`dist/`](plugins/product-manager-os/dist) or let `get.sh` pick.
 
-Two things degrade honestly off Claude: slash commands become named workflows in `COMMANDS.md`, and the two workers become briefs in `WORKERS.md` — with the skill saying plainly that the result is a self-review rather than an independent one.
+Two things degrade honestly off Claude: slash commands become named workflows in `COMMANDS.md`, and the two workers become briefs in `WORKERS.md`. On those hosts the nine skills that use a worker are rewritten at build time to point at the brief and to **label their output a self-review rather than an independent critique** — because on a host without subagents that is what it is.
 
 ---
 

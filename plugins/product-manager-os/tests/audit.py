@@ -268,6 +268,46 @@ else:
                            f"(/product-manager-os:setup) — it is what a plugin "
                            f"user actually has to type")
 
+# ── 8. Shipped assets are reachable in the bundle that ships them ────────────
+# WORKERS.md shipped into all four non-subagent bundles with NOTHING pointing at
+# it: the nine worker skills still opened "Delegate to the `critic` subagent",
+# naming a thing those hosts do not have. The README meanwhile promised the
+# skill "says plainly that the result is a self-review". It didn't.
+for tgt in sorted(os.listdir(f"{P}/dist")):
+    d = f"{P}/dist/{tgt}"
+    if not os.path.isdir(d):
+        continue
+    # claude-code nests these at .claude/agents/, cowork at agents/ — just look.
+    has_agents = any("critic.md" in fs for _, _, fs in os.walk(d))
+    workers_md = os.path.join(d, "WORKERS.md")
+    skills = [os.path.join(dp, "SKILL.md")
+              for dp, _, fs in os.walk(d) if "SKILL.md" in fs]
+    if has_agents:
+        if os.path.isfile(workers_md):
+            fail("bundles", f"{tgt} ships real subagents AND WORKERS.md — pick one")
+        continue
+    if not os.path.isfile(workers_md):
+        fail("bundles", f"{tgt} has no subagents and no WORKERS.md — nine skills "
+                        f"reference a worker this host cannot provide")
+        continue
+    pointing = [f for f in skills
+                if "WORKERS.md" in open(f, encoding="utf-8", errors="ignore").read()]
+    if not pointing:
+        fail("bundles", f"{tgt} ships WORKERS.md but no skill points at it — the "
+                        f"asset is orphaned")
+    for f in skills:
+        s = open(f, encoding="utf-8", errors="ignore").read()
+        if "subagent" in s and "WORKERS.md" not in s:
+            fail("bundles", f"{tgt}/{os.path.basename(os.path.dirname(f))} names a "
+                            f"subagent on a host that has none, without pointing at "
+                            f"WORKERS.md")
+    # the honesty rule is the whole reason WORKERS.md exists
+    for f in pointing:
+        if "self-review" not in open(f, encoding="utf-8", errors="ignore").read():
+            fail("bundles", f"{tgt}/{os.path.basename(os.path.dirname(f))} uses a "
+                            f"worker brief without telling the model to label the "
+                            f"result a self-review")
+
 # ── report ───────────────────────────────────────────────────────────────────
 for cat, msg in FAIL:
     print(f"✗ [{cat}] {msg}")

@@ -265,6 +265,46 @@ def build(target):
         open(os.path.join(out, "WORKERS.md"), "w", encoding="utf-8").write("\n".join(note))
         agents_note = "`WORKERS.md` (described — this host has no subagents)"
 
+        # WORKERS.md used to ship into every non-Claude bundle with nothing
+        # pointing at it. The nine skills that use a worker still opened with
+        # "Delegate to the `critic` subagent" — naming a thing this host does
+        # not have — and buried the fallback in a trailing clause that never
+        # said where the brief actually lives. Rewrite the pointer per host so
+        # the shipped asset is reachable and the honesty is stated up front,
+        # not appended.
+        n_rewritten = 0
+        for d in sorted(os.listdir(os.path.join(out, cfg["skills_dir"]))):
+            f = os.path.join(out, cfg["skills_dir"], d, "SKILL.md")
+            if not os.path.isfile(f):
+                continue
+            s = open(f, encoding="utf-8").read()
+            if "subagent" not in s:
+                continue
+            for worker in ("critic", "researcher"):
+                s = s.replace(
+                    f"**Delegate to the `{worker}` subagent.**",
+                    f"**Run the `{worker}` brief from `WORKERS.md`.** This host has no "
+                    f"subagents, so you cannot get a genuinely independent read inside "
+                    f"this session. Do it anyway — the brief is worth following — but "
+                    f"**label the result a self-review, not an independent critique**, "
+                    f"and tell the user how to get the real thing: a fresh session with "
+                    f"the artifact pasted in alone.")
+                s = s.replace(f"`{worker}` subagent", f"`{worker}` brief (`WORKERS.md`)")
+            # The source carries a trailing "if subagents aren't available…"
+            # clause for exactly this case. On these hosts it is always true,
+            # and it now repeats the opener, so drop it rather than say it twice.
+            for tail in (
+                " If subagents aren't available on this host, run the step yourself "
+                "and say so — the output is still useful, just less independent.",
+                " If this host has no subagents, do the pass yourself and label it a "
+                "self-review.",
+            ):
+                s = s.replace(tail, "")
+            open(f, "w", encoding="utf-8").write(s)
+            n_rewritten += 1
+        if n_rewritten:
+            print(f"    rewrote {n_rewritten} skills to point at WORKERS.md")
+
     readme = f"""# Product Manager OS — {cfg['label']}
 
 Built from `plugins/product-manager-os` by `scripts/build_targets.py`.
