@@ -22,17 +22,41 @@ say() { printf '%s\n' "$*"; }
 die() { printf '\n✗ %s\n' "$*" >&2; exit 1; }
 
 # ── which tool? ───────────────────────────────────────────────────────────────
-detect() {
-  [ -d ".cursor" ]                   && { echo cursor;        return; }
-  [ -f "GEMINI.md" ] || [ -d ".gemini" ] && { echo gemini-cli; return; }
-  [ -d ".claude" ] || [ -f "CLAUDE.md" ] && { echo claude-code; return; }
-  [ -f "AGENTS.md" ]                 && { echo codex;         return; }
-  echo claude-code
+# Collect EVERY host signal present, not the first one in an arbitrary order.
+# The old version returned on the first hit with Claude ahead of Codex, so any
+# folder that had ever run Claude Code — which is most of them — silently got
+# the Claude bundle even when AGENTS.md was sitting right there. Guessing wrong
+# here installs the wrong entry file and the wrong skills path, and the user
+# finds out when nothing loads.
+detect_all() {
+  local found=""
+  [ -d ".cursor" ]                       && found="$found cursor"
+  { [ -f "GEMINI.md" ] || [ -d ".gemini" ]; } && found="$found gemini-cli"
+  { [ -d ".claude" ] || [ -f "CLAUDE.md" ]; } && found="$found claude-code"
+  [ -f "AGENTS.md" ]                     && found="$found codex"
+  echo "${found# }"
 }
 
 if [ -z "$TARGET" ]; then
-  TARGET="$(detect)"
-  say "No tool given — detected: $TARGET"
+  FOUND="$(detect_all)"
+  COUNT=$(printf '%s\n' $FOUND | grep -c . || true)
+  if [ "$COUNT" -gt 1 ]; then
+    say "This folder has signals for more than one tool:$(printf ' %s' $FOUND)"
+    say
+    say "I won't guess — the wrong bundle installs the wrong entry file and the"
+    say "wrong skills path, and you'd find out when nothing loads. Name the one"
+    say "you actually use:"
+    say
+    for t in $FOUND; do say "  bash get.sh $t"; done
+    say
+    die "Stopped. Nothing was written."
+  elif [ "$COUNT" -eq 1 ]; then
+    TARGET="$FOUND"
+    say "No tool given — detected: $TARGET"
+  else
+    TARGET="claude-code"
+    say "No tool given and no signals in this folder — defaulting to: $TARGET"
+  fi
   say "(override with:  bash get.sh <claude-code|claude-cowork|codex|cursor|gemini-cli|generic>)"
   say
 fi

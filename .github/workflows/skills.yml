@@ -179,6 +179,47 @@ jobs:
           done
           [ "$fails" -eq 0 ] || exit 1
 
+      - name: The installer never clobbers a user file, and never guesses the host
+        run: |
+          set -e
+          # A user's own top-level skills/ is the live case: the codex, gemini and
+          # generic bundles all write one, and plenty of people already have theirs.
+          d="$(mktemp -d)"; mkdir -p "$d/skills/write-spec"
+          printf 'MY CUSTOM WRITE-SPEC\n' > "$d/skills/write-spec/SKILL.md"
+          if bash install.sh --target generic "$d" > /dev/null 2>&1; then
+            echo "::error::installer overwrote a colliding user file instead of refusing"; exit 1
+          fi
+          grep -q 'MY CUSTOM' "$d/skills/write-spec/SKILL.md" \
+            || { echo "::error::user's skill was clobbered"; exit 1; }
+          # refusing must write NOTHING, not stop halfway
+          [ ! -f "$d/AGENTS.md" ] || { echo "::error::wrote the entry file before refusing"; exit 1; }
+          # --force is the documented way through
+          bash install.sh --force --target generic "$d" > /dev/null
+          grep -q 'MY CUSTOM' "$d/skills/write-spec/SKILL.md" \
+            && { echo "::error::--force did not overwrite"; exit 1; }
+
+          # Ambiguous host signals must refuse, not guess. The old detect()
+          # returned the first hit with Claude ahead of Codex, so any folder that
+          # had ever run Claude Code got the Claude bundle with AGENTS.md present.
+          e="$(mktemp -d)"; mkdir -p "$e/.claude"; touch "$e/AGENTS.md"
+          out="$( cd "$e" && PERSONA_OS_SRC="$GITHUB_WORKSPACE" bash "$GITHUB_WORKSPACE/get.sh" 2>&1 || true )"
+          case "$out" in
+            *"more than one tool"*) : ;;
+            *) echo "::error::ambiguous folder did not refuse"; echo "$out"; exit 1 ;;
+          esac
+          [ ! -f "$e/CLAUDE.md" ] && [ ! -d "$e/skills" ] \
+            || { echo "::error::wrote into an ambiguous folder"; exit 1; }
+
+          # An unambiguous Codex folder must resolve to codex
+          f="$(mktemp -d)"; touch "$f/AGENTS.md"
+          out="$( cd "$f" && PERSONA_OS_SRC="$GITHUB_WORKSPACE" bash "$GITHUB_WORKSPACE/get.sh" 2>&1 )"
+          case "$out" in
+            *"detected: codex"*) : ;;
+            *) echo "::error::AGENTS.md folder did not detect codex"; echo "$out"; exit 1 ;;
+          esac
+          echo "installer refuses to clobber and refuses to guess"
+          rm -rf "$d" "$e" "$f"
+
       - name: Shipped tools survive a plugin install (skills are NOT in the project)
         working-directory: plugins/product-manager-os
         run: |
