@@ -14,7 +14,15 @@
 | **Cursor / Codex / Gemini / anything** | `curl -fsSL https://raw.githubusercontent.com/Sidsaladi9/persona-os/main/get.sh \| bash` |
 | **Cowork** | Plugins → Personal → Add marketplace from GitHub → `Sidsaladi9/persona-os` |
 
-Run it **inside the folder you want the OS to live in** — see below, it's the one thing worth thirty seconds of thought. Then restart your tool and type `/setup`.
+**Already installed and want the newest version?** The marketplace is a cached clone, so
+refresh it first — otherwise you reinstall exactly what you already have. This is why a fresh
+install can report an older version number than the repo shows:
+
+```bash
+claude plugin marketplace update persona-os && claude plugin install product-manager-os@persona-os
+```
+
+Run it **inside the folder you want the OS to live in** — see below, it's the one thing worth thirty seconds of thought. Then type `/setup` — recent Claude Code builds load a plugin immediately; if the command doesn't appear, restart.
 
 > **A note on command names.** Installed as a plugin, Claude Code namespaces the commands: type **`/product-manager-os:setup`**, `/product-manager-os:tune-up`, `/product-manager-os:weekly`, and so on. Installed with `get.sh` or `install.sh`, they are the plain `/setup`, `/tune-up`, `/weekly`. Both are written as `/setup` throughout these docs for readability — prefix them if you installed the plugin, or just say what you want in plain English, which works either way.
 
@@ -93,6 +101,18 @@ It detects your tool. To name one explicitly:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Sidsaladi9/persona-os/main/get.sh | bash -s -- codex
+```
+
+**When `get.sh` stops instead of installing.** Both are deliberate:
+
+| It says | Why | What to do |
+|---|---|---|
+| *"signals for more than one tool"* | The folder has e.g. both `.claude/` and `AGENTS.md`. The wrong bundle writes the wrong entry file and the wrong skills path, and you'd find out when nothing loads. | Name it: `bash get.sh codex` |
+| *"these files already exist here and differ"* | A file it ships collides with one of yours — usually your own `skills/`. It writes nothing. | Install into a folder of its own, or `bash install.sh --force --target <host> <dir>` to overwrite exactly the files it listed |
+
+A re-install of identical files is not a collision, so upgrading in place is fine.
+
+```bash
 ```
 
 <details>

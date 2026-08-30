@@ -262,11 +262,30 @@ else:
     # Docs must teach the namespaced form. On a plugin install the commands are
     # /product-manager-os:setup, not /setup, and every doc said /setup.
     for doc, path in (("plugin README", f"{P}/README.md"),
-                      ("INSTALL.md", f"{ROOT}/INSTALL.md")):
+                      ("INSTALL.md", f"{ROOT}/INSTALL.md"),
+                      ("root README", f"{ROOT}/README.md")):
         if "product-manager-os:setup" not in open(path, encoding="utf-8").read():
             fail("plugin", f"{doc} never shows the namespaced command form "
                            f"(/product-manager-os:setup) — it is what a plugin "
                            f"user actually has to type")
+
+    # The install that bit a real user: the marketplace is a cached clone, so a
+    # second `install` reinstalls the cached version and reports an old number.
+    # Both front doors have to say how to refresh it.
+    for doc, path in (("root README", f"{ROOT}/README.md"),
+                      ("INSTALL.md", f"{ROOT}/INSTALL.md")):
+        if "marketplace update" not in open(path, encoding="utf-8").read():
+            fail("plugin", f"{doc} never mentions `claude plugin marketplace update` "
+                           f"— without it a returning user silently reinstalls the "
+                           f"cached version and sees a stale version number")
+
+    # get.sh can now refuse (ambiguous host, colliding files). A refusal a user
+    # cannot interpret is worse than the guess it replaced.
+    readme_root = open(f"{ROOT}/README.md", encoding="utf-8").read().lower()
+    if "more than one tool" not in readme_root or "--force" not in readme_root:
+        fail("plugin", "root README does not explain the two cases where get.sh "
+                       "stops instead of installing (ambiguous host, colliding "
+                       "files) — the user is left at a dead end")
 
 # ── 8. Shipped assets are reachable in the bundle that ships them ────────────
 # WORKERS.md shipped into all four non-subagent bundles with NOTHING pointing at

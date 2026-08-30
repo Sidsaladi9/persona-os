@@ -32,13 +32,37 @@ Built by [Sid Saladi](https://sidsaladi.substack.com) for **The Product Channel*
 claude plugin marketplace add Sidsaladi9/persona-os && claude plugin install product-manager-os@persona-os
 ```
 
+Then type **`/product-manager-os:setup`**. Recent builds load the plugin straight
+away; if the command doesn't appear, restart Claude Code.
+
+> Installed as a plugin, Claude Code namespaces every command: `/product-manager-os:setup`,
+> `:tune-up`, `:weekly`, and so on. Installed with `get.sh` below, they're the plain `/setup`,
+> `/tune-up`, `/weekly`. Asking in plain English works either way.
+
+Already installed and want the latest? The marketplace is a cached clone, so update it
+first or you'll reinstall the version you already have:
+
+```bash
+claude plugin marketplace update persona-os && claude plugin install product-manager-os@persona-os
+```
+
 **Cursor · Codex · Gemini · anything else**
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Sidsaladi9/persona-os/main/get.sh | bash
 ```
 
-Restart, then type `/setup`. No git, no Python, nothing system-wide.
+Then type `/setup`. No git, no Python, nothing system-wide.
+
+It picks the bundle from what's in the folder. Two cases where it stops instead of guessing,
+both on purpose:
+
+- **More than one tool's files are present** (say a `.claude/` folder *and* an `AGENTS.md`).
+  It lists what it found and asks you to name one — `bash get.sh codex`. Guessing wrong
+  installs the wrong entry file and you'd only find out when nothing loads.
+- **A file it ships already exists and differs** — most often your own `skills/`. It prints
+  the exact list and writes nothing. Install into a folder of its own, or re-run with
+  `--force` to overwrite the named files.
 
 **Every path — Cowork, ZIP download, what lands where, troubleshooting → [INSTALL.md](INSTALL.md).**
 
